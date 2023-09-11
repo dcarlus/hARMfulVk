@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\debug">
+      <UniqueIdentifier>{a5d04522-2ed4-418e-a61d-517f69c3c24a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\utils">
+      <UniqueIdentifier>{07f150ba-9bf5-4e16-b51f-e67493f48dfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\utils\literals">
+      <UniqueIdentifier>{4ab98c9a-3557-4ced-a0d0-64595dc1635b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\utils\printers">
+      <UniqueIdentifier>{15ef7301-a545-430a-958d-7b61fd9dead8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\debug">
+      <UniqueIdentifier>{5a0071aa-c2d6-4976-8a9e-3d3992aed1c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\utils">
+      <UniqueIdentifier>{2034ca4d-72a6-41a3-a75c-9d341ae1d052}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\utils\printers">
+      <UniqueIdentifier>{ebe94597-9bf6-4855-bf7f-e50b0b6b71c9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\DOOMStrings.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\debug\ErrorsManagement.hpp">
+      <Filter>Fichiers d%27en-tête\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Chrono.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\IDObject.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\LogSystem.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Platform.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Profiler.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Random.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\StringExt.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Time.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Translation.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\Utils.hpp">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\literals\NumberLiterals.hpp">
+      <Filter>Fichiers d%27en-tête\utils\literals</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\printers\Printer.hpp">
+      <Filter>Fichiers d%27en-tête\utils\printers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\printers\Console.hpp">
+      <Filter>Fichiers d%27en-tête\utils\printers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\printers\FilePrinter.hpp">
+      <Filter>Fichiers d%27en-tête\utils\printers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\DOOMStrings.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\debug\ErrorsManagement.cpp">
+      <Filter>Fichiers sources\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\printers\Console.cpp">
+      <Filter>Fichiers sources\utils\printers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\printers\FilePrinter.cpp">
+      <Filter>Fichiers sources\utils\printers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Chrono.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\IDObject.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\LogSystem.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Profiler.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Random.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\StringExt.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Time.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Translation.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

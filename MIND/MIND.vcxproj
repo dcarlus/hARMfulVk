@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\FastMath.hpp" />
+    <ClInclude Include="include\geometry\dimensions\Dimension2Df.hpp" />
+    <ClInclude Include="include\geometry\dimensions\Dimension2Di.hpp" />
+    <ClInclude Include="include\geometry\dimensions\Dimension3Df.hpp" />
+    <ClInclude Include="include\geometry\dimensions\Dimension3Di.hpp" />
+    <ClInclude Include="include\geometry\lines\Line2Df.hpp" />
+    <ClInclude Include="include\geometry\points\Point2Df.hpp" />
+    <ClInclude Include="include\geometry\points\Point3Df.hpp" />
+    <ClInclude Include="include\geometry\points\Point4Df.hpp" />
+    <ClInclude Include="include\geometry\quaternions\Quaternion.hpp" />
+    <ClInclude Include="include\geometry\quaternions\Quaternion_NoSIMD.hpp" />
+    <ClInclude Include="include\geometry\quaternions\Quaternion_SIMD.hpp" />
+    <ClInclude Include="include\geometry\rectangles\Rectangle2Df.hpp" />
+    <ClInclude Include="include\Math.hpp" />
+    <ClInclude Include="include\matrices\Matrix2D.hpp" />
+    <ClInclude Include="include\matrices\Matrix3x3f.hpp" />
+    <ClInclude Include="include\matrices\Matrix4x4f.hpp" />
+    <ClInclude Include="include\matrices\SquareMatrixf.hpp" />
+    <ClInclude Include="include\MINDOptions.hpp" />
+    <ClInclude Include="include\MINDStrings.hpp" />
+    <ClInclude Include="include\MINDTypes.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\FloatUtils.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\impl.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\impl.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\inner.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\operators.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\operators.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\floats\SIMDVector4f.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\impl.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\impl.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\inner.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\operators.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4i\impl.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4i\operators.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\impl.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\operators.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4i.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4ui.hpp" />
+    <ClInclude Include="include\simd\intel_sse2\SSETypes.hpp" />
+    <ClInclude Include="include\simd\SIMDArrays.hpp" />
+    <ClInclude Include="include\simd\SIMDTypes.hpp" />
+    <ClInclude Include="include\simd\SIMDUtilities.hpp" />
+    <ClInclude Include="include\simd\SIMDVector.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\FastMath.cpp" />
+    <ClCompile Include="src\geometry\dimensions\Dimension2Df.cpp" />
+    <ClCompile Include="src\geometry\dimensions\Dimension2Di.cpp" />
+    <ClCompile Include="src\geometry\dimensions\Dimension3Df.cpp" />
+    <ClCompile Include="src\geometry\dimensions\Dimension3Di.cpp" />
+    <ClCompile Include="src\geometry\lines\Line2Df.cpp" />
+    <ClCompile Include="src\geometry\points\Point2Df.cpp" />
+    <ClCompile Include="src\geometry\points\Point3Df.cpp" />
+    <ClCompile Include="src\geometry\points\Point4Df.cpp" />
+    <ClCompile Include="src\geometry\quaternions\Quaternion.cpp" />
+    <ClCompile Include="src\geometry\rectangles\Rectangle2Df.cpp" />
+    <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\matrices\Matrix2D.cpp" />
+    <ClCompile Include="src\matrices\Matrix3x3f.cpp" />
+    <ClCompile Include="src\matrices\Matrix4x4f.cpp" />
+    <ClCompile Include="src\matrices\SquareMatrixf.cpp" />
+    <ClCompile Include="src\MINDStrings.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b4d219cd-b862-4c32-a5cb-c09686f37d60}</ProjectGuid>
+    <RootNamespace>MIND</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;MIND_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);COMPILE_SHARED_LIBS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalOptions>/arch:SSE2 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;MIND_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);COMPILE_SHARED_LIBS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalOptions>/arch:SSE2 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\geometry">
+      <UniqueIdentifier>{a6a6abfe-597e-4699-b251-fc6896088524}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\matrices">
+      <UniqueIdentifier>{18d22102-aaa6-495c-9bff-79ad0b26e717}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd">
+      <UniqueIdentifier>{daec8dd3-44e3-41ee-b298-7a690a1307db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\geometry\dimensions">
+      <UniqueIdentifier>{0d6a9b45-a073-4c27-9d13-ed12b0fd3e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\geometry\lines">
+      <UniqueIdentifier>{f28a616c-f0ab-4568-b0e2-0eca5bfbb8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\geometry\points">
+      <UniqueIdentifier>{4ab4cc4e-d989-41cd-aa01-56ec0f7b2fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\geometry\quaternions">
+      <UniqueIdentifier>{255b5902-2161-47c6-ac3e-aa41c3e9fc96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\geometry\rectangles">
+      <UniqueIdentifier>{cd1084d7-f100-462c-9aaf-5bb8a0c0fa54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse">
+      <UniqueIdentifier>{f9bb014a-d760-4702-850a-21e2c8cc4a6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\floats">
+      <UniqueIdentifier>{d8b2f457-4c38-4503-a246-7ab1cf7f8f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\integers">
+      <UniqueIdentifier>{9c987213-a2f8-4eb7-8b4e-1299e20d701f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\floats\impl">
+      <UniqueIdentifier>{8da938d0-76cd-4337-bd48-43e046e4a433}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f">
+      <UniqueIdentifier>{536e80de-b0d0-4343-a3f2-d14db6cacf5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask">
+      <UniqueIdentifier>{3b326a71-0485-4e04-9b33-509a5b7d8c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\integers\impl">
+      <UniqueIdentifier>{12edf810-5a14-4fe0-b617-578f4aba2fa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\integers\impl\Vector4">
+      <UniqueIdentifier>{98b9e9fc-2fc1-49ad-a9f3-b6a37f4939b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask">
+      <UniqueIdentifier>{41c9e865-7252-47e7-a6ce-77ee3717d5f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4i">
+      <UniqueIdentifier>{1f7d77a7-71f6-4955-885a-b462d04c0b27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4ui">
+      <UniqueIdentifier>{9214dca2-8b79-48bf-9d6a-fbd1676a242d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\geometry">
+      <UniqueIdentifier>{896aec6b-4c1c-4334-b7e3-950626145dfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\matrices">
+      <UniqueIdentifier>{2f55e248-4619-4514-b85b-167b2d435c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\geometry\dimensions">
+      <UniqueIdentifier>{f01623e4-7ff7-432d-a9a8-e7b11073293a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\geometry\lines">
+      <UniqueIdentifier>{d1cd7e89-eafc-4101-a37f-bf07479c6238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\geometry\rectangles">
+      <UniqueIdentifier>{292aefeb-52ef-4e10-b6f3-ced049bcc2dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\geometry\quaternions">
+      <UniqueIdentifier>{7afd0b1d-4528-4eae-8aec-eb2135eaca69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\geometry\points">
+      <UniqueIdentifier>{02ad6e3e-b841-4128-b6fe-2a8f50c99cf5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\FastMath.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MINDOptions.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MINDStrings.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MINDTypes.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\dimensions\Dimension2Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\dimensions\Dimension2Di.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\dimensions\Dimension3Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\dimensions\Dimension3Di.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\lines\Line2Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\lines</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\points\Point2Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\points</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\points\Point3Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\points</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\points\Point4Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\points</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\quaternions\Quaternion.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\quaternions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\quaternions\Quaternion_NoSIMD.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\quaternions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\quaternions\Quaternion_SIMD.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\quaternions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\geometry\rectangles\Rectangle2Df.hpp">
+      <Filter>Fichiers d%27en-tête\geometry\rectangles</Filter>
+    </ClInclude>
+    <ClInclude Include="include\matrices\Matrix2D.hpp">
+      <Filter>Fichiers d%27en-tête\matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\matrices\Matrix3x3f.hpp">
+      <Filter>Fichiers d%27en-tête\matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\matrices\Matrix4x4f.hpp">
+      <Filter>Fichiers d%27en-tête\matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\matrices\SquareMatrixf.hpp">
+      <Filter>Fichiers d%27en-tête\matrices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\SIMDArrays.hpp">
+      <Filter>Fichiers d%27en-tête\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\SIMDTypes.hpp">
+      <Filter>Fichiers d%27en-tête\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\SIMDUtilities.hpp">
+      <Filter>Fichiers d%27en-tête\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\SIMDVector.hpp">
+      <Filter>Fichiers d%27en-tête\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\SSETypes.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\FloatUtils.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\SIMDVector4f.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\impl.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\operators.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\impl.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\inner.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\operators.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4i.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4ui.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\impl.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\impl.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\inner.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\operators.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4i\impl.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4i</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4i\operators.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4i</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\impl.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4ui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\operators.hpp">
+      <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4ui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\FastMath.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MINDStrings.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\dimensions\Dimension2Df.cpp">
+      <Filter>Fichiers sources\geometry\dimensions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\dimensions\Dimension2Di.cpp">
+      <Filter>Fichiers sources\geometry\dimensions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\dimensions\Dimension3Df.cpp">
+      <Filter>Fichiers sources\geometry\dimensions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\dimensions\Dimension3Di.cpp">
+      <Filter>Fichiers sources\geometry\dimensions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\lines\Line2Df.cpp">
+      <Filter>Fichiers sources\geometry\lines</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\points\Point2Df.cpp">
+      <Filter>Fichiers sources\geometry\points</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\points\Point3Df.cpp">
+      <Filter>Fichiers sources\geometry\points</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\points\Point4Df.cpp">
+      <Filter>Fichiers sources\geometry\points</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\quaternions\Quaternion.cpp">
+      <Filter>Fichiers sources\geometry\quaternions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\geometry\rectangles\Rectangle2Df.cpp">
+      <Filter>Fichiers sources\geometry\rectangles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\matrices\Matrix2D.cpp">
+      <Filter>Fichiers sources\matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\matrices\Matrix3x3f.cpp">
+      <Filter>Fichiers sources\matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\matrices\Matrix4x4f.cpp">
+      <Filter>Fichiers sources\matrices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\matrices\SquareMatrixf.cpp">
+      <Filter>Fichiers sources\matrices</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
