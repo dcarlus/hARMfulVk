@@ -1,4 +1,4 @@
-#include "EntityFactory.hpp"
+#include "entities/EntityFactory.hpp"
 
 using namespace Bane;
 using namespace Doom;

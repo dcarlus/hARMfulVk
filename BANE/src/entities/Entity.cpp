@@ -1,4 +1,4 @@
-#include "Entity.hpp"
+#include "entities/Entity.hpp"
 
 #include <utils/Chrono.hpp>
 

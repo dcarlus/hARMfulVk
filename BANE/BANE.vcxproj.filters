@@ -32,16 +32,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\entities\Entity.cpp">
-      <Filter>Fichiers sources\entities</Filter>
-    </ClCompile>
-    <ClCompile Include="include\entities\EntityFactory.cpp">
-      <Filter>Fichiers sources\entities</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="BANE.rc">
       <Filter>Fichiers de ressources</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\entities\Entity.cpp">
+      <Filter>Fichiers sources\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\EntityFactory.cpp">
+      <Filter>Fichiers sources\entities</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
