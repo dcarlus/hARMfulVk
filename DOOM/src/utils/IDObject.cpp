@@ -2,24 +2,24 @@
 
 using namespace Doom ;
 
-uint32_t IDObject::CurrentID = 0 ;
-std::unordered_set<uint32_t> IDObject::AvailableIDs = std::unordered_set<uint32_t>() ;
+id_t IDObject::CurrentID = 0 ;
+std::unordered_set<id_t> IDObject::AvailableIDs = std::unordered_set<id_t>() ;
 std::mutex IDObject::ClassMutex;
 
 IDObject::~IDObject() noexcept {
     Free(*this);
 }
 
-uint32_t IDObject::Generate() {
+id_t IDObject::Generate() {
     const std::lock_guard<std::mutex> lock(ClassMutex);
 
     if (AvailableIDs.size() == 0) {
-        uint32_t newID = ++CurrentID ;
+        id_t newID = ++CurrentID ;
         return newID ;
     }
     else {
         auto beginIDs = AvailableIDs.begin() ;
-        uint32_t id = *beginIDs ;
+        id_t id = *beginIDs ;
         AvailableIDs.erase(beginIDs) ;
         return id ;
     }

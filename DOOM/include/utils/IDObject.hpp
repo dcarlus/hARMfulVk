@@ -6,6 +6,8 @@
 #include <mutex>
 #include <unordered_set>
 
+using id_t = uint32_t;
+
 namespace Doom {
     /**
      * Base class for objects that need an internally generated and managed ID.
@@ -15,24 +17,24 @@ namespace Doom {
             /**
              * Invalid ID.
              */
-            static const uint32_t InvalidID = 0 ;
+            static const id_t InvalidID = 0 ;
 
             /**
              * Current ID to generate a new unique Entity.
              * A value of zero is invalid.
              */
-            static uint32_t CurrentID ;
+            static id_t CurrentID ;
 
             /**
              * List of the available IDs from old Entities that have been
              * erased.
              */
-            static std::unordered_set<uint32_t> AvailableIDs ;
+            static std::unordered_set<id_t> AvailableIDs ;
 
             /**
              * Value of the current Entity ID.
              */
-            uint32_t m_id = InvalidID ;
+            id_t m_id = InvalidID ;
 
             /**
              * Mutex for the class data so that they can be safely handled in a
@@ -45,14 +47,14 @@ namespace Doom {
              * Create a new IDObject instance.
              * @param id ID of the current object.
              */
-            exported IDObject(const uint32_t id = InvalidID): m_id(id) {}
+            exported IDObject(const id_t id = InvalidID): m_id(id) {}
 
             /**
              * Generate a new ID either by incrementing the CurrentID or getting
              * an ID from the AvailableIDs list
              * @return The generated ID.
              */
-            exported static uint32_t Generate() ;
+            exported static id_t Generate() ;
 
             /**
              * Free an ID by keeping its value in AvailableIDs and setting it to
@@ -62,15 +64,20 @@ namespace Doom {
 
         public:
             /**
+             * Move constructor.
+             */
+            exported IDObject(IDObject&& other) = default;
+
+            /**
              * Destruction of the current IDObject instance.
              */
             exported virtual ~IDObject() noexcept;
-
+            
             /**
              * Get the value of the ID of the current object.
              * @return Current IDObject value.
              */
-            exported uint32_t id() const {
+            exported id_t id() const {
                 return m_id ;
             }
 
@@ -92,12 +99,16 @@ namespace Doom {
              */
             exported bool operator!=(const IDObject& other);
 
+            /**
+             * Move operator.
+             */
+            exported IDObject& operator=(IDObject&& other) = default;
+
         private:
-            // Disable copy and move.
+            // Disable copy.
             IDObject(const IDObject& other) = delete;
-            IDObject(IDObject&& other) = delete;
             IDObject& operator=(const IDObject& other) = delete;
-            IDObject& operator=(IDObject&& other) = delete;
+            
     };
 }
 
