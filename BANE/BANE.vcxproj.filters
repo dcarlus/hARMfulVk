@@ -13,5 +13,35 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\entities">
+      <UniqueIdentifier>{5880556c-737f-4e9c-968f-4ae2a804810a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\entities">
+      <UniqueIdentifier>{f860c629-7af7-462a-a24d-a694fb4a1426}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\entities\Entity.hpp">
+      <Filter>Fichiers d%27en-tête\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\EntityFactory.hpp">
+      <Filter>Fichiers d%27en-tête\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="include\entities\Entity.cpp">
+      <Filter>Fichiers sources\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="include\entities\EntityFactory.cpp">
+      <Filter>Fichiers sources\entities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BANE.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
