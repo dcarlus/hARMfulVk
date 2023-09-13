@@ -10,14 +10,6 @@ Entity EntityFactory::create() {
 }
 
 void EntityFactory::destroy(const Entity& entity) {
-	/*
-	        try:
-            self.m_entities.remove(entity.value)
-            Entity.Free(entity)
-        except:
-            return
-	*/
-
 	if (m_entities.count(entity.id() == 1)) {
 		m_entities.erase(entity.id());
 	}
