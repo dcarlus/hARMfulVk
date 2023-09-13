@@ -78,7 +78,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b4d219cd-b862-4c32-a5cb-c09686f37d60}</ProjectGuid>
+    <ProjectGuid>{E0F72E12-3B01-40B3-89E6-C2C0EE4C6211}</ProjectGuid>
     <RootNamespace>MIND</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
