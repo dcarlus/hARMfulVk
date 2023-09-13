@@ -84,6 +84,9 @@
     <ClInclude Include="include\utils\printers\FilePrinter.hpp">
       <Filter>Fichiers d%27en-tête\utils\printers</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DOOMStrings.cpp">
@@ -122,5 +125,10 @@
     <ClCompile Include="src\utils\Translation.cpp">
       <Filter>Fichiers sources\utils</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DOOM.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

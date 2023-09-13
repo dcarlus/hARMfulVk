@@ -55,6 +55,7 @@
     <ClInclude Include="include\simd\SIMDTypes.hpp" />
     <ClInclude Include="include\simd\SIMDUtilities.hpp" />
     <ClInclude Include="include\simd\SIMDVector.hpp" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FastMath.cpp" />
@@ -74,6 +75,9 @@
     <ClCompile Include="src\matrices\Matrix4x4f.cpp" />
     <ClCompile Include="src\matrices\SquareMatrixf.cpp" />
     <ClCompile Include="src\MINDStrings.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MIND.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -126,7 +130,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableUAC>false</EnableUAC>
+      <EnableUAC>true</EnableUAC>
       <AdditionalOptions>/arch:SSE2 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -147,7 +151,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableUAC>false</EnableUAC>
+      <EnableUAC>true</EnableUAC>
       <AdditionalOptions>/arch:SSE2 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

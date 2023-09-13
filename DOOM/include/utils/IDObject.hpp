@@ -43,28 +43,34 @@ namespace Doom {
         protected:
             /**
              * Create a new IDObject instance.
+             * @param id ID of the current object.
              */
-            IDObject(const uint32_t id = InvalidID): m_id(id) {}
+            exported IDObject(const uint32_t id = InvalidID): m_id(id) {}
 
             /**
              * Generate a new ID either by incrementing the CurrentID or getting
              * an ID from the AvailableIDs list
              * @return The generated ID.
              */
-            static uint32_t Generate() ;
+            exported static uint32_t Generate() ;
 
             /**
              * Free an ID by keeping its value in AvailableIDs and setting it to
              * 0, making it invalid.
              */
-            static void Free(IDObject& obj) ;
+            exported static void Free(IDObject& obj) ;
 
         public:
+            /**
+             * Destruction of the current IDObject instance.
+             */
+            exported virtual ~IDObject() noexcept;
+
             /**
              * Get the value of the ID of the current object.
              * @return Current IDObject value.
              */
-            uint32_t id() const {
+            exported uint32_t id() const {
                 return m_id ;
             }
 
@@ -72,9 +78,26 @@ namespace Doom {
              * Check if the Entity ID is valid (true) or not (false).
              * @return true if valid; false otherwise.
              */
-            inline bool isValid() const {
+            exported inline bool isValid() const {
                 return m_id != InvalidID ;
             }
+
+            /**
+             * Check if the current IDObject is the same as another one.
+             */
+            exported bool operator==(const IDObject& other);
+
+            /**
+             * Check if the current IDObject is different from another one.
+             */
+            exported bool operator!=(const IDObject& other);
+
+        private:
+            // Disable copy and move.
+            IDObject(const IDObject& other) = delete;
+            IDObject(IDObject&& other) = delete;
+            IDObject& operator=(const IDObject& other) = delete;
+            IDObject& operator=(IDObject&& other) = delete;
     };
 }
 

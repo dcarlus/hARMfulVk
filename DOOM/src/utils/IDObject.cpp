@@ -6,6 +6,10 @@ uint32_t IDObject::CurrentID = 0 ;
 std::unordered_set<uint32_t> IDObject::AvailableIDs = std::unordered_set<uint32_t>() ;
 std::mutex IDObject::ClassMutex;
 
+IDObject::~IDObject() noexcept {
+    Free(*this);
+}
+
 uint32_t IDObject::Generate() {
     const std::lock_guard<std::mutex> lock(ClassMutex);
 
@@ -32,4 +36,12 @@ void IDObject::Free(IDObject& obj)
     else {
         throw std::runtime_error("") ;
     }
+}
+
+bool IDObject::operator==(const IDObject& other) {
+    return m_id == other.m_id;
+}
+
+bool IDObject::operator!=(const IDObject& other) {
+    return m_id != other.m_id;
 }

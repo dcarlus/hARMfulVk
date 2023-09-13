@@ -98,6 +98,7 @@
     <ClInclude Include="include\utils\Time.hpp" />
     <ClInclude Include="include\utils\Translation.hpp" />
     <ClInclude Include="include\utils\Utils.hpp" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\debug\ErrorsManagement.cpp" />
@@ -112,6 +113,9 @@
     <ClCompile Include="src\utils\StringExt.cpp" />
     <ClCompile Include="src\utils\Time.cpp" />
     <ClCompile Include="src\utils\Translation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DOOM.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

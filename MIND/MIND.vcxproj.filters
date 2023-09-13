@@ -225,6 +225,9 @@
     <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\operators.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4ui</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FastMath.cpp">
@@ -278,5 +281,10 @@
     <ClCompile Include="src\matrices\SquareMatrixf.cpp">
       <Filter>Fichiers sources\matrices</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MIND.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
