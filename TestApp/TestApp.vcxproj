@@ -13,19 +13,19 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0234B651-613B-4975-9A9E-32BD16B5CF21}</ProjectGuid>
-    <RootNamespace>DOOM</RootNamespace>
+    <ProjectGuid>{a1f48cc0-377c-44ea-958b-4e0e7f79e460}</ProjectGuid>
+    <RootNamespace>TestApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -44,14 +44,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PublicIncludeDirectories>
-    </PublicIncludeDirectories>
-    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)DOOM\include;$(SolutionDir)BANE\include;$(SolutionDir)MIND\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PublicIncludeDirectories>
-    </PublicIncludeDirectories>
-    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)DOOM\include;$(SolutionDir)BANE\include;$(SolutionDir)MIND\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -64,6 +60,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;$(SolutionDir)$(Platform)\$(Configuration)\BANE.lib;$(SolutionDir)$(Platform)\$(Configuration)\MIND.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -81,43 +78,11 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;$(SolutionDir)$(Platform)\$(Configuration)\BANE.lib;$(SolutionDir)$(Platform)\$(Configuration)\MIND.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\debug\ErrorsManagement.hpp" />
-    <ClInclude Include="include\DOOMStrings.hpp" />
-    <ClInclude Include="include\utils\Chrono.hpp" />
-    <ClInclude Include="include\utils\IDObject.hpp" />
-    <ClInclude Include="include\utils\literals\NumberLiterals.hpp" />
-    <ClInclude Include="include\utils\LogSystem.hpp" />
-    <ClInclude Include="include\utils\Platform.hpp" />
-    <ClInclude Include="include\utils\printers\Console.hpp" />
-    <ClInclude Include="include\utils\printers\FilePrinter.hpp" />
-    <ClInclude Include="include\utils\printers\Printer.hpp" />
-    <ClInclude Include="include\utils\Profiler.hpp" />
-    <ClInclude Include="include\utils\Random.hpp" />
-    <ClInclude Include="include\utils\StringExt.hpp" />
-    <ClInclude Include="include\utils\Time.hpp" />
-    <ClInclude Include="include\utils\Translation.hpp" />
-    <ClInclude Include="include\utils\Utils.hpp" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\debug\ErrorsManagement.cpp" />
-    <ClCompile Include="src\DOOMStrings.cpp" />
-    <ClCompile Include="src\utils\Chrono.cpp" />
-    <ClCompile Include="src\utils\IDObject.cpp" />
-    <ClCompile Include="src\utils\LogSystem.cpp" />
-    <ClCompile Include="src\utils\printers\Console.cpp" />
-    <ClCompile Include="src\utils\printers\FilePrinter.cpp" />
-    <ClCompile Include="src\utils\Profiler.cpp" />
-    <ClCompile Include="src\utils\Random.cpp" />
-    <ClCompile Include="src\utils\StringExt.cpp" />
-    <ClCompile Include="src\utils\Time.cpp" />
-    <ClCompile Include="src\utils\Translation.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="DOOM.rc" />
+    <ClCompile Include="TestApp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

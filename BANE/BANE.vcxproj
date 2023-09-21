@@ -55,6 +55,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);COMPILE_SHARED_LIBS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -71,6 +72,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);COMPILE_SHARED_LIBS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +84,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\components\Component.hpp" />
+    <ClInclude Include="include\components\ComponentFactory.hpp" />
     <ClInclude Include="include\entities\Entity.hpp" />
     <ClInclude Include="include\entities\EntityFactory.hpp" />
     <ClInclude Include="resource.h" />
@@ -90,6 +94,7 @@
     <ResourceCompile Include="BANE.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\Component.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityFactory.cpp" />
   </ItemGroup>

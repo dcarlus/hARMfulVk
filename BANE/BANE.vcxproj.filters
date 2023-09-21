@@ -19,6 +19,12 @@
     <Filter Include="Fichiers sources\entities">
       <UniqueIdentifier>{f860c629-7af7-462a-a24d-a694fb4a1426}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\components">
+      <UniqueIdentifier>{d581e732-ebb5-43ec-83d3-87207145896b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components">
+      <UniqueIdentifier>{a28f2ee1-82f3-4862-98cf-04dbe6e0bc22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\entities\Entity.hpp">
@@ -29,6 +35,12 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\components\Component.hpp">
+      <Filter>Fichiers d%27en-tête\components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\components\ComponentFactory.hpp">
+      <Filter>Fichiers d%27en-tête\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="src\entities\EntityFactory.cpp">
       <Filter>Fichiers sources\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Component.cpp">
+      <Filter>Fichiers sources\components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
