@@ -85,9 +85,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\components\Component.hpp" />
+    <ClInclude Include="include\components\ComponentData.hpp" />
     <ClInclude Include="include\components\ComponentFactory.hpp" />
     <ClInclude Include="include\entities\Entity.hpp" />
     <ClInclude Include="include\entities\EntityFactory.hpp" />
+    <ClInclude Include="include\systems\System.hpp" />
+    <ClInclude Include="include\systems\SystemProcessing.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\components\Component.cpp" />
+    <ClCompile Include="src\components\ComponentFactory.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityFactory.cpp" />
   </ItemGroup>

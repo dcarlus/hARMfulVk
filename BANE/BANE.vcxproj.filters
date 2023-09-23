@@ -25,6 +25,9 @@
     <Filter Include="Fichiers sources\components">
       <UniqueIdentifier>{a28f2ee1-82f3-4862-98cf-04dbe6e0bc22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\systems">
+      <UniqueIdentifier>{f3e77550-2c41-4999-95e4-bb4c83673cc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\entities\Entity.hpp">
@@ -36,7 +39,16 @@
     <ClInclude Include="resource.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="include\systems\System.hpp">
+      <Filter>Fichiers d%27en-tête\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\SystemProcessing.hpp">
+      <Filter>Fichiers d%27en-tête\systems</Filter>
+    </ClInclude>
     <ClInclude Include="include\components\Component.hpp">
+      <Filter>Fichiers d%27en-tête\components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\components\ComponentData.hpp">
       <Filter>Fichiers d%27en-tête\components</Filter>
     </ClInclude>
     <ClInclude Include="include\components\ComponentFactory.hpp">
@@ -56,6 +68,9 @@
       <Filter>Fichiers sources\entities</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Component.cpp">
+      <Filter>Fichiers sources\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\ComponentFactory.cpp">
       <Filter>Fichiers sources\components</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #ifndef __BANE_ENTITY__
 #define __BANE_ENTITY__
 
+#include <utils/Platform.hpp>
 #include <utils/IDObject.hpp>
 
 namespace Bane {

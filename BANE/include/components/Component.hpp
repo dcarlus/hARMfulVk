@@ -1,83 +1,79 @@
 #ifndef __BANE_COMPONENT__
 #define __BANE_COMPONENT__
 
-#include <utils/Platform.hpp>
-#include <utils/IDObject.hpp>
-#include "entities/Entity.hpp"
 #include <functional>
+#include <utils/Platform.hpp>
+#include "entities/Entity.hpp"
+#include "components/ComponentData.hpp"
 
 namespace Bane {
 	/**
-	 * Base class for defining a Component of the ECS architecture.
+	 * Component of the ECS architecture.
+	 * It is a very simple structure that contains data in a composite
+	 * ComponentData class.
 	 */
-	class Component {
-		public:
-			/**
-			 * Available quantity of a Component type on a single Entity.
-			 */
-			enum class Quantity : uint8_t {
-				One,
-				Many
-			};
+	class Component final {
+		friend class ComponentFactory;
 
 		private:
 			/**
-			 * Quantity of the current type of Component that can be
-			 * attached to a single Entity.
+			 * ID of the Entity bearing the current Component.
 			 */
-			Quantity m_quantity = Quantity::One;
+			id_t m_entityID = 0;
 
 			/**
-			 * Entity the current Component is attached to.
+			 * Data the Component contains for its process.
 			 */
-			std::reference_wrapper<Entity> m_entity;
+			std::unique_ptr<ComponentData> m_data = nullptr;
+
+		protected:
+			/**
+			 * Create a new Component instance.
+			 * @param entity Entity to which the new Component is attached to.
+			 * @param data Data of the new Component.
+			 */
+			Component(
+				const Entity& entity,
+				std::unique_ptr<ComponentData>&& data
+			);
 
 		public:
 			/**
-			 * Create a new Component instance.
-			 * @param quantity Quantity of Component that can be attached
-             *                 to a single Entity.
-			 * @param entity Entity to attach the Component to.
-			 * @warning Exception thrown if entity is a null pointer.
+			 * Move constructor.
 			 */
-			exported Component(
-				Quantity quantity,
-				Entity& entity
-			);
+			exported Component(Component&& other) = default;
 
 			/**
-			 * Get the Entity to which the current Component is attached to.
-			 * @return Entity the current Component is attached to.
+			 * Destruction of the current Component instance.
 			 */
-			exported Entity& entity() const {
-				return m_entity;
-			}
+			exported ~Component() = default;
 
 			/**
-			 * Get the ID of the Entity to which the current Component is
-			 * attached to.
-			 * @return ID of the Entity the current Component is attached to.
+			 * Get the ID of the Entity the current Component is attached to.
+			 * @return ID of the Entity.
 			 */
 			exported id_t entityID() const {
-				return m_entity.get().id();
+				return m_entityID;
 			}
 
 			/**
-			 * Check if the Entity owning the Component is valid.
-			 * @return true if the Entity is valid; false otherwise.
+			 * Get the data of the Component.
+			 * @return Raw pointer to the inner ComponentData.
+			 * @warning Do not try to delete the data!
 			 */
-			exported bool hasValidEntity() const {
-				return m_entity.get().isValid();
+			exported ComponentData* data() const {
+				return m_data.get();
 			}
 
 			/**
-			 * Get the accepted quantity a the current Component type
-			 * for a single Entity.
-			 * @return The accepted quantity for a single Entity.
+			 * Move operator.
 			 */
-			exported Quantity quantity() const {
-				return m_quantity;
-			}
+			exported Component& operator=(Component&& other) = default;
+
+		private:
+			// Disable copy.
+			Component(const Component& other) = delete;
+			Component& operator=(const Component& other) = delete;
 	};
 }
 

@@ -1,62 +1,58 @@
-#ifndef __BANE_COMPONENTFACTORY__
-#define __BANE_COMPONENTFACTORY__
+#ifndef __BANE_COMPONENT_FACTORY__
+#define __BANE_COMPONENT_FACTORY__
 
-#include "entities/Entity.hpp"
+#include <utils/Platform.hpp>
 #include "components/Component.hpp"
-#include <unordered_set>
-#include <list>
-#include <vector>
+#include "components/ComponentData.hpp"
 
 namespace Bane {
 	/**
-	 * Factory to generate and destroy Component instances of type
-	 * ComponentType.
-	 * @warning There should be only one ComponentFactory per
-	 *          ComponentType in an application.
+	 * Base class for factories to generate and destroy Component instances.
+	 * @warning There should be only one ComponentFactory in an application.
 	 */
-	template <class ComponentType>
-	class ComponentFactory {
+    class ComponentFactory {
 		private:
 			/**
-			 * List of all the created Components of type ComponentType.
+			 * List of all the created Components by the current
+			 * ComponentFactory.
 			 */
-			std::unordered_set<ComponentType*> m_components;
+			std::unordered_set<Component*> m_components;
 
 			/**
-			 * List of all the created Components of type ComponentType.
+			 * List of all the created Components by the current
+			 * ComponentFactory.
 			 * They are listed per Entity in the order of the Entity ID.
 			 * m_componentsPerEntity[entity_id][list_of_components]
 			 */
-			std::vector<std::vector<std::unique_ptr<ComponentType>>> m_componentsPerEntity;
+			std::vector<std::vector<Component>> m_componentsPerEntity;
 
 		public:
-			/**
-			 * Create a new ComponentFactory instance.
-			 */
-			exported ComponentFactory();
-
 			/**
 			 * Create a new Component instance, attached to a given Entity
 			 * and store it in the ComponentFactory.
 			 * @param entity Entity the new Component is attached to.
 			 * @return The created Component if it can be added to the given
 			 *         Entity, nullptr if the Entity cannot bear more Component
-			 *         of ComponentType type.
+			 *         of the component type.
 			 */
-			exported ComponentType* createComponentFor(Entity& entity);
+			exported Component* createComponentFor(const Entity& entity);
 
 			/**
 			 * Get the amount of Components for all Entities.
-			 * @return Amount of Components of ComponentType type created
-			 *	       by the current ComponentFactory
+			 * @return Amount of Components created by the current
+			 *         ComponentFactory
 			 */
-			exported size_t count() const;
+			exported size_t count() const {
+				return m_components.size();
+			}
 
 			/**
 			 * Get all the active Components in the current ComponentFactory.
 			 * @return All the Components in the current ComponentFactory.
 			 */
-			exported const std::unordered_set<ComponentType*>& components() const;
+			exported const std::unordered_set<Component*>& components() const {
+				return m_components;
+			}
 
 			/**
 			 * Get all the Components attached to an Entity.
@@ -64,107 +60,44 @@ namespace Bane {
 			 *        of type ComponentType.
 			 * @return All the components attached to the Entity.
 			 */
-			exported std::list<ComponentType*> componentsOf(Entity& entity) const;
+			exported std::list<Component*> componentsOf(const Entity& entity);
 
 			/**
 			 * Delete the Component instances born by the Entity and
 			 * remove them from the ComponentFactory.
 			 */
-			exported void destroyComponentsOf(Entity& entity);
+			exported void destroyComponentsOf(const Entity& entity);
+
+		protected:
+			/**
+			 * Get the allowed quantity of Component with the data type the
+			 * current ComponentFactory deals with on a single Entity.
+			 * @return Allowed quantity of Component on a single Entity.
+			 */
+			virtual ComponentData::Quantity allowedQuantity() = 0;
+
+			/**
+			 * Create the ComponentData for a new Component instance.
+			 * @return A new instance of ComponentData of the data type the
+			 * current ComponentFactory deals with.
+			 */
+			virtual std::unique_ptr<ComponentData>&& createDataFor(const Entity& entity) = 0;
 
 		private:
 			/**
+			 * Generic algorithm for checking if the given Entity can bear
+			 * another Component with the data type the current
+			 * ComponentFactory deals with.
+			 * @return true if the creation is allowed for the given Entity;
+			 *         false otherwise.
+			 */
+			bool isCreationAllowedFor(const Entity& entity);
+
+			/**
 			 * Get the position of an IDObject in a zero-based container.
 			 */
-			size_t position(const Doom::IDObject& object);
-	};
-
-	template <class ComponentType>
-	ComponentFactory<ComponentType>::ComponentFactory() {
-		static_assert(std::is_base_of_v<Component, ComponentType>);
-		m_components.reserve(512);
-		m_componentsPerEntity.reserve(512);
-	}
-
-	
-	template <class ComponentType>
-	ComponentType* ComponentFactory<ComponentType>::createComponentFor(Entity& entity) {
-		auto newComponent = std::make_unique<ComponentType>(entity);
-		auto newComponentPtr = newComponent.get();
-
-		if (m_componentsPerEntity.size() < entity.id()) {
-			m_componentsPerEntity.resize(entity.id());
-		}
-
-		bool canAddComponent = true;
-		size_t entityPosition = position(entity);
-
-		if (m_componentsPerEntity[entityPosition].size() > 1) {
-			auto acceptedQuantity = newComponent -> quantity();
-			bool acceptOnlyOne = acceptedQuantity == Component::Quantity::One;
-			auto alreadyQuantity = m_componentsPerEntity[entityPosition].size();
-			bool alreadyOne = alreadyQuantity == 1;
-
-			if (acceptOnlyOne && alreadyOne) {
-				canAddComponent = false;
-			}			
-		}
-
-		if (!canAddComponent) {
-			return nullptr;
-		}
-
-		m_componentsPerEntity[entityPosition].push_back(std::move(newComponent));
-		m_components.insert(newComponentPtr);
-		return newComponentPtr;
-	}
-
-	template <class ComponentType>
-	const std::unordered_set<ComponentType*>& ComponentFactory<ComponentType>::components() const {
-		return m_components;
-	}
-
-	template <class ComponentType>
-	size_t ComponentFactory<ComponentType>::count() const
-	{
-		return m_components.size();
-	}
-
-	template <class ComponentType>
-	std::list<ComponentType*> ComponentFactory<ComponentType>::componentsOf(Entity& entity) const {
-		std::list<ComponentType*> returnedList;
-		size_t entityPosition = position(entity);
-
-		for (auto& component : m_componentsPerEntity[entityPosition]) {
-			returnedList.push_back(component.get());
-		}
-		
-		return returnedList;
-	}
-
-	template <class ComponentType>
-	void ComponentFactory<ComponentType>::destroyComponentsOf(Entity& entity) {
-		size_t entityPosition = position(entity);
-
-		if (m_componentsPerEntity[entityPosition].size() == 0) {
-			return;
-		}
-
-		for (auto& component : m_componentsPerEntity[entityPosition]) {
-			m_components.erase(component.get());
-		}
-
-		m_componentsPerEntity[entityPosition].clear();
-	}
-
-	template <class ComponentType>
-	size_t ComponentFactory<ComponentType>::position(const Doom::IDObject& object) {
-		if (!object.isValid()) {
-			throw std::runtime_error("");
-		}
-
-		return (object.id()) - 1;
-	}
+			size_t position(const Doom::IDObject& object) const;
+    };
 }
 
 #endif
