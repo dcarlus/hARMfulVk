@@ -14,7 +14,7 @@ namespace Bane {
 	 * Class for processing the Components of a System.
 	 */
 	class SystemProcessing {
-		using DropEntityList = std::vector<std::reference_wrapper<Entity>>;
+		using DropEntityList = std::vector<id_t>;
 
 		private:
 			/**
@@ -33,25 +33,26 @@ namespace Bane {
 			/**
 			 * Perform the Components processing.
 			 */
-			exported virtual void run(
-				std::unordered_map<std::string, System> linkedSystems,
+			exported virtual std::list<id_t> run(
+				std::unordered_map<std::string, System*> linkedSystems,
 				const size_t fromIndex,
 				const size_t toIndex
 			) = 0;
 
 			/**
 			 * Get the Entities to be dropped.
-			 * @return The Entities to be dropped
+			 * @return The Entities to be dropped.
 			 */
-			exported DropEntityList& dropEntities() {
+			exported const DropEntityList& dropEntities() const {
 				return m_dropEntities;
 			}
 
+		protected:
 			/**
-			 * Get the Entities to be dropped.
-			 * @return The Entities to be dropped
+			 * Get the Entities to be dropped. The list can be modified.
+			 * @return The Entities to be dropped.
 			 */
-			exported const DropEntityList& dropEntities() const {
+			exported DropEntityList& dropEntities() {
 				return m_dropEntities;
 			}
 	};

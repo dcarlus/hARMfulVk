@@ -28,6 +28,9 @@
     <Filter Include="Fichiers d%27en-tête\systems">
       <UniqueIdentifier>{f3e77550-2c41-4999-95e4-bb4c83673cc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\systems">
+      <UniqueIdentifier>{cc38b948-f480-46dd-99b0-e459a6f27704}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\entities\Entity.hpp">
@@ -72,6 +75,9 @@
     </ClCompile>
     <ClCompile Include="src\components\ComponentFactory.cpp">
       <Filter>Fichiers sources\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\System.cpp">
+      <Filter>Fichiers sources\systems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

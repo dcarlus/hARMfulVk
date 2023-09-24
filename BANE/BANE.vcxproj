@@ -101,6 +101,7 @@
     <ClCompile Include="src\components\ComponentFactory.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityFactory.cpp" />
+    <ClCompile Include="src\systems\System.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

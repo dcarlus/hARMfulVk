@@ -32,8 +32,8 @@ namespace Bane {
 			 * and store it in the ComponentFactory.
 			 * @param entity Entity the new Component is attached to.
 			 * @return The created Component if it can be added to the given
-			 *         Entity, nullptr if the Entity cannot bear more Component
-			 *         of the component type.
+			 *         Entity, the already attached Component in case a new one
+			 *         cannot be added to the Entity.
 			 */
 			exported Component* createComponentFor(const Entity& entity);
 
@@ -47,6 +47,15 @@ namespace Bane {
 			}
 
 			/**
+			 * Get the amount of Components for one Entity.
+			 * @param entity Entity to get the amount of Components attached to
+			 *               it (from the current ComponentFactory).
+			 * @return Amount of Components created by the current
+			 *         ComponentFactory for the given Entity.
+			 */
+			exported size_t countFor(const Entity& entity) const;
+
+			/**
 			 * Get all the active Components in the current ComponentFactory.
 			 * @return All the Components in the current ComponentFactory.
 			 */
@@ -56,11 +65,19 @@ namespace Bane {
 
 			/**
 			 * Get all the Components attached to an Entity.
-			 * @param entity Entity for which getting all the Components
-			 *        of type ComponentType.
-			 * @return All the components attached to the Entity.
+			 * @param entity Entity for which getting all the Components.
+			 * @return All the Components attached to the Entity.
 			 */
 			exported std::list<Component*> componentsOf(const Entity& entity);
+
+			/**
+			 * Get the first Component in the list of the ones attached to an
+			 * Entity.
+			 * @param entity Entity for which getting the first Component.
+			 * @return The first Component attached to the Entity; nullptr if
+			 *         the Entity is not found.
+			 */
+			exported Component* firstOf(const Entity& entity);
 
 			/**
 			 * Delete the Component instances born by the Entity and
@@ -68,7 +85,6 @@ namespace Bane {
 			 */
 			exported void destroyComponentsOf(const Entity& entity);
 
-		protected:
 			/**
 			 * Get the allowed quantity of Component with the data type the
 			 * current ComponentFactory deals with on a single Entity.
@@ -76,6 +92,7 @@ namespace Bane {
 			 */
 			virtual ComponentData::Quantity allowedQuantity() = 0;
 
+		protected:
 			/**
 			 * Create the ComponentData for a new Component instance.
 			 * @return A new instance of ComponentData of the data type the

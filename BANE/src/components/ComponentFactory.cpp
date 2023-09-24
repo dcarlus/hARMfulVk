@@ -4,14 +4,14 @@
 using namespace Bane;
 
 Component* ComponentFactory::createComponentFor(const Entity& entity) {
+    size_t entityPosition = position(entity);
+
     if (!isCreationAllowedFor(entity)) {
-        return nullptr;
+        return &m_componentsPerEntity[entityPosition].back();
     }
 
     auto&& componentData = createDataFor(entity);
     Component newComponent(entity, std::move(componentData));
-
-    size_t entityPosition = position(entity);
 
     if (m_componentsPerEntity.size() < entity.id()) {
         m_componentsPerEntity.resize(entity.id());
@@ -25,15 +25,39 @@ Component* ComponentFactory::createComponentFor(const Entity& entity) {
     return newComponentPtr;
 }
 
+size_t ComponentFactory::countFor(const Entity& entity) const {
+    size_t entityPosition = position(entity);
+
+    if (m_componentsPerEntity.size() > entity.id()) {
+        return 0;
+    }
+
+    return m_componentsPerEntity[entityPosition].size();
+}
+
 std::list<Component*> ComponentFactory::componentsOf(const Entity& entity) {
     std::list<Component*> returnedList;
     size_t entityPosition = position(entity);
+
+    if (m_componentsPerEntity.size() > entity.id()) {
+        return returnedList;
+    }
 
     for (auto& component : m_componentsPerEntity[entityPosition]) {
         returnedList.push_back(&component);
     }
 
     return returnedList;
+}
+
+Component* ComponentFactory::firstOf(const Entity& entity) {
+    size_t entityPosition = position(entity);
+
+    if (m_componentsPerEntity.size() > entity.id()) {
+        return nullptr;
+    }
+
+    return &m_componentsPerEntity[entityPosition].front();
 }
 
 void ComponentFactory::destroyComponentsOf(const Entity& entity) {
