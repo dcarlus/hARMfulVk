@@ -31,6 +31,12 @@
     <Filter Include="Fichiers sources\systems">
       <UniqueIdentifier>{cc38b948-f480-46dd-99b0-e459a6f27704}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\jobs">
+      <UniqueIdentifier>{8ef030fc-5cb6-4fe3-b9e0-68d89c5ccede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\jobs">
+      <UniqueIdentifier>{abb7d1a9-79d7-4cbd-8288-a504ef674e29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\entities\Entity.hpp">
@@ -57,6 +63,15 @@
     <ClInclude Include="include\components\ComponentFactory.hpp">
       <Filter>Fichiers d%27en-tête\components</Filter>
     </ClInclude>
+    <ClInclude Include="include\jobs\Job.hpp">
+      <Filter>Fichiers d%27en-tête\jobs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\jobs\ThreadJob.hpp">
+      <Filter>Fichiers d%27en-tête\jobs</Filter>
+    </ClInclude>
+    <ClInclude Include="include\jobs\JobSynchronization.hpp">
+      <Filter>Fichiers d%27en-tête\jobs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BANE.rc">
@@ -78,6 +93,12 @@
     </ClCompile>
     <ClCompile Include="src\systems\System.cpp">
       <Filter>Fichiers sources\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\jobs\Job.cpp">
+      <Filter>Fichiers sources\jobs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\jobs\ThreadJob.cpp">
+      <Filter>Fichiers sources\jobs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

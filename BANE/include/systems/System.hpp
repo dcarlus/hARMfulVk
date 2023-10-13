@@ -25,7 +25,7 @@ namespace Bane {
 			 * time; false if it can only run in a single thread.
 			 * true is the default value.
 			 */
-			bool m_multithreadable;
+			bool m_multithreadable{ true };
 
 			/**
 			 * List of Systems the current one relies on (dependencies).

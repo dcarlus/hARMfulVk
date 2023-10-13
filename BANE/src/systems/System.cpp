@@ -3,8 +3,7 @@
 using namespace Bane;
 
 System::System(const std::string& name)
-    : m_name(name),
-      m_multithreadable(true) {}
+    : m_name(name) {}
 
 void System::setup() {
     m_components = createFactory();

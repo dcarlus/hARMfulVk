@@ -89,6 +89,9 @@
     <ClInclude Include="include\components\ComponentFactory.hpp" />
     <ClInclude Include="include\entities\Entity.hpp" />
     <ClInclude Include="include\entities\EntityFactory.hpp" />
+    <ClInclude Include="include\jobs\Job.hpp" />
+    <ClInclude Include="include\jobs\JobSynchronization.hpp" />
+    <ClInclude Include="include\jobs\ThreadJob.hpp" />
     <ClInclude Include="include\systems\System.hpp" />
     <ClInclude Include="include\systems\SystemProcessing.hpp" />
     <ClInclude Include="resource.h" />
@@ -101,6 +104,8 @@
     <ClCompile Include="src\components\ComponentFactory.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityFactory.cpp" />
+    <ClCompile Include="src\jobs\Job.cpp" />
+    <ClCompile Include="src\jobs\ThreadJob.cpp" />
     <ClCompile Include="src\systems\System.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
