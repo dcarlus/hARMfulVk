@@ -39,9 +39,19 @@ namespace Bane {
 			exported void destroy(const Entity& entity);
 
 			/**
+			 * Destroy an Entity instance and remove it from the EntityFactory.
+			 */
+			exported void destroy(const id_t& entity);
+
+			/**
 			 * Check if the given Entity exists.
 			 */
 			exported bool contains(const Entity& entity) const;
+
+			/**
+			 * Check if the given Entity exists.
+			 */
+			exported bool contains(const id_t& entity) const;
 
 		private:
 			// Disable copy and move.

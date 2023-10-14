@@ -37,6 +37,12 @@
     <Filter Include="Fichiers sources\jobs">
       <UniqueIdentifier>{abb7d1a9-79d7-4cbd-8288-a504ef674e29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\world">
+      <UniqueIdentifier>{97aa1ad2-8c59-49fd-81f4-98a173905cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\world">
+      <UniqueIdentifier>{66898ca7-1cf0-48cf-a684-135f28a0ef9a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\entities\Entity.hpp">
@@ -72,6 +78,9 @@
     <ClInclude Include="include\jobs\JobSynchronization.hpp">
       <Filter>Fichiers d%27en-tête\jobs</Filter>
     </ClInclude>
+    <ClInclude Include="include\world\World.hpp">
+      <Filter>Fichiers d%27en-tête\world</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BANE.rc">
@@ -99,6 +108,9 @@
     </ClCompile>
     <ClCompile Include="src\jobs\ThreadJob.cpp">
       <Filter>Fichiers sources\jobs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\world\World.cpp">
+      <Filter>Fichiers sources\world</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

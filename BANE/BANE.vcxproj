@@ -94,6 +94,7 @@
     <ClInclude Include="include\jobs\ThreadJob.hpp" />
     <ClInclude Include="include\systems\System.hpp" />
     <ClInclude Include="include\systems\SystemProcessing.hpp" />
+    <ClInclude Include="include\world\World.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +108,7 @@
     <ClCompile Include="src\jobs\Job.cpp" />
     <ClCompile Include="src\jobs\ThreadJob.cpp" />
     <ClCompile Include="src\systems\System.cpp" />
+    <ClCompile Include="src\world\World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

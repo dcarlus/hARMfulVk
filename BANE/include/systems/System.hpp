@@ -122,7 +122,7 @@ namespace Bane {
 			 * Run the Components processing.
 			 * @return A list of Entities to be removed by the World.
 			 */
-			exported std::list<id_t> process(
+			exported std::list<Entity> process(
 				const size_t fromIndex,
 				const size_t toIndex
 			) {

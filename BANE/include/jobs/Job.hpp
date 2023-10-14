@@ -41,7 +41,7 @@ namespace Bane {
             /**
              * List of entity IDs to be dropped.
              */
-            std::list<id_t> m_dropEntities;
+            std::list<Entity> m_dropEntities;
 
         public:
             /**
@@ -76,7 +76,7 @@ namespace Bane {
             /**
              * Get the Entities that the World should delete.
              */
-            exported std::list<id_t>& dropEntities() {
+            exported std::list<Entity>& dropEntities() {
                 return m_dropEntities;
             }
 

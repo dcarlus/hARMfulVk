@@ -60,7 +60,7 @@ namespace Bane {
              * List of Entity IDs to drop after the processing of the
              * Components by the current ThreadJob.
              */
-            std::list<id_t> m_dropEntities;
+            std::list<Entity> m_dropEntities;
 
         public:
             /**
@@ -103,7 +103,7 @@ namespace Bane {
              * Get the ID of Entities to be removed.
              * @return The list of ID of Entities to be removed.
              */
-             exported std::list<id_t> dropEntities() const {
+             exported std::list<Entity> dropEntities() const {
                 return m_dropEntities;
             }
 

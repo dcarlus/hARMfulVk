@@ -64,6 +64,11 @@ namespace Doom {
 
         public:
             /**
+             * Copy constructor.
+             */
+            exported IDObject(const IDObject& other) = default;
+
+            /**
              * Move constructor.
              */
             exported IDObject(IDObject&& other) = default;
@@ -100,15 +105,48 @@ namespace Doom {
             exported bool operator!=(const IDObject& other);
 
             /**
+             * Check if two IDObject are equal.
+             */
+            friend bool operator==(
+                const IDObject& left,
+                const IDObject& right
+            ) {
+                return left.id() == right.id();
+            }
+
+            /**
+             * Check if two IDObject are different.
+             */
+            friend bool operator!=(
+                const IDObject& left,
+                const IDObject& right
+            ) {
+                return left.id() != right.id();
+            }
+
+            /**
+             * Ordering operator.
+             */
+            friend bool operator<(const IDObject& first, const IDObject& second) {
+                return first.id() < second.id();
+            }
+
+            /**
+             * Ordering operator.
+             */
+            friend bool operator>(const IDObject& first, const IDObject& second) {
+                return first.id() > second.id();
+            }
+
+            /**
+             * Copy operator.
+             */
+            exported IDObject& operator=(const IDObject& other) = default;
+
+            /**
              * Move operator.
              */
             exported IDObject& operator=(IDObject&& other) = default;
-
-        private:
-            // Disable copy.
-            IDObject(const IDObject& other) = delete;
-            IDObject& operator=(const IDObject& other) = delete;
-            
     };
 }
 

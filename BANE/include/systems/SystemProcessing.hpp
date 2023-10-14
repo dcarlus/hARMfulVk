@@ -33,7 +33,7 @@ namespace Bane {
 			/**
 			 * Perform the Components processing.
 			 */
-			exported virtual std::list<id_t> run(
+			exported virtual std::list<Entity> run(
 				std::unordered_map<std::string, System*> linkedSystems,
 				const size_t fromIndex,
 				const size_t toIndex
