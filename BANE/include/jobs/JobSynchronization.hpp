@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <condition_variable>
-#include <latch>
+#include <barrier>
 
 namespace Bane {
     /**
@@ -29,11 +29,11 @@ namespace Bane {
             std::mutex m_mutex;
 
             /**
-             * Latch for synchronizing the different threads of a same Job and
-             * make wait after they have done their work. Defined by the owning
-             * Job of the ThreadJobs.
+             * Barrier for synchronizing the different threads of a same Job
+             * and make wait after they have done their work. Defined by the
+             * owning Job of the ThreadJobs.
              */
-            std::latch m_latch;
+            std::barrier<> m_syncBarrier;
 
         public:
             /**
@@ -41,7 +41,7 @@ namespace Bane {
              */
             JobSynchronization(const uint8_t amountJobs)
                 : m_waitFlag(true),
-                  m_latch(std::latch(amountJobs)) {}
+                  m_syncBarrier(std::barrier(amountJobs + 1)) {}
 
             /**
              * Get the condition variable.
@@ -65,10 +65,10 @@ namespace Bane {
             }
 
             /**
-             * Get the latch.
+             * Get the barrier.
              */
-            std::latch& latch() {
-                return m_latch;
+            std::barrier<>& syncBarrier() {
+                return m_syncBarrier;
             }
     };
 
@@ -95,11 +95,11 @@ namespace Bane {
             std::reference_wrapper<std::mutex> m_mutex;
 
             /**
-             * Latch for synchronizing the different threads of a same Job and
-             * make wait after they have done their work. Defined by the owning
-             * Job of the ThreadJobs.
+             * Barrier for synchronizing the different threads of a same Job
+             * and make wait after they have done their work. Defined by the
+             * owning Job of the ThreadJobs.
              */
-            std::reference_wrapper<std::latch> m_latch;
+            std::reference_wrapper<std::barrier<>> m_syncBarrier;
 
         public:
             /**
@@ -109,7 +109,7 @@ namespace Bane {
                 : m_condition(sync.condition()),
                 m_waitFlag(sync.waitFlag()),
                 m_mutex(sync.mutex()),
-                m_latch(sync.latch()) {}
+                m_syncBarrier(sync.syncBarrier()) {}
 
             /**
              * Get the condition variable.
@@ -133,10 +133,10 @@ namespace Bane {
             }
 
             /**
-             * Get the latch.
+             * Get the barrier.
              */
-            std::latch& latch() {
-                return m_latch.get();
+            std::barrier<>& syncBarrier() {
+                return m_syncBarrier.get();
             }
     };
 }

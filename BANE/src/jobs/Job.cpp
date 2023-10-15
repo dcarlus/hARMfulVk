@@ -21,7 +21,7 @@ void Job::execute() {
     m_syncData.condition().notify_all();
     
     // Wait all threads have done their loop.
-    m_syncData.latch().wait();
+    m_syncData.syncBarrier().arrive_and_wait();
     
     // Fill the drop entities list.
     for (auto& thread : m_threads) {

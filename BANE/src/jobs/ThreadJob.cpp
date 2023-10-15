@@ -40,7 +40,7 @@ void ThreadJob::run() {
             [&]() { return m_syncData.waitFlag(); }
         );
         processSystems();
-        m_syncData.latch().wait();
+        m_syncData.syncBarrier().arrive_and_wait();
     }
 }
 
