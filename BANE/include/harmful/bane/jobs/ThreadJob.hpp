@@ -11,62 +11,64 @@
 #include "harmful/bane/jobs/JobSynchronization.hpp"
 
 namespace Bane {
-    /**
-     * Encapsulates a thread and the related stuff for running Job processing
-     * Systems itself.
-     */
+    /// <summary>
+    /// Encapsulates a thread and the related stuff for running Job processing
+    /// Systems itself.
+    /// </summary>
     class ThreadJob final {
         private:
-            /**
-             * Structure for setting the indices of start and end for the
-             * ThreadJob to process some of the Components in the list of
-             * Components to process.
-             */
+            /// <summary>
+            /// Structure for setting the indices of start and end for the
+            /// ThreadJob to process some of the Components in the list of
+            /// Components to process.
+            /// </summary>
             struct FromToIndices {
                 size_t fromIndex;
                 size_t toIndex;
             };
 
-            /**
-             * true by default.
-             * Used to stop the ThreadJob when set to false.
-             */
+            /// <summary>
+            /// Used to stop the ThreadJob when set to false.
+            /// true by default.
+            /// </summary>
             bool m_continue{ true };
 
-            /**
-             * The inner thread that will run the Job execution.
-             */
+            /// <summary>
+            /// The inner thread that will run the Job execution.
+            /// </summary>
             std::thread m_innerThread;
 
-            /**
-             * Set of data for synchronizing the current ThreadJob with others
-             * in the complete Job.
-             */
+            /// <summary>
+            /// Set of data for synchronizing the current ThreadJob with others
+            /// in the complete Job.
+            /// </summary>
             JobSynchronizationRW m_syncData;
 
-            /**
-             * Systems that are processed by the ThreadJob.
-             */
+            /// <summary>
+            /// Systems that are processed by the ThreadJob.
+            /// </summary>
             std::unordered_set<System*> m_systems;
 
-            /**
-             * Indices of start and end for the ThreadJob to process some of
-             * the Components in the list of Components to process by the
-             * related System.
-             */
+            /// <summary>
+            /// Indices of start and end for the ThreadJob to process some of
+            /// the Components in the list of Components to process by the
+            /// related System.
+            /// </summary>
             std::unordered_map<System*, FromToIndices> m_fromToComponents;
 
-            /**
-             * List of Entity IDs to drop after the processing of the
-             * Components by the current ThreadJob.
-             */
+            /// <summary>
+            /// List of Entity IDs to drop after the processing of the
+            /// Components by the current ThreadJob.
+            /// </summary>
             std::list<Entity> m_dropEntities;
 
         public:
-            /**
-             * Create a new ThreadJob instance.
-             * @param sync Data required to synchronize threads in Jobs.
-             */
+             /// <summary>
+             /// Create a new ThreadJob instance.
+             /// </summary>
+             /// <param name="sync">
+             /// Data required to synchronize threads in Jobs.
+             /// </param>
              exported ThreadJob(const JobSynchronizationRW& sync);
 
             /**
@@ -74,48 +76,61 @@ namespace Bane {
              * @param systems List of the Systems that will be processed by the
              *                ThreadJob.
              */
+
+             /// <summary>
+             /// Add Systems to be processed by the ThreadJob.
+             /// </summary>
+             /// <param name="systems">
+             /// List of the Systems that will be processed by the ThreadJob.
+             /// </param>
              exported void setProcessedSystems(const std::vector<System*>& systems);
 
-            /**
-             * Set the limits of Component execution of the thread for a
-             * System.
-             * @param system System for which defining the limits.
-             * @param fromIndex Start index in the list of Components.
-             * * @param toIndex End index in the list of Components.
-             */
+             /// <summary>
+             /// Set the limits of Component execution of the thread for a
+             /// System.
+             /// </summary>
+             /// <param name="system">
+             /// System for which defining the limits.
+             /// </param>
+             /// <param name="fromIndex">
+             /// Start index in the list of Components.
+             /// </param>
+             /// <param name="toIndex">
+             /// End index in the list of Components.
+             /// </param>
              exported void setFromToComponents(
                 System* system,
                 const size_t fromIndex,
                 const size_t toIndex
             );
 
-            /**
-             * Start the ThreadJob.
-             */
+             /// <summary>
+             /// Start the ThreadJob.
+             /// </summary>
              exported void start();
 
-            /**
-             * Stop the ThreadJob as soon as possible.
-             */
+             /// <summary>
+             /// Stop the ThreadJob as soon as possible.
+             /// </summary>
              exported void stop();
 
-            /**
-             * Get the ID of Entities to be removed.
-             * @return The list of ID of Entities to be removed.
-             */
+             /// <summary>
+             /// Get the ID of Entities to be removed.
+             /// </summary>
+             /// <returns>The list of ID of Entities to be removed.</returns>
              exported std::list<Entity> dropEntities() const {
                 return m_dropEntities;
             }
 
         private:
-            /**
-             * Function executed by the ThreadJob.
-             */
+            /// <summary>
+            /// Function executed by the ThreadJob.
+            /// </summary>
             void run();
 
-            /**
-             * Process the Systems in the Component index bounds.
-             */
+            /// <summary>
+            /// Process the Systems in the Component index bounds.
+            /// </summary>
             void processSystems();
     };
 }

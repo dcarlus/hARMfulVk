@@ -6,51 +6,62 @@
 #include <unordered_set>
 
 namespace Bane {
-	/**
-	 * Factory to generate and destroy Entity instances.
-	 */
+	/// <summary>
+	/// Factory to generate and destroy Entity instances.
+	/// </summary>
 	class EntityFactory final {
 		private:
-			/**
-			 * List of the available entities in the application.
-			 */
+			/// <summary>
+			/// List of the available entities in the application.
+			/// </summary>
 			std::unordered_set<id_t> m_entities;
 
 		public:
-			/**
-			 * Create a new EntityFactory instance.
-			 * @warning There should be only one EntityFactory by application.
-			 */
+			/// <summary>
+			/// Create a new EntityFactory instance.
+			/// </summary>
+			/// <remarks>
+			/// There should be only one EntityFactory by application.
+			/// </remarks>
 			exported EntityFactory() = default;
 
-			/**
-			 * Destruction of the EntityFactory instance.
-			 */
+			/// <summary>
+			/// Destruction of the EntityFactory instance.
+			/// </summary>
 			exported virtual ~EntityFactory() noexcept = default;
 
-			/**
-			 * Create a new Entity instance and store it in the EntityFactory.
-			 */
+			/// <summary>
+			/// Create a new Entity instance and store it in the EntityFactory.
+			/// </summary>
+			/// <returns>The newly created Entity.</returns>
 			exported Entity create();
 
-			/**
-			 * Destroy an Entity instance and remove it from the EntityFactory.
-			 */
+			/// <summary>
+			/// Destroy an Entity instance and remove it from the
+			/// EntityFactory.
+			/// </summary>
+			/// <param name="entity">Entity to delete.</param>
 			exported void destroy(const Entity& entity);
 
-			/**
-			 * Destroy an Entity instance and remove it from the EntityFactory.
-			 */
+			/// <summary>
+			/// Destroy an Entity instance and remove it from the
+			/// EntityFactory.
+			/// </summary>
+			/// <param name="entity">ID of the Entity to delete.</param>
 			exported void destroy(const id_t& entity);
 
-			/**
-			 * Check if the given Entity exists.
-			 */
+			/// <summary>
+			/// Check if the given Entity exists.
+			/// </summary>
+			/// <param name="entity">Entity to be checked.</param>
+			/// <returns>true if the Entity exists; false otherwise.</returns>
 			exported bool contains(const Entity& entity) const;
 
-			/**
-			 * Check if the given Entity exists.
-			 */
+			/// <summary>
+			/// Check if the given Entity exists.
+			/// </summary>
+			/// <param name="entity">ID of the Entity to be checked.</param>
+			/// <returns>true if the Entity exists; false otherwise.</returns>
 			exported bool contains(const id_t& entity) const;
 
 		private:

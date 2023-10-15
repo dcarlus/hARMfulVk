@@ -12,31 +12,31 @@
 #include "harmful/bane/jobs/Job.hpp"
 
 namespace Bane {
-    /**
-     * Entry class for using the ECS instances. Handles interactions between
-     * these instances as automatic data suppression. For example, it removes
-     * all the Components attached to an Entity when this one is deleted.
-     */
+    /// <summary>
+    /// Entry class for using the ECS instances. Handles interactions between
+    /// these instances as automatic data suppression. For example, it removes
+    /// all the Components attached to an Entity when this one is deleted.
+    /// </summary>
     class World final {
         private:
-            /**
-             * Factory for creating all the Entities in the application.
-             */
+            /// <summary>
+            /// Factory for creating all the Entities in the application.
+            /// </summary>
             EntityFactory m_entities;
 
-            /**
-             * List of the Entities currently active in the application.
-             */
+            /// <summary>
+            /// List of the Entities currently active in the application.
+            /// </summary>
             std::set<Entity> m_entityList;
 
-            /**
-             * List of the Systems in the application.
-             */
+            /// <summary>
+            /// List of the Systems in the application.
+            /// </summary>
             std::unordered_map<std::string, std::unique_ptr<System>> m_systems;
 
-            /**
-             * List of the Jobs in the application.
-             */
+            /// <summary>
+            /// List of the Jobs in the application.
+            /// </summary>
             std::unordered_map<std::string, std::unique_ptr<Job>> m_jobs;
 
         public:
@@ -44,53 +44,64 @@ namespace Bane {
             exported World(const World& other) = delete;
             exported World(World&& other) = delete;
 
-            /**
-             * Destruction of the World instance.
-             */
+            /// <summary>
+            /// Destruction of the World instance.
+            /// </summary>
             exported virtual ~World() noexcept;
 
-            /**
-             * Clear all data of the current World.
-             */
+            /// <summary>
+            /// Clear all data of the current World.
+            /// </summary>
             exported void clear();
 
-            /**
-             * Create an Entity instance.
-             * @return The created Entity instance.
-             */
+            /// <summary>
+            /// Create an Entity instance.
+            /// </summary>
+            /// <returns>The created Entity instance.</returns>
             exported Entity createEntity();
 
-            /**
-             * Get a System by its name. If it does not exist, it is created.
-             * @param name Name of the System to get.
-             * @return Pointer to the wanted system.
-             */
+            /// <summary>
+            /// Get a System by its name. If it does not exist, it is created.
+            /// </summary>
+            /// <typeparam name="SystemClass">
+            /// Class of the System to get. Must inherit the System class.
+            /// </typeparam>
+            /// <param name="name">Name of the System to get.</param>
+            /// <returns>Pointer to the wanted system.</returns>
             template <class SystemClass>
             exported SystemClass* system(const std::string& name);
 
-            /**
-             * Add a Job used to run Systems concurrently.
-             */
+            /// <summary>
+            /// Add a Job used to run Systems concurrently.
+            /// </summary>
+            /// <param name="name">Name of the Job.</param>
+            /// <param name="systemNames">
+            /// Name of the Systems the new Job works on.
+            /// </param>
+            /// <param name="threadCount">
+            /// Amount of threads required to perform the new Job.
+            /// </param>
             exported void addJob(
                 const std::string& name,
                 std::list<std::string>& systemNames,
                 const uint8_t threadCount
             );
 
-            /**
-             * Delete an Entity and all its attached Components.
-             * @param entity ID of the Entity to delete.
-             */
+            /// <summary>
+            /// Delete an Entity and all its attached Components.
+            /// </summary>
+            /// <param name="entity">ID of the Entity to delete.</param>
+            /// <returns></returns>
             exported void destroy(const Entity& entity);
             
-            /**
-             * Run all the registered Jobs/Systems in the World.
-             */
+            /// <summary>
+            /// Run all the registered Jobs/Systems in the World.
+            /// </summary>
             exported void run();
 
-            /**
-             * Stop all the Jobs.
-             */
+            /// <summary>
+            /// Stop all the Jobs.
+            /// </summary>
             exported void stop();
 
             // No copy nor move assignment operator.
@@ -98,10 +109,10 @@ namespace Bane {
             World& operator=(World&& other) = delete;
 
         private:
-            /**
-             * Remove an Entity from the Systems using it.
-             * @param entity ID of the Entity to delete.
-             */
+            /// <summary>
+            /// Remove an Entity from the Systems using it.
+            /// </summary>
+            /// <param name="entity">ID of the Entity to delete.</param>
             void removeEntity(const Entity& entity);
     };
 

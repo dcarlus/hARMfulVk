@@ -5,14 +5,14 @@
 #include <harmful/doom/utils/IDObject.hpp>
 
 namespace Bane {
-	/**
-	 * Obscur ID type for an Entity.
-	 */
+	/// <summary>
+	/// Obscur ID type for an Entity.
+	/// </summary>
 	class Entity final : public Doom::IDObject {
 		public:
-			/**
-			 * Create a new Entity instance.
-			 */
+			/// <summary>
+			/// Create a new Entity instance.
+			/// </summary>
 			exported Entity();
 	};
 }

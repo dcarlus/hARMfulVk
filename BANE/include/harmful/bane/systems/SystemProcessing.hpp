@@ -10,48 +10,62 @@
 namespace Bane {
 	class System;
 
-	/**
-	 * Class for processing the Components of a System.
-	 */
+	/// <summary>
+	/// Class for processing the Components of a System.
+	/// </summary>
 	class SystemProcessing {
 		using DropEntityList = std::vector<id_t>;
 
 		private:
-			/**
-			 * List of Entities the associated System has marked
-			 * as to be removed from the application.
-			 */
+			/// <summary>
+			/// List of Entities the associated System has marked as to be
+			/// removed from the application.
+			/// </summary>
 			DropEntityList m_dropEntities;
 
 		public:
-			/**
-			 * Do something when an entity is removed.
-			 * @param entity Entity that is about to be removed.
-			 */
+			/// <summary>
+			/// Do something when an entity is removed.
+			/// </summary>
+			/// <param name="entity">
+			/// Entity that is about to be removed.
+			/// </param>
 			exported virtual void onDelete(const Entity& entity) {}
 
-			/**
-			 * Perform the Components processing.
-			 */
+			/// <summary>
+			/// Perform the Components processing.
+			/// </summary>
+			/// <param name="linkedSystems">
+			/// List of Systems the current one relies on (dependencies).
+			/// </param>
+			/// <param name="fromIndex">
+			/// Start index in the list of Components to process.
+			/// </param>
+			/// <param name="toIndex">
+			/// End index in the list of Components to process.
+			/// </param>
+			/// <returns>
+			/// A list of Entities to be removed by the World.
+			/// </returns>
 			exported virtual std::list<Entity> run(
 				std::unordered_map<std::string, System*> linkedSystems,
 				const size_t fromIndex,
 				const size_t toIndex
 			) = 0;
 
-			/**
-			 * Get the Entities to be dropped.
-			 * @return The Entities to be dropped.
-			 */
+			/// <summary>
+			/// Get the Entities to be dropped.
+			/// </summary>
+			/// <returns>The Entities to be dropped.</returns>
 			exported const DropEntityList& dropEntities() const {
 				return m_dropEntities;
 			}
 
 		protected:
-			/**
-			 * Get the Entities to be dropped. The list can be modified.
-			 * @return The Entities to be dropped.
-			 */
+			/// <summary>
+			/// Get the Entities to be dropped. The list can be modified.
+			/// </summary>
+			/// <returns>The Entities to be dropped.</returns>
 			exported DropEntityList& dropEntities() {
 				return m_dropEntities;
 			}

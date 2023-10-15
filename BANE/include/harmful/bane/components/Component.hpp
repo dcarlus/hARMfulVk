@@ -7,67 +7,71 @@
 #include "harmful/bane/components/ComponentData.hpp"
 
 namespace Bane {
-	/**
-	 * Component of the ECS architecture.
-	 * It is a very simple structure that contains data in a composite
-	 * ComponentData class.
-	 */
+	/// <summary>
+	/// Component of the ECS architecture.
+	/// It is a very simple structure that contains data in a composite 
+	/// ComponentData class.
+	/// </summary>
 	class Component final {
 		friend class ComponentFactory;
 
 		private:
-			/**
-			 * ID of the Entity bearing the current Component.
-			 */
+			/// <summary>
+			/// ID of the Entity bearing the current Component.
+			/// </summary>
 			id_t m_entityID = 0;
 
-			/**
-			 * Data the Component contains for its process.
-			 */
+			/// <summary>
+			/// Data the Component contains for its process.
+			/// </summary>
 			std::unique_ptr<ComponentData> m_data = nullptr;
 
 		protected:
-			/**
-			 * Create a new Component instance.
-			 * @param entity Entity to which the new Component is attached to.
-			 * @param data Data of the new Component.
-			 */
+			/// <summary>
+			/// Create a new Component instance.
+			/// </summary>
+			/// <param name="entity">
+			/// Entity to which the new Component is attached to.
+			/// </param>
+			/// <param name="data">Data of the new Component.</param>
 			Component(
 				const Entity& entity,
 				std::unique_ptr<ComponentData>&& data
 			);
 
 		public:
-			/**
-			 * Move constructor.
-			 */
+			/// <summary>
+			/// Move constructor.
+			/// </summary>
+			/// <param name="other">Component to be moved.</param>
 			exported Component(Component&& other) = default;
 
-			/**
-			 * Destruction of the current Component instance.
-			 */
+			/// <summary>
+			/// Destruction of the current Component instance.
+			/// </summary>
 			exported ~Component() = default;
 
-			/**
-			 * Get the ID of the Entity the current Component is attached to.
-			 * @return ID of the Entity.
-			 */
+			/// <summary>
+			/// Get the ID of the Entity the current Component is attached to.
+			/// </summary>
+			/// <returns>ID of the Entity.</returns>
 			exported id_t entityID() const {
 				return m_entityID;
 			}
 
-			/**
-			 * Get the data of the Component.
-			 * @return Raw pointer to the inner ComponentData.
-			 * @warning Do not try to delete the data!
-			 */
+			/// <summary>
+			/// Get the data of the Component.
+			/// </summary>
+			/// <returns>Raw pointer to the inner ComponentData.</returns>
+			/// <remarks>Do not try to delete the data!</remarks>
 			exported ComponentData* data() const {
 				return m_data.get();
 			}
 
-			/**
-			 * Move operator.
-			 */
+			/// <summary>
+			/// Move operator.
+			/// </summary>
+			/// <param name="other">Component to be moved.</param>
 			exported Component& operator=(Component&& other) = default;
 
 		private:
