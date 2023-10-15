@@ -5,65 +5,70 @@
 #include <string>
 
 namespace Doom {
-    /**
-     * Get the current date and time in a human-readable way.
-     */
+    /// <summary>
+    /// Get the current date and time in a human-readable way.
+    /// </summary>
     class exported Time final {
         public:
-            /**
-             * Get a human-readable string of the current date and time.
-             * @return String representing the current date and time.
-             */
+            /// <summary>
+            /// Get a human-readable string of the current date and time.
+            /// </summary>
+            /// <returns>
+            /// String representing the current date and time.
+            /// </returns>
             static std::string GetDateTime() ;
 
-            /**
-             * Get a human-readable string of the current date.
-             * @return String representing the current date.
-             */
+            /// <summary>
+            /// Get a human-readable string of the current date.
+            /// </summary>
+            /// <returns>String representing the current date.</returns>
             static std::string GetDate() ;
 
-            /**
-             * Get a human-readable string of the current time.
-             * @return String representing the current time.
-             */
+            /// <summary>
+            /// Get a human-readable string of the current time.
+            /// </summary>
+            /// <returns>String representing the current time.</returns>
             static std::string GetTime() ;
 
-
         private:
-            /**
-             * Disable copy of Time.
-             */
-            Time(const Time&) ;
+            /// <summary>
+            /// Disable copy of Time.
+            /// </summary>
+            Time(const Time&) = delete ;
 
-            /**
-             * Disable move of Time.
-             */
-            Time(Time&&) noexcept ;
+            /// <summary>
+            /// Disable move of Time.
+            /// </summary>
+            Time(Time&&) = delete ;
 
-            /**
-             * Destruction of the Time.
-             */
-            virtual ~Time() noexcept ;
+            /// <summary>
+            /// Destruction of the Time.
+            /// </summary>
+            virtual ~Time() noexcept = default ;
 
-            /**
-             * Disable affectation.
-             */
-            void operator= (const Time&) ;
+            /// <summary>
+            /// Disable affectation.
+            /// </summary>
+            void operator= (const Time&) = delete ;
 
-            /**
-             * Disable move.
-             */
-            void operator= (Time&&) noexcept ;
+            /// <summary>
+            /// Disable move.
+            /// </summary>
+            void operator= (Time&&) = delete ;
 
-            /**
-             * Get an information from the current time.
-             * @param  format       Format of the output as the one taken by
-             *                      strftime.
-             *                      http://www.cplusplus.com/reference/ctime/strftime/
-             * @param  buffer       Buffer to get the information as a string.
-             * @param  bufferLength Length of the buffer used to store the
-             *                      string.
-             */
+            /// <summary>
+            /// Get an information from the current time.
+            /// </summary>
+            /// <param name="format">
+            /// Format of the output as the one taken by strftime.
+            /// http://www.cplusplus.com/reference/ctime/strftime/
+            /// </param>
+            /// <param name="buffer">
+            /// Buffer to get the information as a string.
+            /// </param>
+            /// <param name="bufferLength">
+            /// Length of the buffer used to store the string.
+            /// </param>
             static void GetTimeInfo(
                 const std::string& format,
                 char* buffer,

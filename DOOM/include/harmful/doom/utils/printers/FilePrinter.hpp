@@ -9,74 +9,73 @@
 #include <mutex>
 
 namespace Doom {
-    /**
-     * A FilePrinter to write values in a file.
-     */
+    /// <summary>
+    /// A FilePrinter to write values in a file.
+    /// </summary>
     class FilePrinter final : public Printer {
         private:
-            /**
-             * Avoid concurrent accesses to the Console.
-             */
+            /// <summary>
+            /// Avoid concurrent accesses to the FilePrinter.
+            /// </summary>
             std::mutex m_mutex ;
 
-            /**
-             * Output stream to print values.
-             */
+            /// <summary>
+            /// Output stream to print values.
+            /// </summary>
             std::ofstream m_output ;
 
-            /**
-             * Disable copy of FilePrinter.
-             */
-            FilePrinter(const FilePrinter&) ;
+            /// <summary>
+            /// Disable copy of FilePrinter.
+            /// </summary>
+            FilePrinter(const FilePrinter&) = delete ;
 
-            /**
-             * Disable move of FilePrinter.
-             */
-            FilePrinter(FilePrinter&&) noexcept ;
+            /// <summary>
+            /// Disable move of FilePrinter.
+            /// </summary>
+            FilePrinter(FilePrinter&&) = delete ;
 
-            /**
-             * Disable affectation.
-             */
-            void operator= (const FilePrinter&) ;
+            /// <summary>
+            /// Disable affectation.
+            /// </summary>
+            void operator= (const FilePrinter&) = delete ;
 
-            /**
-             * Disable move.
-             */
-            void operator= (FilePrinter&&) noexcept ;
+            /// <summary>
+            /// Disable move.
+            /// </summary>
+            void operator= (FilePrinter&&) = delete ;
 
         public:
-            /**
-             * Instantiate a new FilePrinter object that prints in a file.
-             * This constructor makes the file be overwritten if already
-             * existing.
-             * @param   filepath    Path to the file in which values are
-             *                      written.
-             */
+            /// <summary>
+            /// Instantiate a new FilePrinter object that prints in a file.
+            /// This constructor makes the file be overwritten if already
+            /// existing.
+            /// </summary>
+            /// <param name="filepath">Path to the file in which values are written.</param>
             exported FilePrinter(const std::string& filepath) ;
 
-           /**
-            * Instantiate a new FilePrinter object that prints in a file.
-            * @param   filepath     Path to the file in which values are
-            *                       written.
-            * @param    append      TRUE to append values at the end of the file
-            *                       if existing. FALSE to overwrite the full
-            *                       content of the file.
-            */
+            /// <summary>
+            /// Instantiate a new FilePrinter object that prints in a file.
+            /// </summary>
+            /// <param name="filepath">Path to the file in which values are written.</param>
+            /// <param name="append">
+            /// true to append values at the end of the file if existing.
+            /// false to overwrite the full content of the file.
+            /// </param>
             exported FilePrinter(
                 const std::string& filepath,
                 const bool& append
             ) ;
 
-            /**
-             * Destruction of the FilePrinter instance.
-             */
+            /// <summary>
+            /// Destruction of the FilePrinter instance.
+            /// </summary>
             exported virtual ~FilePrinter() noexcept ;
 
-            /**
-             * Write a message on the FilePrinter and create a new line in the
-             * output stream.
-             * @param   value   The value to be printed.
-             */
+            /// <summary>
+            /// Write a message on the FilePrinter and create a new line in the
+            /// output stream.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
             template<class T>
             exported void writeLine(const T& value) {
                 m_mutex.lock() ;
@@ -86,12 +85,12 @@ namespace Doom {
                 m_mutex.unlock() ;
             }
 
-            /**
-             * Write messages on the FilePrinter and create a new line in the
-             * output stream.
-             * @param   value   The value to be printed.
-             * @param   args    Remaining arguments to be printed.
-             */
+            /// <summary>
+            /// Write messages on the FilePrinter and create a new line in the
+            /// output stream.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
+            /// <param name="args">Remaining arguments to be printed.</param>
             template<class T, class ... Args>
             exported void writeLine(const T& value, const Args& ... args) {
                 m_mutex.lock() ;
@@ -104,10 +103,10 @@ namespace Doom {
                 m_mutex.unlock() ;
             }
 
-            /**
-             * Write a message on the FilePrinter.
-             * @param   value   The value to be printed.
-             */
+            /// <summary>
+            /// Write a message on the FilePrinter.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
             template<class T>
             exported void write(const T& value) {
                 m_mutex.lock() ;
@@ -117,11 +116,11 @@ namespace Doom {
                 m_mutex.unlock() ;
             }
 
-            /**
-             * Write messages on the FilePrinter.
-             * @param   value   The value to be printed.
-             * @param   args    Remaining arguments to be printed.
-             */
+            /// <summary>
+            /// Write a message on the FilePrinter.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
+            /// <param name="args">Remaining arguments to be printed.</param>
             template<class T, class ... Args>
             exported void write(const T& value, const Args& ... args) {
                 m_mutex.lock() ;
@@ -135,13 +134,15 @@ namespace Doom {
             }
 
         private:
-            /**
-             * Get the access mode to the file according. It depends on the @a
-             * append value.
-             * @param  append TRUE to append new values at the end of the file,
-             *                FALSE to overwrite the content of the file.
-             * @return        The access mode to the file.
-             */
+            /// <summary>
+            /// Get the access mode to the file according. It depends on the
+            /// append value.
+            /// </summary>
+            /// <param name="append">
+            /// true to append new values at the end of the file.
+            /// false to overwrite the content of the file.
+            /// </param>
+            /// <returns>The access mode to the file.</returns>
             std::ios_base::openmode getAccessMode(const bool& append) ;
     } ;
 } ;

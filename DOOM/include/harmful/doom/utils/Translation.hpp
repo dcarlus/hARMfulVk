@@ -5,27 +5,29 @@
 #include "harmful/doom/DOOMStrings.hpp"
 
 namespace Doom {
-    /**
-     * Namespace dedicated to the translation of libraries and softwares.
-     */
+    /// <summary>
+    /// Namespace dedicated to the translation of libraries and softwares.
+    /// </summary>
     namespace Translation {
-        /**
-         * Initialize the translation of the wanted binary (library or
-         * software).
-         * @param domain  Domain name for translations.
-         * @param path    Path to the translation files.
-         */
+        /// <summary>
+        /// Initialize the translation of the wanted binary (library or
+        /// software).
+        /// </summary>
+        /// <param name="domain">Domain name for translations.</param>
+        /// <param name="path">Path to the translation files.</param>
         exported void Init(const std::string& domain, const std::string& path) ;
 
-        /**
-         * Translate the provided string into the user defined locale, if
-         * available. If the locale is not available, the provided string is
-         * directly used.
-         * @param  str Text to be translated.
-         * @return     The translation of the provided string if the locale is
-         *             available, the same text than the provided @a str if the
-         *             locale is not defined for the user current locale.
-         */
+        /// <summary>
+        /// Translate the provided string into the user defined locale, if
+        /// available. If the locale is not available, the provided string is
+        /// directly used.
+        /// </summary>
+        /// <param name="str">Text to be translated.</param>
+        /// <returns>
+        /// The translation of the provided string if the locale is available,
+        /// the same text than the provided str if the locale is not defined
+        /// for the user current locale.
+        /// </returns>
         exported std::string Get(const std::string& str) ;
     } ;
 } ;

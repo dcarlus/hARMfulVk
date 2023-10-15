@@ -9,104 +9,124 @@
 using id_t = uint32_t;
 
 namespace Doom {
-    /**
-     * Base class for objects that need an internally generated and managed ID.
-     */
+    /// <summary>
+    /// Base class for objects that need an internally generated and managed ID.
+    /// </summary>
     class IDObject {
         private:
-            /**
-             * Invalid ID.
-             */
+            /// <summary>
+            /// Invalid ID.
+            /// </summary>
             static const id_t InvalidID = 0 ;
 
-            /**
-             * Current ID to generate a new unique Entity.
-             * A value of zero is invalid.
-             */
+            /// <summary>
+            /// Current ID to generate a new unique Entity.
+            /// A value of zero is invalid.
+            /// </summary>
             static id_t CurrentID ;
 
-            /**
-             * List of the available IDs from old Entities that have been
-             * erased.
-             */
+            /// <summary>
+            /// List of the available IDs from old Entities that have been
+            /// erased.
+            /// </summary>
             static std::unordered_set<id_t> AvailableIDs ;
 
-            /**
-             * Value of the current Entity ID.
-             */
+            /// <summary>
+            /// Mutex for the class data so that they can be safely handled in
+            /// a multithreaded context.
+            /// </summary>
+            static std::mutex ClassMutex;
+
+            /// <summary>
+            /// Value of the current Entity ID.
+            /// </summary>
             id_t m_id = InvalidID ;
 
-            /**
-             * Mutex for the class data so that they can be safely handled in a
-             * multithreaded context.
-             */
-            static std::mutex ClassMutex ;
-
         protected:
-            /**
-             * Create a new IDObject instance.
-             * @param id ID of the current object.
-             */
+            /// <summary>
+            /// Create a new IDObject instance.
+            /// </summary>
+            /// <param name="id">ID of the current object.</param>
             exported IDObject(const id_t id = InvalidID): m_id(id) {}
 
-            /**
-             * Generate a new ID either by incrementing the CurrentID or getting
-             * an ID from the AvailableIDs list
-             * @return The generated ID.
-             */
+            /// <summary>
+            /// Generate a new ID either by incrementing the CurrentID or
+            /// getting an ID from the AvailableIDs list.
+            /// </summary>
+            /// <returns>The generated ID.</returns>
             exported static id_t Generate() ;
 
-            /**
-             * Free an ID by keeping its value in AvailableIDs and setting it to
-             * 0, making it invalid.
-             */
+            /// <summary>
+            /// Free an ID by keeping its value in AvailableIDs and setting it
+            /// to 0, making it invalid.
+            /// </summary>
+            /// <param name="obj">The object to free the ID.</param>
             exported static void Free(IDObject& obj) ;
 
         public:
-            /**
-             * Copy constructor.
-             */
+            /// <summary>
+            /// Copy constructor.
+            /// </summary>
+            /// <param name="other">Object to copy.</param>
             exported IDObject(const IDObject& other) = default;
 
-            /**
-             * Move constructor.
-             */
+            /// <summary>
+            /// Move constructor.
+            /// </summary>
+            /// <param name="other">Object to move.</param>
             exported IDObject(IDObject&& other) = default;
 
-            /**
-             * Destruction of the current IDObject instance.
-             */
+            /// <summary>
+            /// Destruction of the current IDObject instance.
+            /// </summary>
+            /// 
             exported virtual ~IDObject() noexcept;
             
-            /**
-             * Get the value of the ID of the current object.
-             * @return Current IDObject value.
-             */
+            /// <summary>
+            /// Get the value of the ID of the current object.
+            /// </summary>
+            /// <returns>Current IDObject value.</returns>
             exported id_t id() const {
                 return m_id ;
             }
 
-            /**
-             * Check if the Entity ID is valid (true) or not (false).
-             * @return true if valid; false otherwise.
-             */
+            /// <summary>
+            /// Check if the Entity ID is valid (true) or not (false).
+            /// </summary>
+            /// <returns>true if valid; false otherwise.</returns>
             exported inline bool isValid() const {
                 return m_id != InvalidID ;
             }
 
-            /**
-             * Check if the current IDObject is the same as another one.
-             */
+            /// <summary>
+            /// Check if the current IDObject is the same as another one.
+            /// </summary>
+            /// <param name="other">Other object to compare.</param>
+            /// <returns>
+            /// true if the IDs of the current and the other object are equal;
+            /// false otherwise.
+            /// </returns>
             exported bool operator==(const IDObject& other);
 
-            /**
-             * Check if the current IDObject is different from another one.
-             */
+            /// <summary>
+            /// Check if the current IDObject is different from another one.
+            /// </summary>
+            /// <param name="other">Other object to compare.</param>
+            /// <returns>
+            /// true if the IDs of the current and the other object are
+            /// different; false otherwise.
+            /// </returns>
             exported bool operator!=(const IDObject& other);
 
-            /**
-             * Check if two IDObject are equal.
-             */
+            /// <summary>
+            /// Check if two IDObject are equal.
+            /// </summary>
+            /// <param name="left">First object to compare.</param>
+            /// <param name="right">Second object to compare.</param>
+            /// <returns>
+            /// true if the IDs of the current and the other object are equal;
+            /// false otherwise.
+            /// </returns>
             friend bool operator==(
                 const IDObject& left,
                 const IDObject& right
@@ -114,9 +134,15 @@ namespace Doom {
                 return left.id() == right.id();
             }
 
-            /**
-             * Check if two IDObject are different.
-             */
+            /// <summary>
+            /// Check if the current IDObject is different from another one.
+            /// </summary>
+            /// <param name="left">First object to compare.</param>
+            /// <param name="right">Second object to compare.</param>
+            /// <returns>
+            /// true if the IDs of the current and the other object are
+            /// different; false otherwise.
+            /// </returns>
             friend bool operator!=(
                 const IDObject& left,
                 const IDObject& right
@@ -124,28 +150,44 @@ namespace Doom {
                 return left.id() != right.id();
             }
 
-            /**
-             * Ordering operator.
-             */
+            /// <summary>
+            /// Ordering operator.
+            /// </summary>
+            /// <param name="left">First object to compare.</param>
+            /// <param name="right">Second object to compare.</param>
+            /// <returns>
+            /// true if the id of the first object is lower than the id of the
+            /// second object; false on the contrary.
+            /// </returns>
             friend bool operator<(const IDObject& first, const IDObject& second) {
                 return first.id() < second.id();
             }
 
-            /**
-             * Ordering operator.
-             */
+            /// <summary>
+            /// Ordering operator.
+            /// </summary>
+            /// <param name="left">First object to compare.</param>
+            /// <param name="right">Second object to compare.</param>
+            /// <returns>
+            /// true if the id of the first object is greater than the id of
+            /// the second object; false on the contrary.
+            /// </returns>
             friend bool operator>(const IDObject& first, const IDObject& second) {
                 return first.id() > second.id();
             }
 
-            /**
-             * Copy operator.
-             */
+            /// <summary>
+            /// Copy operator.
+            /// </summary>
+            /// <param name="other">Object to copy.</param>
+            /// <returns>Reference to the current object.</returns>
             exported IDObject& operator=(const IDObject& other) = default;
 
-            /**
-             * Move operator.
-             */
+            /// <summary>
+            /// Move operator.
+            /// </summary>
+            /// <param name="other">Object to move</param>
+            /// <returns>Reference to the current object.</returns>
             exported IDObject& operator=(IDObject&& other) = default;
     };
 }

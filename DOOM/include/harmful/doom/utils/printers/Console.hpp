@@ -8,15 +8,15 @@
 #include <mutex>
 
 namespace Doom {
-    /**
-     * A Console to write and get values from user.
-     */
+    /// <summary>
+    /// A Console to write and get values from user.
+    /// </summary>
     class Console final : public Printer {
         public:
 
-            /**
-             * State of the Console.
-             */
+            /// <summary>
+            /// State of the Console.
+            /// </summary>
             enum class State: int8_t {
                 Error,
                 Bad,
@@ -25,28 +25,53 @@ namespace Doom {
             } ;
 
         private:
-            /**
-             * Avoid concurrent accesses to the Console.
-             */
+            /// <summary>
+            /// Avoid concurrent accesses to the Console.
+            /// </summary>
             std::mutex m_mutex ;
 
-            /**
-             * State of the Console when reading values.
-             */
+            /// <summary>
+            /// State of the Console when reading values.
+            /// </summary>
             State m_inputState = State::OK ;
 
-        public:
+            /// <summary>
+            /// Disable copy of FilePrinter.
+            /// </summary>
+            Console(const Console&) = delete;
 
-            /**
-             * Instantiate a new Console object.
-             */
+            /// <summary>
+            /// Disable move of FilePrinter.
+            /// </summary>
+            Console(Console&&) = delete;
+
+            /// <summary>
+            /// Disable affectation.
+            /// </summary>
+            void operator= (const Console&) = delete;
+
+            /// <summary>
+            /// Disable move.
+            /// </summary>
+            void operator= (Console&&) = delete;
+
+        public:
+            /// <summary>
+            /// Instantiate a new Console object.
+            /// </summary>
             exported Console() ;
 
-            /**
-             * Read a value from the Console.
-             * @param   output  The read value.
-             * @return  State of the Console once data are read.
-             */
+            /// <summary>
+            /// Destruction of the Console instance.
+            /// </summary>
+            exported virtual ~Console() noexcept = default;
+
+            /// <summary>
+            /// Read a value from the Console.
+            /// </summary>
+            /// <typeparam name="T">Type of the read value in output.</typeparam>
+            /// <param name="output">The read value.</param>
+            /// <returns>State of the Console once data are read.</returns>
             template<class T>
             exported State read(T& output) {
                 State currentState ;
@@ -62,11 +87,12 @@ namespace Doom {
                 return currentState ;
             }
 
-            /**
-             * Write a message on the Console and create a new line in the
-             * output stream.
-             * @param   value   The value to be printed.
-             */
+            /// <summary>
+            /// Write a message on the Console and create a new line in the
+            /// output stream.
+            /// </summary>
+            /// <typeparam name="T">Type of the written value.</typeparam>
+            /// <param name="value">The value to be printed.</param>
             template<class T>
             exported void writeLine(const T& value) {
                 m_mutex.lock() ;
@@ -76,12 +102,12 @@ namespace Doom {
                 m_mutex.unlock() ;
             }
 
-            /**
-             * Write messages on the Console and create a new line in the output
-             * stream.
-             * @param   value   The value to be printed.
-             * @param   args    Remaining arguments to be printed.
-             */
+            /// <summary>
+            /// Write messages on the Console and create a new line in the
+            /// output stream.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
+            /// <param name="args">Remaining arguments to be printed.</param>
             template<class T, class ... Args>
             exported void writeLine(const T& value, const Args& ... args) {
                 m_mutex.lock() ;
@@ -94,10 +120,10 @@ namespace Doom {
                 m_mutex.unlock() ;
             }
 
-            /**
-             * Write a message on the Console.
-             * @param   value   The value to be printed.
-             */
+            /// <summary>
+            /// Write a message on the Console.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
             template<class T>
             exported void write(const T& value) {
                 m_mutex.lock() ;
@@ -107,11 +133,11 @@ namespace Doom {
                 m_mutex.unlock() ;
             }
 
-            /**
-             * Write messages on the Console.
-             * @param   value   The value to be printed.
-             * @param   args    Remaining arguments to be printed.
-             */
+            /// <summary>
+            /// Write messages on the Console.
+            /// </summary>
+            /// <param name="value">The value to be printed.</param>
+            /// <param name="args">Remaining arguments to be printed.</param>
             template<class T, class ... Args>
             exported void write(const T& value, const Args& ... args) {
                 m_mutex.lock() ;
@@ -125,15 +151,15 @@ namespace Doom {
             }
 
         private:
-            /**
-            * Check the status of the input stream and update the
-            * state of the Console for reading values.
-            */
+            /// <summary>
+            /// Check the status of the input stream and update the state of
+            /// the Console for reading values.
+            /// </summary>
             void checkInputStream() ;
 
-            /**
-             * Clear the input stream of the Console.
-             */
+            /// <summary>
+            /// Clear the input stream of the Console.
+            /// </summary>
             void clearInputStream() ;
     } ;
 } ;

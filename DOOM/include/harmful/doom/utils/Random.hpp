@@ -4,36 +4,38 @@
 #include "harmful/doom/utils/Platform.hpp"
 
 namespace Doom {
-    /**
-     * Simple random generation. This one does not use C++11 capabilities to
-     * keep things as simple as possible.
-     */
+    /// <summary>
+    /// Simple random generation. This one does not use C++11 and next
+    /// capabilities to keep things as simple as possible.
+    /// </summary>
     namespace Random {
-        /**
-         * Initialize the generation of random numbers.
-         * @param force [description]
-         */
+        /// <summary>
+        /// Initialize the generation of random numbers.
+        /// </summary>
+        /// <param name="force">If true, forces the (re)initialization.</param>
         exported void Initialize(const bool force = false) ;
 
-        /**
-         * Get an integer value from the pseudo-random value generator.
-         * @return The generated value.
-         */
+        /// <summary>
+        /// Get an integer value from the pseudo-random value generator.
+        /// </summary>
+        /// <returns>The generated value.</returns>
         exported int GetInteger() ;
 
-        /**
-         * Get an integer value into an interval from the pseudo-random value
-         * generator.
-         * @param  min Minimal value of the interval.
-         * @param  max Maximal value of the interval.
-         * @return     The generated value. If @a min >= @a max, 0 is returned.
-         */
+        /// <summary>
+        /// Get an integer value into an interval from the pseudo-random value
+        /// generator.
+        /// </summary>
+        /// <param name="min">Minimal value of the interval.</param>
+        /// <param name="max">Maximal value of the interval.</param>
+        /// <returns>
+        /// The generated value. If min >= max, 0 is returned.
+        /// </returns>
         exported int GetInteger(const int min, const int max) ;
 
-        /**
-         * Get a float value normalized from the pseudo-random value generator.
-         * @return     The generated value, the value is between 0 and 1.
-         */
+        /// <summary>
+        /// Get a float value normalized from the pseudo-random value generator.
+        /// </summary>
+        /// <returns>The generated value, the value is between 0 and 1.</returns>
         exported float GetNormalizedFloat() ;
     }
 }

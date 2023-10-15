@@ -9,116 +9,127 @@
 #include <vector>
 
 namespace Doom {
-    /**
-     * Measure execution time of one or different parts of the code.
-     * @warning It is recommanded to use the macros instead of the direct used
-     *          of the class. Indeed, they are more efficient for released
-     *          softwares by disabling the profiler.
-     */
+    /// <summary>
+    /// Measure execution time of one or different parts of the code.
+    /// </summary>
+    /// <remarks>
+    /// It is recommanded to use the macros instead of the direct used of the
+    /// class. Indeed, they are more efficient for released softwares by
+    /// disabling the profiler.
+    /// </remarks>
     class Profiler final {
         private:
-            /**
-             * The unique instance of the Profiler.
-             */
+            /// <summary>
+            /// The unique instance of the Profiler.
+            /// </summary>
             static Profiler Instance ;
 
-            /**
-             * Avoid concurrent accesses to the Profiler.
-             */
+            /// <summary>
+            /// Avoid concurrent accesses to the Profiler.
+            /// </summary>
             std::mutex m_mutex ;
 
-            /**
-             * Chronos used to compute the spent time of each wanted part of the
-             * code. A list of Chrono objects is used as a same portion of code
-             * can be splitted into different functions and parts.
-             * All the measured times are aggregated when the profiler is
-             * flushed.
-             */
+            /// <summary>
+            /// Chronos used to compute the spent time of each wanted part of
+            /// the code. A list of Chrono objects is used as a same portion of
+            /// code can be splitted into different functions and parts.
+            /// All the measured times are aggregated when the profiler is
+            /// flushed.
+            /// </summary>
             std::map<std::string, std::vector<Chrono>> m_chronos ;
 
-            /**
-             * Computed elapsed times when the profiler is flushed.
-             * The data are available until the next call to the flush() method.
-             */
+            /// <summary>
+            /// Computed elapsed times when the profiler is flushed.
+            /// The data are available until the next call to the flush()
+            /// method.
+            /// </summary>
             std::map<std::string, std::intmax_t> m_elapsedTimes ;
 
-            /**
-             * Instantiate the Profiler.
-             */
-            Profiler() ;
+            /// <summary>
+            /// Instantiate the Profiler.
+            /// </summary>
+            explicit Profiler() ;
 
-            /**
-             * Disable copy of Profiler.
-             */
+            /// <summary>
+            /// Disable copy of Profiler.
+            /// </summary>
             Profiler(const Profiler&) = delete ;
 
-            /**
-             * Disable move of Profiler.
-             */
+            /// <summary>
+            /// Disable move of Profiler.
+            /// </summary>
             Profiler(Profiler&&) = delete ;
 
-            /**
-             * Destruction of the Profiler.
-             */
-            ~Profiler() noexcept ;
+            /// <summary>
+            /// Destruction of the Profiler.
+            /// </summary>
+            virtual ~Profiler() noexcept ;
 
-            /**
-             * Disable affectation.
-             */
+            /// <summary>
+            /// Disable affectation.
+            /// </summary>
             void operator= (const Profiler&) = delete ;
 
-            /**
-             * Disable move.
-             */
+            /// <summary>
+            /// Disable move.
+            /// </summary>
             void operator= (Profiler&&) = delete ;
 
         public:
-            /**
-             * Get the unique instance of the Profiler.
-             */
+            /// <summary>
+            /// Get the unique instance of the Profiler.
+            /// </summary>
+            /// <returns>The unique instance of the Profiler.</returns>
             exported static Profiler& GetInstance() ;
 
-            /**
-             * Add a source of profiling. It can be named with an algorithm name
-             * to measure its execution time, or a group of functions under a
-             * generic name. For example, to measure the rendering time, a
-             * possible name would be "Render".
-             * @param name The name of the new profiling source.
-             */
+            /// <summary>
+            /// Add a source of profiling. It can be named with an algorithm
+            /// name to measure its execution time, or a group of functions
+            /// under a generic name. For example, to measure the rendering
+            /// time, a possible name would be "Render".
+            /// </summary>
+            /// <param name="name">The name of the new profiling source.</param>
             exported void addProfilingSource(const std::string& name) ;
 
-            /**
-             * Start profiling for the provided source.
-             * @param  name Name of the source to profile.
-             * @return      ID of the profiling session for the given source.
-             */
+            /// <summary>
+            /// Start profiling for the provided source.
+            /// </summary>
+            /// <param name="name">Name of the source to profile.</param>
+            /// <returns>ID of the profiling session for the given source.</returns>
             exported int startProfiling(const std::string& name) ;
 
-            /**
-             * Stop profiling a source.
-             * @param name      Name of the source to stop profiling.
-             * @param sessionID ID of the session to stop profiling.
-             * @warning If the @a sessionID value is invalid, all sessions are
-             *          stopped.
-             * @warning This function must be called in the same function than
-             *          startProfiling() function.
-             */
+            /// <summary>
+            /// Stop profiling a source.
+            /// </summary>
+            /// <param name="name">Name of the source to stop profiling.</param>
+            /// <param name="sessionID">ID of the session to stop profiling.</param>
+            /// <remarks>
+            /// If the sessionID value is invalid, all sessions are stopped.
+            /// </remarks>
+            /// <remarks>
+            /// This function must be called in the same function than
+            /// startProfiling() function.
+            /// </remarks>
             exported void stopProfiling(const std::string& name, const int sessionID) ;
 
-            /**
-             * Flush the profiler to store data until the next flush time.
-             */
+            /// <summary>
+            /// Flush the profiler to store data until the next flush time.
+            /// </summary>
             exported void flush() ;
 
-            /**
-             * Get the spent time for the given source of profiling.
-             * @param  name Name of the source of profiling.
-             * @return      Cumulated time for the wanted source of profiling,
-             *              zero if no such source has been registered.
-             * @warning This function is always available. Notice that it only
-             *          returns value of previous main loop of the software,
-             *          until flush() has been called.
-             */
+            /// <summary>
+            /// Get the spent time for the given source of profiling.
+            /// </summary>
+            /// <param name="name">Name of the source of profiling.</param>
+            /// <returns>
+            /// Cumulated time for the wanted source of profiling, zero if no
+            /// such source has been registered.
+            /// </returns>
+            /// <remarks>
+            /// This function is always available. Notice that it only returns
+            /// value of previous main loop of the software, until flush() has
+            /// been called.
+            /// </remarks>
             exported std::intmax_t getTime(const std::string& name) ;
     } ;
 }
