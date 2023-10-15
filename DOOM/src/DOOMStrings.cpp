@@ -1,4 +1,4 @@
-#include "DOOMStrings.hpp"
+#include "harmful/doom/DOOMStrings.hpp"
 
 /**
  * Tag to be detected when using xgettext on this file.

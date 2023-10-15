@@ -2,40 +2,14 @@
 //
 
 #include <iostream>
-#include <geometry/points/Point3Df.hpp>
-#include <entities/EntityFactory.hpp>
-#include <components/ComponentFactory.hpp>
-
-class TransformComponent : public Bane::Component {
-    private:
-        Mind::Point3Df m_position;
-
-    public:
-        TransformComponent(Bane::Entity& entity)
-            : Bane::Component(Bane::Component::Quantity::One, entity) {}
-
-        void setPosition(const Mind::Point3Df& position) { m_position = position; }
-        void setPosition(const float x, const float y, const float z) { m_position.set(x, y, z); }
-
-        const Mind::Point3Df& position() const { return m_position; }
-};
+#include <harmful/mind/geometry/points/Point3Df.hpp>
+#include <harmful/bane/entities/EntityFactory.hpp>
+#include <harmful/bane/components/ComponentFactory.hpp>
 
 int main()
 {
     std::cout << "Hello World!\n";
-
-    Bane::EntityFactory entityFactory;
-    auto entity1 = entityFactory.create();
-    std::cout << "Create Entity #" << entity1.id() << "\n";
-
-    Bane::ComponentFactory<TransformComponent> transformFactory;
-    auto transform1 = transformFactory.createComponentFor(entity1);
-    std::cout << "Create TransformComponent " << transform1 -> position() << " for Entity #" << transform1 -> entityID() << "\n";
-    std::cout << "There are " << transformFactory.count() << " components in the app now!\n";
-    transformFactory.destroyComponentsOf(entity1);
-    std::cout << "Destroy components of Entity #" << entity1.id() << "\n";
-    std::cout << "There are " << transformFactory.count() << " components in the app now!\n";
-    entityFactory.destroy(entity1);
+    return 0;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

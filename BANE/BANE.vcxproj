@@ -44,10 +44,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -84,17 +84,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\components\Component.hpp" />
-    <ClInclude Include="include\components\ComponentData.hpp" />
-    <ClInclude Include="include\components\ComponentFactory.hpp" />
-    <ClInclude Include="include\entities\Entity.hpp" />
-    <ClInclude Include="include\entities\EntityFactory.hpp" />
-    <ClInclude Include="include\jobs\Job.hpp" />
-    <ClInclude Include="include\jobs\JobSynchronization.hpp" />
-    <ClInclude Include="include\jobs\ThreadJob.hpp" />
-    <ClInclude Include="include\systems\System.hpp" />
-    <ClInclude Include="include\systems\SystemProcessing.hpp" />
-    <ClInclude Include="include\world\World.hpp" />
+    <ClInclude Include="include\harmful\bane\components\Component.hpp" />
+    <ClInclude Include="include\harmful\bane\components\ComponentData.hpp" />
+    <ClInclude Include="include\harmful\bane\components\ComponentFactory.hpp" />
+    <ClInclude Include="include\harmful\bane\entities\Entity.hpp" />
+    <ClInclude Include="include\harmful\bane\entities\EntityFactory.hpp" />
+    <ClInclude Include="include\harmful\bane\jobs\Job.hpp" />
+    <ClInclude Include="include\harmful\bane\jobs\JobSynchronization.hpp" />
+    <ClInclude Include="include\harmful\bane\jobs\ThreadJob.hpp" />
+    <ClInclude Include="include\harmful\bane\systems\System.hpp" />
+    <ClInclude Include="include\harmful\bane\systems\SystemProcessing.hpp" />
+    <ClInclude Include="include\harmful\bane\world\World.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

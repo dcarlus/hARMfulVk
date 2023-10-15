@@ -1,4 +1,4 @@
-#include "components/Component.hpp"
+#include "harmful/bane/components/Component.hpp"
 
 using namespace Bane;
 

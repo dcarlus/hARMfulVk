@@ -84,22 +84,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\debug\ErrorsManagement.hpp" />
-    <ClInclude Include="include\DOOMStrings.hpp" />
-    <ClInclude Include="include\utils\Chrono.hpp" />
-    <ClInclude Include="include\utils\IDObject.hpp" />
-    <ClInclude Include="include\utils\literals\NumberLiterals.hpp" />
-    <ClInclude Include="include\utils\LogSystem.hpp" />
-    <ClInclude Include="include\utils\Platform.hpp" />
-    <ClInclude Include="include\utils\printers\Console.hpp" />
-    <ClInclude Include="include\utils\printers\FilePrinter.hpp" />
-    <ClInclude Include="include\utils\printers\Printer.hpp" />
-    <ClInclude Include="include\utils\Profiler.hpp" />
-    <ClInclude Include="include\utils\Random.hpp" />
-    <ClInclude Include="include\utils\StringExt.hpp" />
-    <ClInclude Include="include\utils\Time.hpp" />
-    <ClInclude Include="include\utils\Translation.hpp" />
-    <ClInclude Include="include\utils\Utils.hpp" />
+    <ClInclude Include="include\harmful\doom\debug\ErrorsManagement.hpp" />
+    <ClInclude Include="include\harmful\doom\DOOMStrings.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Chrono.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\IDObject.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\literals\NumberLiterals.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\LogSystem.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Platform.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\printers\Console.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\printers\FilePrinter.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\printers\Printer.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Profiler.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Random.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\StringExt.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Time.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Translation.hpp" />
+    <ClInclude Include="include\harmful\doom\utils\Utils.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

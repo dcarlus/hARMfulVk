@@ -1,5 +1,5 @@
-#include "geometry/dimensions/Dimension2Df.hpp"
-#include "geometry/dimensions/Dimension3Df.hpp"
+#include "harmful/mind/geometry/dimensions/Dimension2Df.hpp"
+#include "harmful/mind/geometry/dimensions/Dimension3Df.hpp"
 #include <cmath>
 
 namespace Mind {

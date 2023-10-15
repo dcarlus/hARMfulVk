@@ -1,4 +1,4 @@
-#include "Math.hpp"
+#include "harmful/mind/Math.hpp"
 
 namespace Mind {
     namespace Math {

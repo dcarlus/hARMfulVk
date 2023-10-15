@@ -93,136 +93,136 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\FastMath.hpp">
+    <ClInclude Include="include\harmful\mind\FastMath.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\Math.hpp">
+    <ClInclude Include="include\harmful\mind\Math.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\MINDOptions.hpp">
+    <ClInclude Include="include\harmful\mind\MINDOptions.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\MINDStrings.hpp">
+    <ClInclude Include="include\harmful\mind\MINDStrings.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\MINDTypes.hpp">
+    <ClInclude Include="include\harmful\mind\MINDTypes.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\dimensions\Dimension2Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\dimensions\Dimension2Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\dimensions\Dimension2Di.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\dimensions\Dimension2Di.hpp">
       <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\dimensions\Dimension3Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\dimensions\Dimension3Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\dimensions\Dimension3Di.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\dimensions\Dimension3Di.hpp">
       <Filter>Fichiers d%27en-tête\geometry\dimensions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\lines\Line2Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\lines\Line2Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\lines</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\points\Point2Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\points\Point2Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\points</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\points\Point3Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\points\Point3Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\points</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\points\Point4Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\points\Point4Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\points</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\quaternions\Quaternion.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\quaternions\Quaternion.hpp">
       <Filter>Fichiers d%27en-tête\geometry\quaternions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\quaternions\Quaternion_NoSIMD.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\quaternions\Quaternion_NoSIMD.hpp">
       <Filter>Fichiers d%27en-tête\geometry\quaternions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\quaternions\Quaternion_SIMD.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\quaternions\Quaternion_SIMD.hpp">
       <Filter>Fichiers d%27en-tête\geometry\quaternions</Filter>
     </ClInclude>
-    <ClInclude Include="include\geometry\rectangles\Rectangle2Df.hpp">
+    <ClInclude Include="include\harmful\mind\geometry\rectangles\Rectangle2Df.hpp">
       <Filter>Fichiers d%27en-tête\geometry\rectangles</Filter>
     </ClInclude>
-    <ClInclude Include="include\matrices\Matrix2D.hpp">
+    <ClInclude Include="include\harmful\mind\matrices\Matrix2D.hpp">
       <Filter>Fichiers d%27en-tête\matrices</Filter>
     </ClInclude>
-    <ClInclude Include="include\matrices\Matrix3x3f.hpp">
+    <ClInclude Include="include\harmful\mind\matrices\Matrix3x3f.hpp">
       <Filter>Fichiers d%27en-tête\matrices</Filter>
     </ClInclude>
-    <ClInclude Include="include\matrices\Matrix4x4f.hpp">
+    <ClInclude Include="include\harmful\mind\matrices\Matrix4x4f.hpp">
       <Filter>Fichiers d%27en-tête\matrices</Filter>
     </ClInclude>
-    <ClInclude Include="include\matrices\SquareMatrixf.hpp">
+    <ClInclude Include="include\harmful\mind\matrices\SquareMatrixf.hpp">
       <Filter>Fichiers d%27en-tête\matrices</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\SIMDArrays.hpp">
+    <ClInclude Include="include\harmful\mind\simd\SIMDArrays.hpp">
       <Filter>Fichiers d%27en-tête\simd</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\SIMDTypes.hpp">
+    <ClInclude Include="include\harmful\mind\simd\SIMDTypes.hpp">
       <Filter>Fichiers d%27en-tête\simd</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\SIMDUtilities.hpp">
+    <ClInclude Include="include\harmful\mind\simd\SIMDUtilities.hpp">
       <Filter>Fichiers d%27en-tête\simd</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\SIMDVector.hpp">
+    <ClInclude Include="include\harmful\mind\simd\SIMDVector.hpp">
       <Filter>Fichiers d%27en-tête\simd</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\SSETypes.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\SSETypes.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\FloatUtils.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\FloatUtils.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\SIMDVector4f.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\SIMDVector4f.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\impl.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\impl\Vector4f\impl.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\operators.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\impl\Vector4f\operators.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\impl.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\impl\Vector4f\Mask\impl.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\inner.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\impl\Vector4f\Mask\inner.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\floats\impl\Vector4f\Mask\operators.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\floats\impl\Vector4f\Mask\operators.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\floats\impl\Vector4f\Mask</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4i.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\SIMDVector4i.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4ui.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\SIMDVector4ui.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\SIMDVector4.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\SIMDVector4.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\impl.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\impl.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\impl.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Mask\impl.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\inner.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Mask\inner.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Mask\operators.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Mask\operators.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Mask</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4i\impl.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Vector4i\impl.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4i</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4i\operators.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Vector4i\operators.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4i</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\impl.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Vector4ui\impl.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4ui</Filter>
     </ClInclude>
-    <ClInclude Include="include\simd\intel_sse2\integers\impl\Vector4\Vector4ui\operators.hpp">
+    <ClInclude Include="include\harmful\mind\simd\intel_sse2\integers\impl\Vector4\Vector4ui\operators.hpp">
       <Filter>Fichiers d%27en-tête\simd\sse\integers\impl\Vector4\Vector4ui</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">

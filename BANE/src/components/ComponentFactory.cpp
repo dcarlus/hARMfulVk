@@ -1,4 +1,4 @@
-#include "components/ComponentFactory.hpp"
+#include "harmful/bane/components/ComponentFactory.hpp"
 #include <list>
 
 using namespace Bane;

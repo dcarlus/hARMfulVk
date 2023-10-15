@@ -1,5 +1,5 @@
-#include "utils/Translation.hpp"
-#include "utils/printers/FilePrinter.hpp"
+#include "harmful/doom/utils/Translation.hpp"
+#include "harmful/doom/utils/printers/FilePrinter.hpp"
 
 namespace Doom {
     FilePrinter::FilePrinter(const std::string& filepath)

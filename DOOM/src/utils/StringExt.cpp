@@ -1,5 +1,5 @@
-#include "utils/StringExt.hpp"
-#include "utils/Random.hpp"
+#include "harmful/doom/utils/StringExt.hpp"
+#include "harmful/doom/utils/Random.hpp"
 #include <algorithm>
 #include <limits>
 #include <cmath>

@@ -1,4 +1,4 @@
-#include "MINDStrings.hpp"
+#include "harmful/mind/MINDStrings.hpp"
 
 /**
  * Tag to be detected when using xgettext on this file.

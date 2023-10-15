@@ -1,6 +1,6 @@
-#include "matrices/Matrix4x4f.hpp"
-#include "matrices/Matrix3x3f.hpp"
-#include "Math.hpp"
+#include "harmful/mind/matrices/Matrix4x4f.hpp"
+#include "harmful/mind/matrices/Matrix3x3f.hpp"
+#include "harmful/mind/Math.hpp"
 #include <iomanip>
 
 #ifdef USE_SIMD // for compilations where SSE or NEON are available

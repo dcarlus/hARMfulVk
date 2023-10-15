@@ -1,5 +1,5 @@
-#include "utils/Time.hpp"
-#include "utils/Platform.hpp"
+#include "harmful/doom/utils/Time.hpp"
+#include "harmful/doom/utils/Platform.hpp"
 #include <time.h>
 
 namespace Doom {

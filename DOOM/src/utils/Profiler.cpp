@@ -1,6 +1,6 @@
-#include "utils/Profiler.hpp"
-#include "utils/Translation.hpp"
-#include "DOOMStrings.hpp"
+#include "harmful/doom/utils/Profiler.hpp"
+#include "harmful/doom/utils/Translation.hpp"
+#include "harmful/doom/DOOMStrings.hpp"
 #include <iostream>
 #include <limits>
 #include <cassert>

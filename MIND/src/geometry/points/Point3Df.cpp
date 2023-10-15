@@ -1,11 +1,11 @@
-#include "geometry/points/Point3Df.hpp"
+#include "harmful/mind/geometry/points/Point3Df.hpp"
 
 #ifdef USE_SIMD // for compilations where SSE or NEON are available
-#include "geometry/points/Point2Df.hpp"
-#include "geometry/dimensions/Dimension3Df.hpp"
-#include "matrices/Matrix3x3f.hpp"
-#include "FastMath.hpp"
-#include "Math.hpp"
+#include "harmful/mind/geometry/points/Point2Df.hpp"
+#include "harmful/mind/geometry/dimensions/Dimension3Df.hpp"
+#include "harmful/mind/matrices/Matrix3x3f.hpp"
+#include "harmful/mind/FastMath.hpp"
+#include "harmful/mind/Math.hpp"
 
 const int X = 0 ;
 const int Y = 1 ;

@@ -1,9 +1,9 @@
-#include "geometry/points/Point2Df.hpp"
+#include "harmful/mind/geometry/points/Point2Df.hpp"
 
 #ifdef USE_SIMD // for compilations where SSE or NEON are available
-#include "geometry/lines/Line2Df.hpp"
-#include "FastMath.hpp"
-#include "Math.hpp"
+#include "harmful/mind/geometry/lines/Line2Df.hpp"
+#include "harmful/mind/FastMath.hpp"
+#include "harmful/mind/Math.hpp"
 
 const int X = 0 ;
 const int Y = 1 ;

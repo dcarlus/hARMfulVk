@@ -1,6 +1,6 @@
-#include "geometry/lines/Line2Df.hpp"
-#include "FastMath.hpp"
-#include "Math.hpp"
+#include "harmful/mind/geometry/lines/Line2Df.hpp"
+#include "harmful/mind/FastMath.hpp"
+#include "harmful/mind/Math.hpp"
 
 namespace Mind {
     Line2Df::Line2Df() {

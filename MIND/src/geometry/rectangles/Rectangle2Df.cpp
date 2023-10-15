@@ -1,5 +1,5 @@
-#include "geometry/rectangles/Rectangle2Df.hpp"
-#include "Math.hpp"
+#include "harmful/mind/geometry/rectangles/Rectangle2Df.hpp"
+#include "harmful/mind/Math.hpp"
 #include <algorithm>
 
 namespace Mind {

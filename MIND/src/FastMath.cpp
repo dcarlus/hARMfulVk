@@ -1,10 +1,10 @@
-#include "FastMath.hpp"
-#include "MINDOptions.hpp"
+#include "harmful/mind/FastMath.hpp"
+#include "harmful/mind/MINDOptions.hpp"
 #include <vector>
 
 #ifdef USE_SIMD
-    #include "simd/SIMDArrays.hpp"
-    #include "simd/SIMDVector.hpp"
+    #include "harmful/mind/simd/SIMDArrays.hpp"
+    #include "harmful/mind/simd/SIMDVector.hpp"
 #endif
 
 namespace Mind {

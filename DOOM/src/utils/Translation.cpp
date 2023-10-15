@@ -1,4 +1,4 @@
-#include "utils/Translation.hpp"
+#include "harmful/doom/utils/Translation.hpp"
 
 #ifdef __linux__
     // Apply translations on GNU/Linux systems.

@@ -1,5 +1,5 @@
-#include "matrices/SquareMatrixf.hpp"
-#include "Math.hpp"
+#include "harmful/mind/matrices/SquareMatrixf.hpp"
+#include "harmful/mind/Math.hpp"
 
 #ifdef USE_SIMD
 

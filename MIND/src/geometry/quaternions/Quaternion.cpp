@@ -1,5 +1,5 @@
-#include "geometry/quaternions/Quaternion.hpp"
-#include "Math.hpp"
+#include "harmful/mind/geometry/quaternions/Quaternion.hpp"
+#include "harmful/mind/Math.hpp"
 
 #ifdef USE_SIMD // for compilations where SSE or NEON are available
 

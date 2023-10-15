@@ -1,5 +1,5 @@
-#include "utils/LogSystem.hpp"
-#include "utils/Translation.hpp"
+#include "harmful/doom/utils/LogSystem.hpp"
+#include "harmful/doom/utils/Translation.hpp"
 
 using namespace Doom ;
 

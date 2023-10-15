@@ -1,9 +1,9 @@
-#include "geometry/points/Point4Df.hpp"
+#include "harmful/mind/geometry/points/Point4Df.hpp"
 
 #ifdef USE_SIMD // for compilations where SSE or NEON are available
-#include "matrices/Matrix4x4f.hpp"
-#include "FastMath.hpp"
-#include "Math.hpp"
+#include "harmful/mind/matrices/Matrix4x4f.hpp"
+#include "harmful/mind/FastMath.hpp"
+#include "harmful/mind/Math.hpp"
 
 const int X = 0 ;
 const int Y = 1 ;
