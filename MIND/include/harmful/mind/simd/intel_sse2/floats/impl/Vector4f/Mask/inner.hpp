@@ -1,24 +1,26 @@
-/**
- * Mask to perform logical operations on Vector4f.
- */
+/// <summary>
+/// Mask to perform logical operations on Vector4f.
+/// </summary>
 class Mask {
     private:
-        /** Inner vector of booleans (as floats). */
+        /// <summary>
+        /// Inner vector of booleans (as floats).
+        /// </summary>
         Float32x4 m_inner ;
 
     public:
-        /**
-         * Create an empty Mask.
-         */
+        /// <summary>
+        /// Create an empty Mask.
+        /// </summary>
         Mask() ;
 
-        /**
-         * Create from four boolean values.
-         * @param   b1  First value mask.
-         * @param   b2  Second value mask.
-         * @param   b3  Third value mask.
-         * @param   b4  Fourth value mask.
-         */
+        /// <summary>
+        /// Create from four boolean values.
+        /// </summary>
+        /// <param name="b0">First value mask.</param>
+        /// <param name="b1">Second value mask.</param>
+        /// <param name="b2">Third value mask.</param>
+        /// <param name="b3">Fourth value mask.</param>
         Mask(
              const bool b0,
              const bool b1,
@@ -26,116 +28,118 @@ class Mask {
              const bool b3
             ) ;
 
-        /**
-         * Create from one boolean, applied to all components of the Mask.
-         * @param   value   The boolean to apply to all values of the Mask.
-         */
+        /// <summary>
+        /// Create from one boolean, applied to all components of the Mask.
+        /// </summary>
+        /// <param name="value">
+        /// The boolean to apply to all values of the Mask.
+        /// </param>
         Mask(const bool value) ;
 
-        /**
-         * Create from inner type data.
-         * @param   vec     The inner data to copy.
-         */
+        /// <summary>
+        /// Create from inner type data.
+        /// </summary>
+        /// <param name="vec">The inner data to copy.</param>
         Mask(const __m128 vec) ;
 
-
-        /**
-         * Create from a Mask used by integer Vector4.
-         * @param   mask    Mask to cast.
-         */
+        /// <summary>
+        /// Create from a Mask used by integer Vector4.
+        /// </summary>
+        /// <param name="mask">Mask to cast.</param>
         Mask(const Vector4i::Mask& mask) ;
 
-        /**
-         * Create from a Mask used by integer Vector4.
-         * @param   mask    Mask to cast.
-         */
+        /// <summary>
+        /// Create from a Mask used by integer Vector4.
+        /// </summary>
+        /// <param name="mask">Mask to cast.</param>
         Mask(const Vector4ui::Mask& mask) ;
 
-
-                                                              /*** UTILITIES ***/
     public:
-        /**
-         * Get one value from the mask.
-         * @param   index   Index of the value to get (should be lower than
-         *                    length).
-         * @return  Value in the mask at the given index.
-         */
+        /// <summary>
+        /// Get one value from the mask.
+        /// </summary>
+        /// <param name="index">
+        /// Index of the value to get (should be lower than length).
+        /// </param>
+        /// <returns>Value in the mask at the given index.</returns>
         bool get(const unsigned int index) ;
 
-        /**
-         * Get the length of the Mask.
-         * @return  The length of the Mask.
-         */
+        /// <summary>
+        /// Get the length of the Mask.
+        /// </summary>
+        /// <returns>The length of the Mask.</returns>
         size_t length() const ;
 
-
-        /**
-         * Size of the Mask.
-         * @return  The length of the Mask.
-         */
+        /// <summary>
+        /// Size of the Mask.
+        /// </summary>
+        /// <returns>The length of the Mask.</returns>
         static size_t size() ;
 
-        /**
-         * Print the content of the Vector on the console output.
-         */
+        /// <summary>
+        /// Print the content of the Vector on the console output.
+        /// </summary>
         void print() ;
 
-
-                                                              /*** OPERATORS ***/
-                                                        /** AFFECT OPERATORS **/
-        /**
-        * Affect the inner value of the Mask to the broadcasted one given as
-        * parameter.
-         * @param   value   The value to put in the Mask, to all its values.
-         * @return  The current Mask once the value is affected to its inner
-         *            data.
-         */
+        /// <summary>
+        /// Affect the inner value of the Mask to the broadcasted one given as
+        /// parameter.
+        /// </summary>
+        /// <param name="value">
+        /// The value to put in the Mask, to all its values.
+        /// </param>
+        /// <returns>
+        /// The current Mask once the value is affected to its inner data.
+        /// </returns>
         Mask& operator=(const bool value) ;
 
-        /**
-         * Affect the inner value to the Mask.
-         * @param   vec     The value to put in the Mask.
-         * @return  The current Mask once the vec is affected to its inner data.
-         */
+        /// <summary>
+        /// Affect the inner value to the Mask.
+        /// </summary>
+        /// <param name="vec">The value to put in the Mask.</param>
+        /// <returns>
+        /// The current Mask once the vec is affected to its inner data.
+        /// </returns>
         Mask& operator=(const __m128i& vec) ;
 
-        /**
-         * Affect the inner value to the Mask.
-         * @param   vec     The value to put in the Mask.
-         * @return  The current Mask once the vec is affected to its inner data.
-         */
+        /// <summary>
+        /// Affect the inner value to the Mask.
+        /// </summary>
+        /// <param name="vec">The value to put in the Mask.</param>
+        /// <returns>
+        /// The current Mask once the vec is affected to its inner data.
+        /// </returns>
         Mask& operator=(const __m128 vec) ;
 
-        /**
-         * Affect the inner value to the Mask.
-         * @param   mask    The value to put in the Mask.
-         * @return  The current Mask once the vec is affected to its inner data.
-         */
+        /// <summary>
+        /// Affect the inner value to the Mask.
+        /// </summary>
+        /// <param name="mask">The value to put in the Mask.</param>
+        /// <returns>
+        /// The current Mask once the vec is affected to its inner data.
+        /// </returns>
         Mask& operator=(const Vector4i::Mask& mask) ;
 
-                                                            /** CAST OPERATORS **/
-        /**
-         * Cast the current Mask to its inner data type.
-         * @return  The inner data of the Mask.
-         */
+        /// <summary>
+        /// Cast the current Mask to its inner data type.
+        /// </summary>
         explicit operator __m128i() const ;
 
-        /**
-         * Cast the current Mask to a __m128.
-         * @return  The inner data of the Mask as a __m128 vector.
-         */
+        /// <summary>
+        /// Cast the current Mask to a __m128.
+        /// </summary>
         operator __m128() const ;
 
-        /**
-         * Cast the current Mask to a Vector4i::Mask.
-         * @return  The Vector4i::Mask version of the current Mask.
-         */
+        /// <summary>
+        /// Cast the current Mask to a Vector4i::Mask.
+        /// </summary>
         explicit operator Vector4i::Mask() const ;
 
-        /**
-         * Cast the current Mask to a Vector4ui::Mask.
-         * @return  The Vector4ui::Mask version of the current Mask.
-         * @warning Be careful with negative values.
-         */
+        /// <summary>
+        /// Cast the current Mask to a Vector4ui::Mask.
+        /// </summary>
+        /// <remarks>
+        /// Be careful with negative values.
+        /// </remarks>
         explicit operator Vector4ui::Mask() const ;
 } ;

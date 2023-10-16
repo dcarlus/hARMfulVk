@@ -1,5 +1,3 @@
-inline Quaternion::Quaternion() : Quaternion(0.f, 0.f, 0.f, 0.f) {}
-
 inline Quaternion::Quaternion(
     const Scalar x,
     const Scalar y,

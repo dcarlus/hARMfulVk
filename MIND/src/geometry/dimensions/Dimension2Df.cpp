@@ -3,8 +3,6 @@
 #include <cmath>
 
 namespace Mind {
-    Dimension2Df::Dimension2Df() : m_width(0.f), m_height(0.f) {}
-
     Dimension2Df::Dimension2Df(
         const Scalar width,
         const Scalar height

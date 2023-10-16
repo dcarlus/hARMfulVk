@@ -13,202 +13,222 @@ namespace Mind {
     class Line2Df ;
     std::ostream& operator<<(std::ostream& s, const Line2Df& l) ;
 
-    /**
-     * A Line is a straight path through two points.
-     */
+    /// <summary>
+    /// A Line is a straight path through two points.
+    /// </summary>
     class Line2Df final {
         private:
-            /** Start point. */
+            /// <summary>
+            /// Start point.
+            /// </summary>
             Point2Df m_start ;
 
-            /** End point. */
+            /// <summary>
+            /// End point.
+            /// </summary>
             Point2Df m_end ;
 
-            /** Test if the Line has changed. */
-            bool m_isChanged = false ;
+            /// <summary>
+            /// Test if the Line has changed.
+            /// </summary>
+            bool m_isChanged{ false };
 
-            /** Length of the Line. */
-            Scalar m_length ;
+            /// <summary>
+            /// Length of the Line.
+            /// </summary>
+            Scalar m_length = 0.f;
 
         public:
-            /** Create an empty Line. */
-            exported Line2Df() ;
+            // Default constructors/assignemnts.
+            exported Line2Df() = default;
+            exported Line2Df(const Line2Df& copied) = default;
+            exported Line2Df(Line2Df&& moved) = default;
+            exported Line2Df& operator=(const Line2Df& copied) = default;
+            exported Line2Df& operator=(Line2Df&& moved) = default;
+            exported ~Line2Df() noexcept = default;
 
-            /**
-             * Copy a Line.
-             * @param   copied      Line to copy.
-             */
-            exported Line2Df(const Line2Df& copied) = default ;
-
-            /**
-             * Move a Line.
-             * @param   moved       Line to move.
-             */
-            exported Line2Df(Line2Df&& moved) = default ;
-
-            /**
-             * Create an Line through the given points.
-             * @param   start       The start point.
-             * @param   end         The end point.
-             */
+            /// <summary>
+            /// Create an Line through the given points.
+            /// </summary>
+            /// <param name="start">The start point.</param>
+            /// <param name="end">The end point.</param>
             exported Line2Df(const Point2Df& start, const Point2Df& end) ;
 
-            /** Destroy the Line. */
-            exported virtual ~Line2Df() = default ;
-
-            /**
-             * Get the length of the Line.
-             * @return  The length of the Line.
-             */
+            /// <summary>
+            /// Get the length of the Line.
+            /// </summary>
+            /// <returns>The length of the Line.</returns>
             exported Scalar length() ;
 
-            /**
-             * Get the length of the Line.
-             * @return  The length of the Line.
-             */
+            /// <summary>
+            /// Get the squared length of the Line.
+            /// </summary>
+            /// <returns>Squared length of the Line.</returns>
             exported Scalar lengthSquared() ;
 
-            /**
-             * Test if a Line is contiguous to this one.
-             * @param s     The other Line to test to the current Line.
-             * @return TRUE if a Point is common to both segments, FALSE else.
-             */
+            /// <summary>
+            /// Test if a Line is contiguous to this one.
+            /// </summary>
+            /// <param name="other">
+            /// The other Line to test to the current Line.
+            /// </param>
+            /// <returns>
+            /// true if a Point is common to both segments, false else.
+            /// </returns>
             exported bool isContiguousTo(const Line2Df& other) ;
 
-            /**
-             * This is similar to the Line2D.relativeCCW() function from Java2D.
-             * @param l The Line used as reference.
-             * @param p The Point to compare to the segment.
-             */
-            exported static char CCW(const Line2Df& l, const Point2Df& p) ;
+            /// <summary>
+            /// This is similar to the Line2D.relativeCCW() function from
+            /// Java2D.
+            /// </summary>
+            /// <param name="l">The Line used as reference.</param>
+            /// <param name="p">The Point to compare to the segment.</param>
+            /// <returns>
+            /// An indicator of where the specified point (px,py) lies with
+            /// respect to this line segment.
+            /// </returns>
+            exported static int8_t CCW(const Line2Df& l, const Point2Df& p) ;
 
-            /**
-             * Get the same Line without constraint about its position. The
-             * start point of the Line is set as the origin of the plan.
-             * @param l     The Line to express as an relative segment to the
-             *              origin.
-             * @return  A Line similar to the one give, expressed to the origin
-             *          of the plan.
-             */
+            /// <summary>
+            /// Get the same Line without constraint about its position. The
+            /// start point of the Line is set as the origin of the plan.
+            /// </summary>
+            /// <param name="l">
+            /// The Line to express as an relative segment to the origin.
+            /// </param>
+            /// <returns>
+            /// A Line similar to the one give, expressed to the origin of the
+            /// plan.
+            /// </returns>
             exported static Line2Df relative(const Line2Df& l) ;
 
-            /**
-             * Test if the Line intersects another one.
-             * @param   line        The other Line to test.
-             * @return  TRUE if the two Lines intersect, FALSE otherwise.
-             */
+            /// <summary>
+            /// Test if the Line intersects another one.
+            /// </summary>
+            /// <param name="line">The other Line to test.</param>
+            /// <returns>
+            /// true if the two Lines intersect, false otherwise.
+            /// </returns>
             exported bool intersects(const Line2Df& line) ;
 
-            /**
-             * Compute the distance of the Line to the given Point.
-             * @param   point       Point to measure its distance to the Line.
-             * @return  Distance between the Line and the Point.
-             */
+            /// <summary>
+            /// Compute the distance of the Line to the given Point.
+            /// </summary>
+            /// <param name="point">
+            /// Point to measure its distance to the Line.
+            /// </param>
+            /// <returns>
+            /// Distance between the Line and the Point.
+            /// </returns>
             exported virtual Scalar distanceTo(const Point2Df& point) ;
 
-            /**
-             * Compute the distance of the Line to the given Point.
-             * @param   x           Coordinate on X axis.
-             * @param   y           Coordinate on Y axis.
-             * @return  Distance between the Line and the Point.
-             */
+            /// <summary>
+            /// Compute the distance of the Line to the given Point.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <returns>Distance between the Line and the Point.</returns>
             exported virtual Scalar distanceTo(const Scalar x, const Scalar y) ;
 
-            /**
-             * Compute the squared distance of the Line to the given Point.
-             * @param   point       Point to measure its distance to the Line.
-             * @return  Distance between the Line and the Point.
-             */
+            /// <summary>
+            /// Compute the squared distance of the Line to the given Point.
+            /// </summary>
+            /// <param name="point">
+            /// Point to measure its distance to the Line.
+            /// </param>
+            /// <returns>Distance between the Line and the Point.</returns>
             exported virtual Scalar distanceSquaredTo(const Point2Df& point) ;
 
-            /**
-             * Compute the squared distance of the Line to the given Point.
-             * @param   x           Coordinate on X axis.
-             * @param   y           Coordinate on Y axis.
-             * @return  Distance between the Line and the Point.
-             */
+            /// <summary>
+            /// Compute the squared distance of the Line to the given Point.
+            /// </summary>
+            /// <param name="x">Coordinate of the Point on X axis.</param>
+            /// <param name="y">Coordinate of the Point on Y axis.</param>
+            /// <returns>Distance between the Line and the Point.</returns>
             exported virtual Scalar distanceSquaredTo(const Scalar x, const Scalar y) ;
 
-            /**
-             * Get the Rectangle that represents the boundaries of the Line.
-             * @return  The Rectangle representing the boundaries of the line.
-             */
+            /// <summary>
+            /// Get the Rectangle that represents the boundaries of the Line.
+            /// </summary>
+            /// <returns>
+            /// The Rectangle representing the boundaries of the line.
+            /// </returns>
             exported const Rectangle2Df bounds() const ;
 
-            /**
-             * Get the starting point of the Line.
-             * @return  The start point of the Line.
-             */
+            /// <summary>
+            /// Get the starting point of the Line.
+            /// </summary>
+            /// <returns>The start point of the Line.</returns>
             exported const Point2Df& startPoint() const ;
 
-            /**
-             * Get the ending point of the Line.
-             * @return  The ending point of the Line.
-             */
+            /// <summary>
+            /// Get the ending point of the Line.
+            /// </summary>
+            /// <returns>The ending point of the Line.</returns>
             exported const Point2Df& endPoint() const ;
 
-            /**
-             * Get the X coordinate of the start point.
-             * @return  The X coordinate of the start point.
-             */
+            /// <summary>
+            /// Get the X coordinate of the start point.
+            /// </summary>
+            /// <returns>The X coordinate of the start point.</returns>
             exported Scalar startX() const ;
 
-            /**
-             * Get the Y coordinate of the start point.
-             * @return  The Y coordinate of the start point.
-             */
+            /// <summary>
+            /// Get the Y coordinate of the start point.
+            /// </summary>
+            /// <returns>The Y coordinate of the start point.</returns>
             exported Scalar startY() const ;
 
-            /**
-             * Get the X coordinate of the end point.
-             * @return  The X coordinate of the end point.
-             */
+            /// <summary>
+            /// Get the X coordinate of the end point.
+            /// </summary>
+            /// <returns>The X coordinate of the end point.</returns>
             exported Scalar endX() const ;
 
-            /**
-             * Get the Y coordinate of the end point.
-             * @return  The Y coordinate of the end point.
-             */
+            /// <summary>
+            /// Get the Y coordinate of the end point.
+            /// </summary>
+            /// <returns>The Y coordinate of the end point.</returns>
             exported Scalar endY() const ;
 
-            /**
-             * Test if the Line is empty (no length).
-             */
+            /// <summary>
+            /// Test if the Line is empty (no length).
+            /// </summary>
+            /// <returns>true if the length is 0, false otherwise.</returns>
             exported bool isEmpty() const ;
 
-            /**
-             * Assignment operator to copy a Line.
-             * @return  The current Line with the copied values.
-             */
-            exported Line2Df& operator=(const Line2Df& other) ;
-
-            /**
-             * Assignment operator to move a Line.
-             * @return  The current Line with the moved values.
-             */
-            exported Line2Df& operator=(Line2Df&& other) = default ;
-
-            /**
-             * Test if two Lines are at the same position.
-             * @param   other   An other Line to compare to the current one.
-             * @return  TRUE if the Lines are at the same position, FALSE else.
-             */
+            /// <summary>
+            /// Test if two Lines are at the same position.
+            /// </summary>
+            /// <param name="other">
+            /// An other Line to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Lines are at the same position, false else.
+            /// </returns>
             exported bool operator==(const Line2Df& other) const ;
 
-            /**
-             * Test if two Lines are at two different positions.
-             * @param   other   An other Line to compare to the current one.
-             * @return  TRUE if the Lines are at two different positions, FALSE
-             *          else.
-             */
+            /// <summary>
+            /// Test if two Lines are at two different positions.
+            /// </summary>
+            /// <param name="other">
+            /// An other Line to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Lines are at two different positions, false else.
+            /// </returns>
             exported bool operator!=(const Line2Df& other) const ;
 
-            /**
-             * Echo the Line coordinates on console.
-             * @param   s   The stream in which print the formatted coordinates.
-             * @param   l   The Line to print.
-             * @return  The stream with the printed Line coordinates.
-             */
+            /// <summary>
+            /// Echo the Line coordinates on console.
+            /// </summary>
+            /// <param name="s">
+            /// The stream in which print the formatted coordinates.
+            /// </param>
+            /// <param name="l">The Line to print.</param>
+            /// <returns>
+            /// The stream with the printed Line coordinates.
+            /// </returns>
             friend std::ostream& operator<<(std::ostream& s, const Line2Df& l) ;
     } ;
 } ;

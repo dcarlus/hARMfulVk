@@ -10,252 +10,323 @@
 namespace Mind {
     class Matrix3x3f ;
 
-    /**
-     * 4x4 square matrix.
-     */
+    /// <summary>
+    /// 4x4 square matrix.
+    /// </summary>
     class Matrix4x4f final : public SquareMatrixf {
         public:
-            /**
-             * Total size of the matrix.
-             */
-            static const int MatrixSize = 16 ;
+            /// <summary>
+            /// Total size of the matrix.
+            /// </summary>
+            static const int MatrixSize = 4*4 ;
 
-
-            /**
-             * Create a square matrix of size equal to 4.
-             * @param   value   Value of the matrix when created or cleared.
-             *                  The default value is zero.
-             */
+            /// <summary>
+            /// Create a square matrix of size equal to 4.
+            /// </summary>
+            /// <param name="value">
+            /// Value of the matrix when created or cleared. The default value
+            /// is zero.
+            /// </param>
             exported Matrix4x4f(const Scalar value = 0.f) ;
 
-            /**
-             * Create a square matrix of size equal to 4 from a Matrix3x3f.
-             * @param   mat3x3  The matrix to convert to a matrix 4x4.
-             */
+            /// <summary>
+            /// Create a square matrix of size equal to 4 from a Matrix3x3f.
+            /// </summary>
+            /// <param name="mat3x3">
+            /// The matrix to convert to a matrix 4x4.
+            /// </param>
             exported Matrix4x4f(const Matrix3x3f& mat3x3) ;
 
-            /**
-             * Extract the data of the matrix.
-             */
-            exported void data(float* output) override ;
+            /// <summary>
+            /// Extract the data of the matrix.
+            /// </summary>
+            /// <param name="output">
+            /// Output data containing the matrix values.
+            /// </param>
+            exported void data(std::vector<float>& output) override ;
 
-            /**
-             * Multiplay the current Matrix4x4 by another one.
-             *          The result is set in the current Matrix4x4.
-             * @param   other   The other Matrix4x4 used in the product.
-             */
+            /// <summary>
+            /// Multiply the current Matrix4x4 by another one. The result is
+            /// set in the current Matrix4x4.
+            /// </summary>
+            /// <param name="other">
+            /// The other Matrix4x4 used in the product.
+            /// </param>
             exported void multiply(const Matrix4x4f& other) ;
 
-            /**
-             * @brief   Decompose the matrix 4x4 to translation, rotation and
-             *          scale values.
-             * @param   translation Output translation vector contained in the
-             *                      matrix.
-             * @param   rotation    Output rotation contained in the matrix.
-             * @param   scale       Output scale vector contained in the matrix.
-             */
+            /// <summary>
+            /// Decompose the matrix 4x4 to translation, rotation and scale
+            /// values.
+            /// </summary>
+            /// <param name="translation">
+            /// Output translation vector contained in the matrix.
+            /// </param>
+            /// <param name="rotation">
+            /// Output rotation contained in the matrix.
+            /// </param>
+            /// <param name="scale">
+            /// Output scale vector contained in the matrix.
+            /// </param>
             exported void decompose(
                 Vector3f& translation,
                 Quaternion& rotation,
                 Vector3f& scale
             ) ;
 
-            /**
-             * @brief   Compose the matrix 4x4 to store translation, rotation
-             *          and scale values inside.
-             * @param   translation Input translation vector contained in the
-             *                      matrix.
-             * @param   rotation    Input rotation contained in the matrix.
-             * @param   scale       Input scale vector contained in the matrix.
-             */
+            /// <summary>
+            /// Compose the matrix 4x4 to store translation, rotation and scale
+            /// values inside.
+            /// </summary>
+            /// <param name="translation">
+            /// Input translation vector contained in the matrix.
+            /// </param>
+            /// <param name="rotation">
+            /// Input rotation contained in the matrix.
+            /// </param>
+            /// <param name="scale">
+            /// Input scale vector contained in the matrix.
+            /// </param>
             exported void compose(
                 const Vector3f& translation,
                 const Quaternion& rotation,
                 const Vector3f& scale
             ) ;
 
-            /**
-             * @brief   Extract the translation from the current matrix.
-             * @return  Translation vector contained in the matrix.
-             */
+            /// <summary>
+            /// Extract the translation from the current matrix.
+            /// </summary>
+            /// <returns>
+            /// Translation vector contained in the matrix.
+            /// </returns>
             exported Vector3f extractTranslation() const ;
 
-            /**
-             * @brief   Extract the rotation from the current matrix.
-             * @return  Quaternion contained in the matrix.
-             */
+            /// <summary>
+            /// Extract the rotation from the current matrix.
+            /// </summary>
+            /// <returns>Quaternion contained in the matrix.</returns>
             exported Quaternion extractRotation() const ;
 
-            /**
-             * @brief   Extract the scale from the current matrix.
-             * @return  Scale vector contained in the matrix.
-             */
+            /// <summary>
+            /// Extract the scale from the current matrix.
+            /// </summary>
+            /// <returns>Scale vector contained in the matrix.</returns>
             exported Vector3f extractScale() const ;
 
-            /**
-             * Set the values of a column from a Point2D.
-             * @param   column  Index of the column in the SquareMatrix.
-             * @param   values  Values to set.
-             */
+            /// <summary>
+            /// Set the values of a column from a Point2D.
+            /// </summary>
+            /// <param name="column">
+            /// Index of the column in the SquareMatrix.
+            /// </param>
+            /// <param name="values">Values to set.</param>
             exported virtual void setColumnValues(
                 const unsigned int column,
                 const Point2Df& values
             ) final ;
 
-            /**
-             * Set the values of a column from a Point3D.
-             * @param   column  Index of the column in the SquareMatrix.
-             * @param   values  Values to set.
-             */
+            /// <summary>
+            /// Set the values of a column from a Point3D.
+            /// </summary>
+            /// <param name="column">
+            /// Index of the column in the SquareMatrix.
+            /// </param>
+            /// <param name="values">Values to set.</param>
             exported virtual void setColumnValues(
                 const unsigned int column,
                 const Point3Df& values
             ) final ;
 
-            /**
-             * Set the values of a column from a Point4D.
-             * @param   column  Index of the column in the SquareMatrix.
-             * @param   values  Values to set.
-             */
+            /// <summary>
+            /// Set the values of a column from a Point4D.
+            /// </summary>
+            /// <param name="column">
+            /// Index of the column in the SquareMatrix.
+            /// </param>
+            /// <param name="values">Values to set.</param>
             exported void setColumnValues(
                 const unsigned int column,
                 const Point4Df& values
             ) ;
 
-            /**
-             * Get the values of a column.
-             * @param   column  Index of the column in the SquareMatrix.
-             * @return  Values of the column.
-             */
+            /// <summary>
+            /// Get the values of a column.
+            /// </summary>
+            /// <param name="column">
+            /// Index of the column in the SquareMatrix.
+            /// </param>
+            /// <returns>Values of the column.</returns>
             exported Point4Df getColumnValues(const unsigned int column) const ;
 
-            /**
-             * Set the values of a row from a Point2D.
-             * @param   row     Index of the row in the SquareMatrix.
-             * @param   values  Values to set.
-             */
+            /// <summary>
+            /// Set the values of a row from a Point2D.
+            /// </summary>
+            /// <param name="row">
+            /// Index of the row in the SquareMatrix.
+            /// </param>
+            /// <param name="values">Values to set.</param>
             exported virtual void setRowValues(
                 const unsigned int row,
                 const Point2Df& values
             ) final ;
 
-            /**
-             * Set the values of a row from a Point3D.
-             * @param   row     Index of the row in the SquareMatrix.
-             * @param   values  Values to set.
-             */
+            /// <summary>
+            /// Set the values of a row from a Point3D.
+            /// </summary>
+            /// <param name="row">
+            /// Index of the row in the SquareMatrix.
+            /// </param>
+            /// <param name="values">Values to set.</param>
             exported virtual void setRowValues(
                 const unsigned int row,
                 const Point3Df& values
             ) final ;
 
-            /**
-             * Set the values of a row from a Point4D.
-             * @param   row     Index of the row in the SquareMatrix.
-             * @param   values  Values to set.
-             */
+            /// <summary>
+            /// Set the values of a row from a Point4D.
+            /// </summary>
+            /// <param name="row">
+            /// Index of the row in the SquareMatrix.
+            /// </param>
+            /// <param name="values">Values to set.</param>
             exported void setRowValues(
                 const unsigned int row,
                 const Point4Df& values
             ) ;
 
-            /**
-             * Get the values of a row.
-             * @param   row     Index of the row in the SquareMatrix.
-             * @return  Values of the row.
-             */
+            /// <summary>
+            /// Get the values of a row.
+            /// </summary>
+            /// <param name="row">
+            /// Index of the row in the SquareMatrix.
+            /// </param>
+            /// <returns>Values of the row.</returns>
             exported Point4Df getRowValues(const unsigned int row) const ;
 
-            /**
-             * Export the matrix as an 1D-array of values.
-             */
+            /// <summary>
+            /// Export the matrix as an 1D-array of values.
+            /// </summary>
+            /// <returns>
+            /// 1D array containing the values of the matrix.
+            /// </returns>
             exported std::array<Scalar, MatrixSize> toArray() const ;
 
-            /**
-             * Multiply the current matrix by a scalar value.
-             * The result is put into the current matrix.
-             * @param   scalar  The scalar value to multiply each component of
-             *                  the matrix with.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply the current matrix by a scalar value.
+            /// The result is put into the current matrix.
+            /// </summary>
+            /// <param name="scalar">
+            /// The scalar value to multiply each component of the matrix with.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Matrix4x4f& operator*=(const Scalar scalar) ;
 
-            /**
-             * Multiply the current matrix by a scalar value.
-             * The result is put into a new matrix.
-             * @param   mat     The matrix to multiply.
-             * @param   scalar  The scalar value to multiply each component of
-             *                  the matrix with.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply the current matrix by a scalar value.
+            /// The result is put into a new matrix.
+            /// </summary>
+            /// <param name="scalar">
+            /// The scalar value to multiply each component of the matrix with.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Matrix4x4f operator*(const Scalar scalar) ;
 
-            /**
-             * Multiply the current matrix by another matrix.
-             * The result is put into the current matrix.
-             * @param   other   The other matrix to multiply with the current
-             *                  one.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply the current matrix by another matrix.
+            /// The result is put into the current matrix.
+            /// </summary>
+            /// <param name="other">
+            /// The other matrix to multiply with the current one.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Matrix4x4f& operator*=(const Matrix4x4f& other) ;
 
-            /**
-             * Multiplication of two matrices.
-             * @param   a   First matrix.
-             * @param   b   Second matrix.
-             * @return  Result of the multiplication.
-             */
+            /// <summary>
+            /// Multiplication of two matrices.
+            /// </summary>
+            /// <param name="a">First matrix.</param>
+            /// <param name="b">Second matrix.</param>
+            /// <returns>Result of the multiplication.</returns>
             exported friend Matrix4x4f operator*(const Matrix4x4f& a, const Matrix4x4f& b) ;
 
-            /**
-             * Multiply the current matrix by a vector.
-             * @param   vec4    The vector to multiply the current matrix with.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply the current matrix by a vector.
+            /// </summary>
+            /// <param name="vec4">
+            /// The vector to multiply the current matrix with.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Vector4f operator*(const Vector4f& vec4) const ;
 
-            /**
-             * Addition of the current matrix with another one.
-             * The result is put into the current matrix.
-             * @param   other   The other matrix to add to the current one.
-             * @return  The result of the addition.
-             */
+            /// <summary>
+            /// Addition of the current matrix with another one.
+            /// The result is put into the current matrix.
+            /// </summary>
+            /// <param name="other">
+            /// The other matrix to add to the current one.
+            /// </param>
+            /// <returns>The result of the addition.</returns>
             exported Matrix4x4f& operator+=(const Matrix4x4f& other) ;
 
-            /**
-             * Addition of the current matrix with another one.
-             * The result is put into a new matrix.
-             * @param   mat     The matrix to add.
-             * @param   other   The other matrix to add to the current one.
-             * @return  The result of the addition.
-             */
+            /// <summary>
+            /// Addition of the current matrix with another one.
+            /// The result is put into a new matrix.
+            /// </summary>
+            /// <param name="other">
+            /// The other matrix to add to the current one.
+            /// </param>
+            /// <returns>The result of the addition.</returns>
             exported Matrix4x4f operator+(const Matrix4x4f& other) ;
 
         private:
-            /**
-             * @brief   Extract the translation from the given matrix.
-             * @return  Translation vector contained in the matrix.
-             */
+            /// <summary>
+            /// Extract the translation from the given matrix.
+            /// </summary>
+            /// <param name="matrix">
+            /// Matrix to extract the translation vector from.
+            /// </param>
+            /// <returns>
+            /// Translation vector contained in the matrix.
+            /// </returns>
             exported static Vector3f extractTranslation(Matrix4x4f& matrix) ;
 
-            /**
-             * @brief   Extract the scale from the given matrix.
-             * @return  Scale vector contained in the matrix.
-             */
+            /// <summary>
+            /// Extract the scale from the given matrix.
+            /// </summary>
+            /// <param name="matrix">
+            /// Matrix to extract the scale vector from.
+            /// </param>
+            /// <returns>
+            /// Scale vector contained in the matrix.
+            /// </returns>
             exported static Vector3f extractScale(Matrix4x4f& matrix) ;
 
             /**
-             * @brief   Extract the rotation from the given matrix.
+             * @brief   
              * @param   scale   Scale vector contained in the matrix.
-             * @return  Quaternion contained in the matrix.
+             * @return  
              */
+
+            /// <summary>
+            /// Extract the rotation from the given matrix.
+            /// </summary>
+            /// <param name="matrix">
+            /// Matrix to extract the rotation quaternion from.
+            /// </param>
+            /// <param name="scale">
+            /// Scale vector to compute the rotation matrix internally.
+            /// </param>
+            /// <returns>
+            /// Quaternion contained in the matrix.
+            /// </returns>
             exported static Quaternion extractRotation(
                 Matrix4x4f& matrix,
                 const Vector3f& scale
             ) ;
     } ;
 
-    inline void Matrix4x4f::data(float* output) {
+    inline void Matrix4x4f::data(std::vector<float>& output) {
+        output.resize(MatrixSize);
+
         for (int index = 0; index < MatrixSize ; ++index) {
             output[index] = m_data[index / m_size][index % m_size] ;
         }

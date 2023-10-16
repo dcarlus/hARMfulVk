@@ -14,20 +14,20 @@
 namespace Mind {
     class Matrix4x4f ;
 
-    /**
-     * A Point is a very simple element that can be used in a space to place
-     * elements, get distances between elements, etc.
-     */
+    /// <summary>
+    /// A Point is a very simple element that can be used in a space to place
+    /// elements, get distances between elements, etc.
+    /// </summary>
     class Point4Df {
         public:
-            /**
-             * Amount of coordinates.
-             */
+            /// <summary>
+            /// Amount of coordinates.
+            /// </summary>
             static const int AmountCoords = 4 ;
 
-            /**
-             * Axis to get coordinates of the Point4D.
-             */
+            /// <summary>
+            /// Axis to get coordinates of the Point4D.
+            /// </summary>
             enum Axis {
                 X,
                 Y,
@@ -37,35 +37,53 @@ namespace Mind {
 
         private:
             #ifdef USE_NO_SIMD
-                /** Values of the Point2Df. */
+                /// <summary>
+                /// Values of the Point4Df.
+                /// </summary>
                 std::array<float, 4> m_values ;
             #else
-                /** Values of the Point4Df. */
+                /// <summary>
+                /// Values of the Point4Df.
+                /// </summary>
                 SIMD::Vector4f m_values ;
 
-                /**
-                  * Create a Point4Df from a Vector4f.
-                  */
+                /// <summary>
+                /// Create a Point4Df from a Vector4f.
+                /// </summary>
+                /// <param name="values">
+                /// The Vector4f to convert to Point4Df.
+                /// </param>
                 Point4Df(const SIMD::Vector4f& values) ;
             #endif
 
         public:
-            /** Create a Point at the origin. */
-            exported Point4Df() ;
+            // Default constructors/assignemnts.
+            exported Point4Df() = default;
+            exported Point4Df(const Point4Df& copied) = default;
+            exported Point4Df(Point4Df&& moved) = default;
+            exported Point4Df& operator=(const Point4Df& copied) = default;
+            exported Point4Df& operator=(Point4Df&& moved) = default;
+            exported ~Point4Df() noexcept = default;
 
-            /** Create a Point. */
-            exported Point4Df(const Point3Df& copy) ;
+            /// <summary>
+            /// Copy a Point.
+            /// </summary>
+            /// <param name="copy">Point to copy.</param>
+            exported Point4Df(const Point3Df& copy);
 
-            /** Create a Point. */
+            /// <summary>
+            /// Create a Point.
+            /// </summary>
+            /// <param name="copy">Point to copy.</param>
             exported Point4Df(const Point2Df& copy) ;
 
-            /**
-             * Create a Point at the given position.
-             * @param   x   Coordinate on X axis.
-             * @param   y   Coordinate on Y axis.
-             * @param   z   Coordinate on Z axis.
-             * @param   w   Coordinate on W axis.
-             */
+            /// <summary>
+            /// Create a Point at the given position.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <param name="z">Coordinate on Z axis.</param>
+            /// <param name="w">Coordinate on W axis.</param>
             exported Point4Df(
                 const Scalar x,
                 const Scalar y,
@@ -73,13 +91,13 @@ namespace Mind {
                 const Scalar w
             ) ;
 
-            /**
-             * Translate a point of the given offsets.
-             * @param   x   Offset on X axis.
-             * @param   y   Offset on Y axis.
-             * @param   z   Offset on Z axis.
-             * @param   w   Offset on W axis.
-             */
+            /// <summary>
+            /// Translate a point of the given offsets.
+            /// </summary>
+            /// <param name="x">Offset on X axis.</param>
+            /// <param name="y">Offset on Y axis.</param>
+            /// <param name="z">Offset on Z axis.</param>
+            /// <param name="w">Offset on W axis.</param>
             exported void translate(
                 const Scalar x,
                 const Scalar y,
@@ -87,127 +105,153 @@ namespace Mind {
                 const Scalar w
             ) ;
 
-            /**
-             * Translate a point of the given offsets.
-             * @param   offset  Offset on the four axes.
-             */
+            /// <summary>
+            /// Translate a point of the given offsets.
+            /// </summary>
+            /// <param name="offset">Offset on the four axes.</param>
             exported void translate(const Point4Df& offset) ;
 
-            /**
-             * Dot product between the current Point and another one.
-             * @param   other   Another Point to compute the dot product.
-             * @return  The result of the dot product.
-             */
+            /// <summary>
+            /// Dot product between the current Point and another one.
+            /// </summary>
+            /// <param name="other">
+            /// Another Point to compute the dot product.
+            /// </param>
+            /// <returns>The result of the dot product.</returns>
             exported Scalar dot(const Point4Df& other) const ;
 
-            /**
-             * Cross product between the current Point and another one.
-             * The result is put in the current Point.
-             * @param   other   Another Point to compute the cross product.
-             */
+            /// <summary>
+            /// Cross product between the current Point and another one.
+            /// The result is put in the current Point.
+            /// </summary>
+            /// <param name="other">
+            /// Another Point to compute the cross product.
+            /// </param>
+            /// <returns>Result of the cross product.</returns>
             exported Point4Df cross(const Point4Df& other) const ;
 
-            /**
-             * Normalize the coordinates of the Point so that they are
-             *          defined in [0, 1].
-             */
+            /// <summary>
+            /// Normalize the coordinates of the Point so that they are defined
+            /// in [0, 1].
+            /// </summary>
             exported void normalize() ;
 
-            /**
-             * Round the values of the point.
-             * @param   point   Point to get rounded values of.
-             * @return  The point with rounded values.
-             */
+            /// <summary>
+            /// Round the values of the point.
+            /// </summary>
+            /// <param name="point">Point to get rounded values of.</param>
+            /// <returns>The point with rounded values.</returns>
             exported static Point4Df round(const Point4Df& point) ;
 
-            /**
-             * Round the values of the point to lower.
-             * @param   point   Point to get rounded values of.
-             * @return  The point with rounded values.
-             */
+            /// <summary>
+            /// Round the values of the point to lower.
+            /// </summary>
+            /// <param name="point">Point to get rounded values of.</param>
+            /// <returns>The point with rounded values.</returns>
             exported static Point4Df floor(const Point4Df& point) ;
 
-            /**
-             * Round the values of the point to upper.
-             * @param   point   Point to get rounded values of.
-             * @return  The point with rounded values.
-             */
+            /// <summary>
+            /// Round the values of the point to upper.
+            /// </summary>
+            /// <param name="point">Point to get rounded values of.</param>
+            /// <returns>The point with rounded values.</returns>
             exported static Point4Df ceil(const Point4Df& point) ;
 
-            /**
-             * Merge two points at a middle point.
-             * @param a The first point to merge.
-             * @param b The second point to merge.
-             * @return  The merged point at the center between both given points.
-             */
+            /// <summary>
+            /// Merge two points at a middle point.
+            /// </summary>
+            /// <param name="a">The first point to merge.</param>
+            /// <param name="b">The second point to merge.</param>
+            /// <returns>
+            /// The merged point at the center between both given points.
+            /// </returns>
             exported static Point4Df merge(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Multiply a Point coordinates by another.
-             * @param   p       Point whose coordinates must be multiplied.
-             * @param   other   Another Point
-             */
+            /// <summary>
+            /// Multiply a Point coordinates by another.
+            /// </summary>
+            /// <param name="p">
+            /// Point whose coordinates must be multiplied.
+            /// </param>
+            /// <param name="other">Another Point</param>
+            /// <returns>Result of the multiplication.</returns>
             exported static Point4Df mul(const Point4Df& p, const Point4Df& other) ;
 
-            /**
-             * Get the distance between two points on X axis.
-             * @param a First point.
-             * @param b Second point.
-             * @return  The distance between the points on the X axis.
-             */
+            /// <summary>
+            /// Get the distance between two points on X axis.
+            /// </summary>
+            /// <param name="a">First point.</param>
+            /// <param name="b">Second point.</param>
+            /// <returns>
+            /// The distance between the points on the X axis.
+            /// </returns>
             exported static Scalar distanceX(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Get the distance between two points on Y axis.
-             * @param a First point.
-             * @param b Second point.
-             * @return  The distance between the points on the Y axis.
-             */
+            /// <summary>
+            /// Get the distance between two points on Y axis.
+            /// </summary>
+            /// <param name="a">First point.</param>
+            /// <param name="b">Second point.</param>
+            /// <returns>
+            /// The distance between the points on the Y axis.
+            /// </returns>
             exported static Scalar distanceY(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Get the distance between two points on Z axis.
-             * @param a First point.
-             * @param b Second point.
-             * @return  The distance between the points on the Z axis.
-             */
+            /// <summary>
+            /// Get the distance between two points on Z axis.
+            /// </summary>
+            /// <param name="a">First point.</param>
+            /// <param name="b">Second point.</param>
+            /// <returns>
+            /// The distance between the points on the Z axis.
+            /// </returns>
             exported static Scalar distanceZ(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Get the distance between two points on W axis.
-             * @param a First point.
-             * @param b Second point.
-             * @return  The distance between the points on the Z axis.
-             */
+            /// <summary>
+            /// Get the distance between two points on W axis.
+            /// </summary>
+            /// <param name="a">First point.</param>
+            /// <param name="b">Second point.</param>
+            /// <returns>
+            /// The distance between the points on the W axis.
+            /// </returns>
             exported static Scalar distanceW(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Give the distance between two points.
-             * @param a First point.
-             * @param b Second point.
-             * @return  Distance between A and B.
-             */
+            /// <summary>
+            /// Give the distance between two points.
+            /// </summary>
+            /// <param name="a">First point.</param>
+            /// <param name="b">Second point.</param>
+            /// <returns>Distance between A and B.</returns>
             exported static Scalar distance(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-              * Compute the length of a vector.
-              * @return  The length of the vector.
-              */
+            /// <summary>
+            /// Compute the length of a vector.
+            /// </summary>
+            /// <returns>The length of the vector.</returns>
             exported Scalar length() ;
 
-            /** Get a coordinate. */
+            /// <summary>
+            /// Get a coordinate.
+            /// </summary>
+            /// <param name="axis">Axis of the coordinate to get.</param>
+            /// <returns>Value of the wanted coordinate.</returns>
             exported Scalar get(const Axis axis) const ;
 
-            /** Set a coordinate. */
+            /// <summary>
+            /// Set a coordinate.
+            /// </summary>
+            /// <param name="axis">Axis of the coordinate to set.</param>
+            /// <param name="value">Value of the coordinate.</param>
             exported void set(const Axis axis, const Scalar value) ;
 
-            /**
-             * Move the point to the specified coordinates.
-             * @param   x   Coordinate on X axis.
-             * @param   y   Coordinate on Y axis.
-             * @param   z   Coordinate on Z axis.
-             * @param   w   Coordinate on W axis.
-             */
+            /// <summary>
+            /// Move the point to the specified coordinates.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <param name="z">Coordinate on Z axis.</param>
+            /// <param name="w">Coordinate on W axis.</param>
             exported void set(
                 const Scalar x,
                 const Scalar y,
@@ -215,154 +259,208 @@ namespace Mind {
                 const Scalar w
             ) ;
 
-            /**
-             * Move the point to the specified coordinates.
-             * @param   position    Position at which the point should be set.
-             */
+            /// <summary>
+            /// Move the point to the specified coordinates.
+            /// </summary>
+            /// <param name="position">
+            /// Position at which the point should be set.
+            /// </param>
             exported void set(const Point4Df& position) ;
 
-            /**
-             * Convert the point to array.
-             */
+            /// <summary>
+            /// Convert the point to array.
+            /// </summary>
+            /// <returns>
+            /// Array containing the coordinates of the point.
+            /// </returns>
             exported std::array<float, 4> toArray() const ;
 
-            /** Conversion from Point3D to Dimension2D. */
+            /// <summary>
+            /// Conversion from Point3D to Dimension2D.
+            /// </summary>
             exported explicit operator Dimension2Df() ;
 
-            /** Conversion from Point3D to Dimension3D. */
+            /// <summary>
+            /// Conversion from Point3D to Dimension3D.
+            /// </summary>
             exported explicit operator Dimension3Df() ;
 
-            /** Conversion from Point3D to Point2D. */
+            /// <summary>
+            /// Conversion from Point3D to Point2D.
+            /// </summary>
             exported explicit operator Point2Df() ;
 
-            /** Conversion from Point3D to Point3D. */
+            /// <summary>
+            /// Conversion from Point3D to Point3D.
+            /// </summary>
             exported explicit operator Point3Df() ;
 
-            /**
-             * Add a Point and affect the result.
-             * @param   other   The other Point to add.
-             * @return  The sum of the two Points.
-             */
+            /// <summary>
+            /// Add a Point and affect the result.
+            /// </summary>
+            /// <param name="other">The other Point to add.</param>
+            /// <returns>The sum of the two Points.</returns>
             exported Point4Df& operator+=(Point4Df& other) ;
 
-            /**
-             * Substract a Point and affect the result.
-             * @param   other   The other Point to substract.
-             * @return  The substract of the two Points.
-             */
+            /// <summary>
+            /// Substract a Point and affect the result.
+            /// </summary>
+            /// <param name="other">The other Point to substract.</param>
+            /// <returns>The substract of the two Points.</returns>
             exported Point4Df& operator-=(Point4Df& other) ;
 
-            /**
-             * Multiply a Point by a scalar value and affect the result.
-             * @param   coeff   The coeff to multiply the Point coordinates by.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply a Point by a scalar value and affect the result.
+            /// </summary>
+            /// <param name="coeff">
+            /// The coeff to multiply the Point coordinates by.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Point4Df& operator*=(Scalar coeff) ;
 
-            /**
-             * Multiply a Point by a matrix and affect the result.
-             * @param   mat4    The matrix to multiply the Point with.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply a Point by a matrix and affect the result.
+            /// </summary>
+            /// <param name="mat4">
+            /// The matrix to multiply the Point with.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Point4Df& operator*=(const Matrix4x4f& mat4) ;
 
-            /**
-             * Divide a Point by a scalar value and affect the result.
-             * @param   coeff   The coeff to divide the Point coordinates by.
-             * @return  The result of the division.
-             */
+            /// <summary>
+            /// Divide a Point by a scalar value and affect the result.
+            /// </summary>
+            /// <param name="coeff">
+            /// The coeff to divide the Point coordinates by.
+            /// </param>
+            /// <returns>The result of the division.</returns>
             exported Point4Df& operator/=(Scalar coeff) ;
 
-            /**
-             * Test if two Points are at the same position.
-             * @param   other   An other Point to compare to the current one.
-             * @return  TRUE if the Points are at the same position, FALSE else.
-             */
+            /// <summary>
+            /// Test if two Points are at the same position.
+            /// </summary>
+            /// <param name="other">
+            /// An other Point to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Points are at the same position, false else.
+            /// </returns>
             exported bool operator==(const Point4Df& other) const ;
 
-            /**
-             * Test if two Points are at two different positions.
-             * @param   other   An other Point to compare to the current one.
-             * @return  TRUE if the Points are at two different positions, FALSE
-             *          else.
-             */
+            /// <summary>
+            /// Test if two Points are at two different positions.
+            /// </summary>
+            /// <param name="other">
+            /// An other Point to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Points are at two different positions, false else.
+            /// </returns>
             exported bool operator!=(const Point4Df& other) const ;
 
-            /**
-             * Access a value in the Point4Df.
-             * @param  axis  Axis of the coordinate to get in the Point4Df.
-             * @return       Value at the @a axis.
-             */
+            /// <summary>
+            /// Access a value in the Point4Df.
+            /// </summary>
+            /// <param name="axis">
+            /// Axis of the coordinate to get in the Point4Df.
+            /// </param>
+            /// <returns>Value at the axis.</returns>
             exported Scalar operator[](const int axis) const ;
 
-            /**
-             * Access a value in the Point4Df.
-             * @param  axis  Axis of the coordinate to get in the Point4Df.
-             * @return       Value at the @a axis.
-             */
+            /// <summary>
+            /// Access a value in the Point4Df.
+            /// </summary>
+            /// <param name="axis">
+            /// Axis of the coordinate to get in the Point4Df.
+            /// </param>
+            /// <returns>Value at the axis.</returns>
             exported Scalar& operator[](const int axis) ;
 
-            /**
-              * Negate the coordinates of the point.
-              * @param   p   The point to negate.
-              * @return  The negate version of the point @a p.
-              */
+            /// <summary>
+            /// Negate the coordinates of the point.
+            /// </summary>
+            /// <param name="p">The point to negate.</param>
+            /// <returns>The negate version of the point p.</returns>
             exported friend Point4Df operator-(const Point4Df& p) ;
 
-            /**
-             * Add a Point coordinates to another ones.
-             * @param   a   First Point.
-             * @param   b   Second Point.
-             * @return  Point at (a.x + b.x, a.y + b.y).
-             */
+            /// <summary>
+            /// Add a Point coordinates to another ones.
+            /// </summary>
+            /// <param name="a">First Point.</param>
+            /// <param name="b">Second Point.</param>
+            /// <returns>
+            /// Point at (a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w).
+            /// </returns>
             exported friend Point4Df operator+(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Substract a Point coordinates to another ones.
-             * @param   a   First Point.
-             * @param   b   Second Point.
-             * @return  Point at (a.x - b.x, a.y - b.y).
-             */
+            /// <summary>
+            /// Substract a Point coordinates to another ones.
+            /// </summary>
+            /// <param name="a">First Point.</param>
+            /// <param name="b">Second Point.</param>
+            /// <returns>
+            /// Point at (a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w).
+            /// </returns>
             exported friend Point4Df operator-(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Dot product of two Points (A.B).
-             * @param   a   Point whose coordinates must be multiplied.
-             * @param   b   Another Point to compute the dot product.
-             * @return  Result of the dot product A.B.
-             */
+            /// <summary>
+            /// Dot product of two Points (A.B).
+            /// </summary>
+            /// <param name="a">
+            /// Point whose coordinates must be multiplied.
+            /// </param>
+            /// <param name="b">
+            /// Another Point to compute the dot product.
+            /// </param>
+            /// <returns>Result of the dot product (A.B).</returns>
             exported friend Scalar operator*(const Point4Df& a, const Point4Df& b) ;
 
-            /**
-             * Multiply a vector by a matrix.
-             * @param   vec Vector to multiply.
-             * @param   mat Matrix to multiply.
-             * @return  Result of the multiplication vec * mat.
-             */
+            /// <summary>
+            /// Multiply a vector by a matrix.
+            /// </summary>
+            /// <param name="vec">Vector to multiply.</param>
+            /// <param name="mat">Matrix to multiply.</param>
+            /// <returns>Result of the multiplication vec * mat.</returns>
             exported friend Point4Df operator*(const Point4Df& vec, const Matrix4x4f& mat) ;
 
-            /**
-             * Multiply a Point coordinates by a scalar value (scale).
-             * @param   p       Point whose coordinates must be multiplied.
-             * @param   coeff   Factor to scale the coordinates.
-             * @return  Point at (a.x * coeff, a.y * coeff).
-             */
+            /// <summary>
+            /// Multiply a Point coordinates by a scalar value (scale).
+            /// </summary>
+            /// <param name="p">
+            /// Point whose coordinates must be multiplied.
+            /// </param>
+            /// <param name="coeff">Factor to scale the coordinates.</param>
+            /// <returns>
+            /// Point at (a.x * coeff, a.y * coeff, a.z * coeff, a.w * coeff).
+            /// </returns>
             exported friend Point4Df operator*(const Point4Df& p, Scalar coeff) ;
 
-            /**
-             * Divide a Point coordinates 3by a scalar value (scale).
-             * @param   a       Point whose coordinates must be divided.
-             * @param   coeff   Factor to scale the coordinates.
-             * @return  Point at (a.x / coeff, a.y / coeff).
-             */
+            /// <summary>
+            /// Divide a Point coordinates 3by a scalar value (scale).
+            /// </summary>
+            /// <param name="p">
+            /// Point whose coordinates must be divided.
+            /// </param>
+            /// <param name="coeff">
+            /// Factor to scale the coordinates.
+            /// </param>
+            /// <returns>
+            /// Point at (a.x / coeff, a.y / coeff, a.z / coeff, a.w / coeff).
+            /// </returns>
             exported friend Point4Df operator/(const Point4Df& p, Scalar coeff) ;
 
-            /**
-             * Echo the Point coordinates on console.
-             * @param   s   The stream in which print the formatted coordinates.
-             * @param   p   The Point to print.
-             * @return  The stream with the printed Point coordinates.
-             */
+            /// <summary>
+            /// Echo the Point coordinates on console.
+            /// </summary>
+            /// <param name="s">
+            /// The stream in which print the formatted coordinates.
+            /// </param>
+            /// <param name="p">
+            /// The Point to print.
+            /// </param>
+            /// <returns>
+            /// The stream with the printed Point coordinates.
+            /// </returns>
             exported friend std::ostream& operator<<(std::ostream& s, const Point4Df& p) ;
     } ;
 

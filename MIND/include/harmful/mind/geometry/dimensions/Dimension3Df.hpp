@@ -11,32 +11,42 @@ namespace Mind {
     class Dimension2Df ;
     class Point3Df ;
 
-    /**
-     * A Dimension is used to get the size of an element, and so get the area of
-     * the element as a rectangle bounding shape.
-     */
+    /// <summary>
+    /// A Dimension is used to get the size of an element, and so get the area
+    /// of the element as a rectangle bounding shape.
+    /// </summary>
     class Dimension3Df final {
         private:
-            /** Width of the Dimension2Df. */
-            Scalar m_width ;
+            /// <summary>
+            /// Width of the Dimension3Df.
+            /// </summary>
+            Scalar m_width = 0.f ;
 
-            /** Height of the Dimension2Df. */
-            Scalar m_height ;
+            /// <summary>
+            /// Height of the Dimension3Df.
+            /// </summary>
+            Scalar m_height = 0.f ;
 
-            /** Depth of the Dimension2Df. */
-            Scalar m_depth ;
-
+            /// <summary>
+            /// Depth of the Dimension3Df.
+            /// </summary>
+            Scalar m_depth = 0.f ;
 
         public:
-            /** Create a Dimension of zero by zero. */
-            exported Dimension3Df() ;
+            // Default constructors/assignemnts.
+            exported Dimension3Df() = default;
+            exported Dimension3Df(const Dimension3Df& copied) = default;
+            exported Dimension3Df(Dimension3Df&& moved) = default;
+            exported Dimension3Df& operator=(const Dimension3Df& copied) = default;
+            exported Dimension3Df& operator=(Dimension3Df&& moved) = default;
+            exported ~Dimension3Df() noexcept = default;
 
-            /**
-             * Create a Dimension with the given sizes.
-             * @param   width   Width to set the size of the element.
-             * @param   height  Height to set the size of the element.
-             * @param   depth   Depth to set the size of the element.
-             */
+            /// <summary>
+            /// Create a Dimension with the given sizes.
+            /// </summary>
+            /// <param name="width">Width to set the size of the element.</param>
+            /// <param name="height">Height to set the size of the element.</param>
+            /// <param name="depth">Depth to set the size of the element.</param>
             exported Dimension3Df(
                 const Scalar width,
                 const Scalar height,
@@ -44,143 +54,163 @@ namespace Mind {
             ) ;
 
 
-            /** Set the Dimension as absolute values. */
+            /// <summary>
+            /// Set the Dimension as absolute values.
+            /// </summary>
             exported void absolute() ;
 
-            /**
-             * Get the width of the dimension.
-             * @return  The width.
-             */
+            /// <summary>
+            /// Get the width of the dimension.
+            /// </summary>
+            /// <returns>The width.</returns>
             exported Scalar width() const ;
 
-            /**
-             * Get the height of the dimension.
-             * @return  The height.
-             */
+            /// <summary>
+            /// Get the height of the dimension.
+            /// </summary>
+            /// <returns>The height.</returns>
             exported Scalar height() const ;
 
-            /**
-             * Get the depth of the dimension.
-             * @return  The depth.
-             */
+            /// <summary>
+            /// Get the depth of the dimension.
+            /// </summary>
+            /// <returns>The depth.</returns>
             exported Scalar depth() const ;
 
-            /**
-             * Set the width of the dimension.
-             * @param   width   Width of the dimension.
-             */
+            /// <summary>
+            /// Set the width of the dimension.
+            /// </summary>
+            /// <param name="width">Width of the dimension.</param>
             exported void setWidth(const Scalar width) ;
 
-            /**
-             * Set the height of the dimension.
-             * @param   height  Height of the dimension.
-             */
+            /// <summary>
+            /// Set the height of the dimension.
+            /// </summary>
+            /// <param name="height">Height of the dimension.</param>
             exported void setHeight(const Scalar height) ;
 
-            /**
-             * Set the depth of the dimension.
-             * @param   depth   Depth of the dimension.
-             */
+            /// <summary>
+            /// Set the depth of the dimension.
+            /// </summary>
+            /// <param name="depth">Depth of the dimension.</param>
             exported void setDepth(const Scalar depth) ;
 
-            /**
-             * Set the depth of the dimension.
-             * @param   width   Width of the dimension.
-             * @param   height  Height of the dimension.
-             * @param   depth   Depth of the dimension.
-             */
+            /// <summary>
+            /// Set the width, height and depth of the dimension.
+            /// </summary>
+            /// <param name="width">Width of the dimension.</param>
+            /// <param name="height">Height of the dimension.</param>
+            /// <param name="depth">Depth of the dimension.</param>
             exported void set(
                 const Scalar width,
                 const Scalar height,
                 const Scalar depth
             ) ;
 
-            /** Conversion from Dimension3D to Point3D. */
+            /// <summary>
+            /// Conversion from Dimension3D to Point3D.
+            /// </summary>
             exported explicit operator Point3Df() ;
 
-            /** Conversion from Dimension3D to Dimension2D. */
+            /// <summary>
+            /// Conversion from Dimension3D to Dimension2D.
+            /// </summary>
             exported explicit operator Dimension2Df() ;
 
-            /**
-             * Add a Dimension and affect the result.
-             * @param   other   The other Dimension to add.
-             * @return  The sum of the two Dimensions.
-             */
+            /// <summary>
+            /// Add a Dimension and affect the result.
+            /// </summary>
+            /// <param name="other">The other Dimension to add.</param>
+            /// <returns>The sum of the two Dimensions.</returns>
             exported Dimension3Df& operator+=(Dimension3Df& other) ;
 
-            /**
-             * Substract a Dimension and affect the result.
-             * @param   other   The other Dimension to substract.
-             * @return  The substract of the two Dimensions.
-             */
+            /// <summary>
+            /// Substract a Dimension and affect the result.
+            /// </summary>
+            /// <param name="other">The other Dimension to substract.</param>
+            /// <returns>The substract of the two Dimensions.</returns>
             exported Dimension3Df& operator-=(Dimension3Df& other) ;
 
-            /**
-             * Multiply a Dimension by a scalar value and affect the result.
-             * @param   coeff   The coeff to multiply the Dimension coordinates by.
-             * @return  The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply a Dimension by a scalar value and affect the result.
+            /// </summary>
+            /// <param name="coeff">
+            /// The coeff to multiply the Dimension coordinates by.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Dimension3Df& operator*=(const Scalar coeff) ;
 
-            /**
-             * Divide a Dimension by a scalar value and affect the result.
-             * @param   coeff   The coeff to divide the Dimension coordinates by.
-             * @return  The result of the division.
-             */
+            /// <summary>
+            /// Divide a Dimension by a scalar value and affect the result.
+            /// </summary>
+            /// <param name="coeff">
+            /// The coeff to divide the Dimension coordinates by.
+            /// </param>
+            /// <returns>The result of the division.</returns>
             exported Dimension3Df& operator/=(const Scalar coeff) ;
 
-            /**
-             * Test if two Dimension have the same size.
-             * @param   other   An other Dimension to compare to the current one.
-             * @return  TRUE if the Dimension have the same size, FALSE else.
-             */
+            /// <summary>
+            /// Test if two Dimension have the same size.
+            /// </summary>
+            /// <param name="other">
+            /// An other Dimension to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Dimension have the same size, false else.
+            /// </returns>
             exported bool operator==(const Dimension3Df& other) const ;
 
-            /**
-             * Test if two Dimension have not the same size.
-             * @param   other   An other Dimension to compare to the current one.
-             * @return  TRUE if the Dimension have two different size, FALSE else.
-             */
+            /// <summary>
+            /// Test if two Dimension have not the same size.
+            /// </summary>
+            /// <param name="other">
+            /// An other Dimension to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Dimension have two different size, false else.
+            /// </returns>
             exported bool operator!=(const Dimension3Df& other) const ;
 
-            /**
-             * Add a Dimension to another one.
-             * @param   a   First Dimension.
-             * @param   b   Second Dimension.
-             * @return  Point at (a.w + b.w, a.h + b.h).
-             */
+            /// <summary>
+            /// Add a Dimension to another one.
+            /// </summary>
+            /// <param name="a">First Dimension.</param>
+            /// <param name="b">Second Dimension.</param>
+            /// <returns>Point at (a.w + b.w, a.h + b.h).</returns>
             exported friend Dimension3Df operator+(const Dimension3Df& a, const Dimension3Df& b) ;
 
-            /**
-             * Substract a Dimension to another one.
-             * @param   a   First Dimension.
-             * @param   b   Second Dimension.
-             * @return  Point at (a.w - b.w, a.h - b.h).
-             */
+            /// <summary>
+            /// Substract a Dimension to another one.
+            /// </summary>
+            /// <param name="a">First Dimension.</param>
+            /// <param name="b">Second Dimension.</param>
+            /// <returns>Point at (a.w - b.w, a.h - b.h).</returns>
             exported friend Dimension3Df operator-(const Dimension3Df& a, const Dimension3Df& b) ;
 
-            /**
-             * Multiply a Dimension by a scalar value (scale).
-             * @param   p       Dimension to be multiplied.
-             * @param   coeff   Factor to scale the coordinates.
-             * @return  Point at (d.w * coeff, d.h * coeff).
-             */
+            /// <summary>
+            /// Multiply a Dimension by a scalar value (scale).
+            /// </summary>
+            /// <param name="d">Dimension to be multiplied.</param>
+            /// <param name="coeff">Factor to scale the coordinates.</param>
+            /// <returns>Point at (d.w * coeff, d.h * coeff).</returns>
             exported friend Dimension3Df operator*(const Dimension3Df& d, const Scalar coeff) ;
 
-            /**
-             * Divide a Dimension by a scalar value (scale).
-             * @param   a       Dimension to be divided.
-             * @param   coeff   Factor to scale the coordinates.
-             * @return  Point at (d.w / coeff, d.h / coeff).
-             */
+            /// <summary>
+            /// Divide a Dimension by a scalar value (scale).
+            /// </summary>
+            /// <param name="d">Dimension to be divided.</param>
+            /// <param name="coeff">Factor to scale the coordinates.</param>
+            /// <returns>Point at (d.w / coeff, d.h / coeff).</returns>
             exported friend Dimension3Df operator/(const Dimension3Df& d, const Scalar coeff) ;
 
-            /**
-             * Echo the Dimension size on console.
-             * @param   s   The stream in which print the formatted coordinates.
-             * @param   p   The Dimension to print.
-             * @return  The stream with the printed Dimension size.
-             */
+            /// <summary>
+            /// Echo the Dimension size on console.
+            /// </summary>
+            /// <param name="s">
+            /// The stream in which print the formatted coordinates.
+            /// </param>
+            /// <param name="p">The Dimension to print.</param>
+            /// <returns>The stream with the printed Dimension size.</returns>
             exported friend std::ostream& operator<<(std::ostream& s, const Dimension3Df& p) ;
     } ;
 } ;

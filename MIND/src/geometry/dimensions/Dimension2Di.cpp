@@ -2,8 +2,6 @@
 #include <cmath>
 
 namespace Mind {
-    Dimension2Di::Dimension2Di() : m_width(0), m_height(0) {}
-
     Dimension2Di::Dimension2Di(
         const uint32_t width,
         const uint32_t height

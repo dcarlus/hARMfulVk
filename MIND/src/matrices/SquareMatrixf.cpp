@@ -195,6 +195,10 @@ namespace Mind {
         return s ;
     }
 
+    size_t SquareMatrixf::totalSize() const {
+        return m_size * m_size;
+    }
+
     void SquareMatrixf::clearWith(const Scalar value) {
         Array4f values ;
         for (size_t col = 0 ; col < MaximalDataSize ; ++col) {
@@ -211,8 +215,10 @@ namespace Mind {
         }
     }
 
-    void SquareMatrixf::getData(Scalar* output) {
+    void SquareMatrixf::getData(std::vector<Scalar>& output) {
+        output.resize(totalSize());
         size_t outputIndex = 0 ;
+
         for (size_t row = 0 ; row < m_size ; ++row) {
             output[outputIndex]     = m_data[row][0] ;
             output[outputIndex + 1] = m_data[row][1] ;

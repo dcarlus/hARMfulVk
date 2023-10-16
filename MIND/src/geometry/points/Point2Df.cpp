@@ -9,11 +9,8 @@ const int X = 0 ;
 const int Y = 1 ;
 
 namespace Mind {
-    Point2Df::Point2Df() {
-        m_values = SIMD::Vector4f(0.f, 0.f, 0.f, 0.f) ;
-    }
-
-    Point2Df::Point2Df(const SIMD::Vector4f& values) : m_values(values) {}
+    Point2Df::Point2Df(const SIMD::Vector4f& values)
+        : m_values(values) {}
 
     Point2Df::Point2Df(const Scalar x, const Scalar y) {
         m_values = SIMD::Vector4f(x, y, 0.f, 0.f) ;

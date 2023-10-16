@@ -79,6 +79,9 @@
   <ItemGroup>
     <ResourceCompile Include="MIND.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -132,7 +135,6 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalOptions>/arch:SSE2 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -154,7 +156,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>true</EnableUAC>
-      <AdditionalOptions>/arch:SSE2 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

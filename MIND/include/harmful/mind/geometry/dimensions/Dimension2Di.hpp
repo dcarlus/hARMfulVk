@@ -6,149 +6,163 @@
 #include <harmful/doom/utils/Platform.hpp>
 
 namespace Mind {
-
-    /**
-     * A Dimension is used to get the size of an element, and so get the area of
-     * the element as a rectangle bounding shape.
-     */
+    /// <summary>
+    /// A Dimension is used to get the size of an element, and so get the area
+    /// of the element as a rectangle bounding shape.
+    /// </summary>
     class Dimension2Di final {
         private:
-            /** Width of the Dimension2Di. */
-            uint32_t m_width ;
+            /// <summary>
+            /// Width of the Dimension2Di.
+            /// </summary>
+            uint32_t m_width = 0u ;
 
-            /** Height of the Dimension2Di. */
-            uint32_t m_height ;
-
+            /// <summary>
+            /// Height of the Dimension2Di.
+            /// </summary>
+            uint32_t m_height = 0u ;
 
         public:
-            /** Create a Dimension of zero by zero. */
-            exported Dimension2Di() ;
+            // Default constructors/assignemnts.
+            exported Dimension2Di() = default;
+            exported Dimension2Di(const Dimension2Di& copied) = default;
+            exported Dimension2Di(Dimension2Di&& moved) = default;
+            exported Dimension2Di& operator=(const Dimension2Di& copied) = default;
+            exported Dimension2Di& operator=(Dimension2Di&& moved) = default;
+            exported ~Dimension2Di() noexcept = default;
 
-            /**
-             * Create a Dimension with the given sizes.
-             * @param   width   Width to set the size of the element.
-             * @param   height  Height to set the size of the element.
-             */
+            /// <summary>
+            /// Create a Dimension with the given sizes.
+            /// </summary>
+            /// <param name="width">Width to set the size of the element.</param>
+            /// <param name="height">Height to set the size of the element.</param>
             exported Dimension2Di(const uint32_t width, const uint32_t height) ;
 
-            /**
-             * Get the width of the dimension.
-             * @return  The width.
-             */
+            /// <summary>
+            /// Get the width of the dimension.
+            /// </summary>
+            /// <returns>The width.</returns>
             exported uint32_t width() const ;
 
-            /**
-             * Get the height of the dimension.
-             * @return  The height.
-             */
+            /// <summary>
+            /// Get the height of the dimension.
+            /// </summary>
+            /// <returns>The height.</returns>
             exported uint32_t height() const ;
 
-            /**
-             * Set the width of the dimension.
-             * @param   width   Width of the dimension.
-             */
+            /// <summary>
+            /// Set the width of the dimension.
+            /// </summary>
+            /// <param name="width">Width of the dimension.</param>
             exported void setWidth(const uint32_t width) ;
 
-            /**
-             * Set the height of the dimension.
-             * @param   height  Height of the dimension.
-             */
+            /// <summary>
+            /// Set the height of the dimension.
+            /// </summary>
+            /// <param name="height">Height of the dimension.</param>
             exported void setHeight(const uint32_t height) ;
 
-            /**
-             * Set the height of the dimension.
-             * @param   width   Width of the dimension.
-             * @param   height  Height of the dimension.
-             */
+            /// <summary>
+            /// Set the width and height of the dimension.
+            /// </summary>
+            /// <param name="width">Width of the dimension.</param>
+            /// <param name="height">Height of the dimension.</param>
             exported void set(const uint32_t width, const uint32_t height) ;
 
-
-            /**
-             * Add a Dimension and affect the result.
-             * @param   other   The other Dimension to add.
-             * @return  The sum of the two Dimension.
-             */
+            /// <summary>
+            /// Add a Dimension and affect the result.
+            /// </summary>
+            /// <param name="other">The other Dimension to add.</param>
+            /// <returns>The sum of the two Dimension.</returns>
             exported Dimension2Di& operator+=(Dimension2Di& other) ;
 
-            /**
-             * Substract a Dimension and affect the result.
-             * @param   other   The other Dimension to substract.
-             * @return  The substract of the two Dimension.
-             */
+            /// <summary>
+            /// Substract a Dimension and affect the result.
+            /// </summary>
+            /// <param name="other">The other Dimension to substract.</param>
+            /// <returns>The substract of the two Dimension.</returns>
             exported Dimension2Di& operator-=(Dimension2Di& other) ;
 
-            /**
-             * Multiply a Dimension by a scalar value and affect the result.
-             * @param    coeff   The coeff to multiply the Dimension coordinates
-             *                   by.
-             * @return   The result of the multiplication.
-             */
+            /// <summary>
+            /// Multiply a Dimension by a scalar value and affect the result.
+            /// </summary>
+            /// <param name="coeff">
+            /// The coeff to multiply the Dimension coordinates by.
+            /// </param>
+            /// <returns>The result of the multiplication.</returns>
             exported Dimension2Di& operator*=(const uint32_t coeff) ;
 
-            /**
-             * Divide a Dimension by a scalar value and affect the result.
-             * @param   coeff   The coeff to divide the Dimension coordinates by.
-             * @return  The result of the division.
-             */
+            /// <summary>
+            /// Divide a Dimension by a scalar value and affect the result.
+            /// </summary>
+            /// <param name="coeff">
+            /// The coeff to divide the Dimension coordinates by.
+            /// </param>
+            /// <returns>The result of the division.</returns>
             exported Dimension2Di& operator/=(const uint32_t coeff) ;
 
-
-            /**
-             * Test if two Dimension have the same size.
-             * @param   other   An other Dimension to compare to the current one.
-             * @return  TRUE if the Dimension have the same size, FALSE else.
-             */
+            /// <summary>
+            /// Test if two Dimension have the same size.
+            /// </summary>
+            /// <param name="other">
+            /// An other Dimension to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Dimension have the same size, false else.
+            /// </returns>
             exported bool operator==(const Dimension2Di& other) const ;
 
-            /**
-             * Test if two Dimension have not the same size.
-             * @param   other   An other Dimension to compare to the current one.
-             * @return  TRUE if the Dimension have two different size, FALSE else.
-             */
+            /// <summary>
+            /// Test if two Dimension have not the same size.
+            /// </summary>
+            /// <param name="other">
+            /// An other Dimension to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Dimension have two different size, false else.
+            /// </returns>
             exported bool operator!=(const Dimension2Di& other) const ;
 
-            /**
-             * Add a Dimension to another one.
-             * @param   a   First Dimension.
-             * @param   b   Second Dimension.
-             * @return  Dimension of (a.w + b.w, a.h + b.h).
-             */
+            /// <summary>
+            /// Add a Dimension to another one.
+            /// </summary>
+            /// <param name="a">First Dimension.</param>
+            /// <param name="b">Second Dimension.</param>
+            /// <returns>Dimension of (a.w + b.w, a.h + b.h).</returns>
             exported friend Dimension2Di operator+(const Dimension2Di& a, const Dimension2Di& b) ;
 
-
-            /**
-             * Substract a Dimension to another one.
-             * @param   a   First Dimension.
-             * @param   b   Second Dimension.
-             * @return  Dimension of (a.w - b.w, a.h - b.h).
-             */
+            /// <summary>
+            /// Substract a Dimension to another one.
+            /// </summary>
+            /// <param name="a">First Dimension.</param>
+            /// <param name="b">Second Dimension.</param>
+            /// <returns>Dimension of (a.w - b.w, a.h - b.h).</returns>
             exported friend Dimension2Di operator-(const Dimension2Di& a, const Dimension2Di& b) ;
 
-
-            /**
-             * Multiply a Dimension coordinates by a scalar value (scale).
-             * @param   d       Dimension to be multiplied.
-             * @param   coeff   Factor to scale the coordinates.
-             * @return  Dimension at (d.w * coeff, d.w * coeff).
-             */
+            /// <summary>
+            /// Multiply a Dimension coordinates by a scalar value (scale).
+            /// </summary>
+            /// <param name="d">Dimension to be multiplied.</param>
+            /// <param name="coeff">Factor to scale the coordinates.</param>
+            /// <returns>Dimension at (d.w * coeff, d.w * coeff).</returns>
             exported friend Dimension2Di operator*(const Dimension2Di& d, const uint32_t coeff) ;
 
-
-            /**
-             * Divide a Dimension coordinates by a scalar value (scale).
-             * @param   d       Dimension to be divided.
-             * @param   coeff   Factor to scale the coordinates.
-             * @return  Dimension of (d.w / coeff, d.h / coeff).
-             */
+            /// <summary>
+            /// Divide a Dimension coordinates by a scalar value (scale).
+            /// </summary>
+            /// <param name="d">Dimension to be divided.</param>
+            /// <param name="coeff">Factor to scale the coordinates.</param>
+            /// <returns>Dimension of (d.w / coeff, d.h / coeff).</returns>
             exported friend Dimension2Di operator/(const Dimension2Di& d, const uint32_t coeff) ;
 
-
-            /**
-             * Echo the Dimension size on console.
-             * @param   s   The stream in which print the formatted coordinates.
-             * @param   d   The Dimension to print.
-             * @return  The stream with the printed Dimension size.
-             */
+            /// <summary>
+            /// Echo the Dimension size on console.
+            /// </summary>
+            /// <param name="s">
+            /// The stream in which print the formatted coordinates.
+            /// </param>
+            /// <param name="d">The Dimension to print.</param>
+            /// <returns>The stream with the printed Dimension size.</returns>
             exported friend std::ostream& operator<<(std::ostream& s, const Dimension2Di& d) ;
     } ;
 } ;

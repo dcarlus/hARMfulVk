@@ -156,7 +156,7 @@ namespace Mind {
         ) ;
     }
 
-    char Rectangle2Df::position(Scalar x, Scalar y) {
+    int8_t Rectangle2Df::position(Scalar x, Scalar y) {
         char pos = 0 ;
 
         if (width() <= 0) {
@@ -182,7 +182,7 @@ namespace Mind {
         return pos ;
     }
 
-    char Rectangle2Df::position(const Point2Df& p) {
+    int8_t Rectangle2Df::position(const Point2Df& p) {
         return position(p.get(Point2Df::Axis::X), p.get(Point2Df::Axis::Y)) ;
     }
 

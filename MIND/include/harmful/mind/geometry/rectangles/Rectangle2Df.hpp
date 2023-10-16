@@ -12,16 +12,16 @@
 namespace Mind {
     class Line2Df ;
 
-    /**
-     * A Rectangle is an area defined by the location of its upper-left corner
-     * at (x, y) and its dimension (width, height).
-     */
+    /// <summary>
+    /// A Rectangle is an area defined by the location of its upper-left corner
+    /// at (x, y) and its dimension (width, height).
+    /// </summary>
     class Rectangle2Df {
         public:
-            /**
-             * Bitmask that indicates that a point lies on a side of the
-             * Rectangle.
-             */
+            /// <summary>
+            /// Bitmask that indicates that a point lies on a side of the
+            /// Rectangle.
+            /// </summary>
             enum PointPosition {
                 PointInside    = 0,    // Point inside the rectangle
                 PointOnLeft    = 1,    // Point lies on the left
@@ -31,69 +31,81 @@ namespace Mind {
             } ;
 
         private:
-            /**
-             * To know if the boundaries of the Rectangle are computed
-             * relatively to its center.
-             */
+            /// <summary>
+            /// To know if the boundaries of the Rectangle are computed
+            /// relatively to its center.
+            /// </summary>
             bool m_isCentered ;
 
-            /** Test if the size of the Rectangle has changed. */
+            /// <summary>
+            /// Test if the size of the Rectangle has changed.
+            /// </summary>
             bool m_hasChanged ;
 
-            /** Location of the bottom-left corner of the Rectangle. */
+            /// <summary>
+            /// Location of the bottom-left corner of the Rectangle.
+            /// </summary>
             Point2Df m_bottomLeftCorner ;
 
-            /** Size of the rectangle. */
+            /// <summary>
+            /// Size of the rectangle.
+            /// </summary>
             Dimension2Df m_size ;
 
-            /**
-             * Location of the up right corner, cached to accelerate some
-             * computations.
-             */
+            /// <summary>
+            /// Location of the up right corner, cached to accelerate some
+            /// computations.
+            /// </summary>
             Point2Df m_upRightCorner ;
 
         public:
-            /** Create an empty Rectangle. */
+            /// <summary>
+            /// Create an empty Rectangle.
+            /// </summary>
             exported Rectangle2Df() ;
 
-            /**
-             * Copy a Rectangle.
-             * @param   copied      The Rectangle to be copied.
-             */
+            /// <summary>
+            /// Copy a Rectangle.
+            /// </summary>
+            /// <param name="copied">The Rectangle to be copied.</param>
             exported Rectangle2Df(const Rectangle2Df& copied) = default ;
 
-            /**
-             * Move a Rectangle.
-             * @param   moved      The Rectangle to be move.
-             */
+            /// <summary>
+            /// Move a Rectangle.
+            /// </summary>
+            /// <param name="moved">The Rectangle to be move.</param>
             exported Rectangle2Df(Rectangle2Df&& moved) = default ;
 
-            /**
-             * Create a Rectangle at the given position and with the given size.
-             * @param   location    Location of the Rectangle.
-             * @param   size        Size of the Rectangle.
-             * @param   centered    If TRUE, the given location correspond to
-             *                      the center of the Rectangle.
-             *                      FALSE by default, so that the bottom-left
-             *                      corner is set to the given location.
-             */
+            /// <summary>
+            /// Create a Rectangle at the given position and with the given
+            /// size.
+            /// </summary>
+            /// <param name="location">Location of the Rectangle.</param>
+            /// <param name="size">Size of the Rectangle.</param>
+            /// <param name="centered">
+            /// If true, the given location correspond to the center of the
+            /// Rectangle. false by default, so that the bottom-left corner is
+            /// set to the given location.
+            /// </param>
             exported Rectangle2Df(
                 const Point2Df& location,
                 const Dimension2Df& size,
                 const bool centered
             ) ;
 
-            /**
-             * Create a Rectangle at the given position and with the given size.
-             * @param   x           Coordinate on X axis.
-             * @param   y           Coordinate on Y axis.
-             * @param   w           Width.
-             * @param   h           Height.
-             * @param   centered    If TRUE, the given location correspond to
-             *                      the center of the Rectangle.
-             *                      If FALSE, the bottom-left corner is set to
-             *                      the given location.
-             */
+            /// <summary>
+            /// Create a Rectangle at the given position and with the given
+            /// size.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <param name="w">Width.</param>
+            /// <param name="h">Height.</param>
+            /// <param name="centered">
+            /// If true, the given location correspond to the center of the
+            /// Rectangle. false by default, so that the bottom-left corner is
+            /// set to the given location.
+            /// </param>
             exported Rectangle2Df(
                 const Scalar x,
                 const Scalar y,
@@ -102,21 +114,21 @@ namespace Mind {
                 const bool centered
             ) ;
 
-            /**
-             * Create a Rectangle whose boundaries correspond to the
-             *          given points.
-             * @param   p1          First point of the boundaries.
-             * @param   p2          Second point of the boundaries.
-             */
+            /// <summary>
+            /// Create a Rectangle whose boundaries correspond to the given
+            /// points.
+            /// </summary>
+            /// <param name="p1">First point of the boundaries.</param>
+            /// <param name="p2">Second point of the boundaries.</param>
             exported Rectangle2Df(const Point2Df& p1, const Point2Df& p2) ;
 
-            /**
-             * Create a Rectangle from the given boundaries.
-             * @param   x1          Coordinate on X axis on first Point.
-             * @param   y1          Coordinate on Y axis on first Point
-             * @param   x2          Coordinate on X axis on second Point
-             * @param   y2          Coordinate on Y axis on second Point
-             */
+            /// <summary>
+            /// Create a Rectangle from the given boundaries.
+            /// </summary>
+            /// <param name="x1">Coordinate on X axis on first Point.</param>
+            /// <param name="y1">Coordinate on Y axis on first Point.</param>
+            /// <param name="x2">Coordinate on X axis on second Point.</param>
+            /// <param name="y2">Coordinate on Y axis on second Point.</param>
             exported Rectangle2Df(
                 const Scalar x1,
                 const Scalar y1,
@@ -124,41 +136,55 @@ namespace Mind {
                 const Scalar y2
             ) ;
 
-            /** Destroy the Rectangle. */
+            /// <summary>
+            /// Destroy the Rectangle.
+            /// </summary>
             exported virtual ~Rectangle2Df() = default ;
 
-            /**
-             * Translate the rectangle on the X and the Y axis.
-             * @param   x    Horizontal shift.
-             * @param   y    Vertical shift.
-             */
+            /// <summary>
+            /// Translate the rectangle on the X and the Y axis.
+            /// </summary>
+            /// <param name="x">Horizontal shift.</param>
+            /// <param name="y">Vertical shift.</param>
             exported void translate(const Scalar x, const Scalar y) ;
 
             /**
-             * Test if the given coordinate is inside the Line boundaries.
-             * @param   x           oordinate on X axis.
-             * @param   y           Coordinate on Y axis.
-             * @return  FALSE because a line has no area.
+             * 
+             * @param   x           
+             * @param   y           
+             * @return  
              */
+
+            /// <summary>
+            /// Test if the given coordinate is inside the Line boundaries.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <returns>
+            /// true if the point is inside the Rectangle; false otherwise.
+            /// </returns>
             exported bool contains(const Scalar x, const Scalar y) ;
 
-            /**
-             * Test if the given coordinate is inside the Rectangle
-             *          boundaries.
-             * @param   point       Point to test.
-             * @return  FALSE because a line has no area.
-             */
+            /// <summary>
+            /// Test if the given coordinate is inside the Line boundaries.
+            /// </summary>
+            /// <param name="point">Point to test.</param>
+            /// <returns>
+            /// true if the point is inside the Rectangle; false otherwise.
+            /// </returns>
             exported bool contains(const Point2Df& point) ;
 
-            /**
-             * Test if the given shape is entirely inside the Rectangle
-             *          boundaries.
-             * @param   x           Coordinate on X axis.
-             * @param   y           Coordinate on Y axis.
-             * @param   w           Width.
-             * @param   h           Height.
-             * @return  FALSE because a line has no area.
-             */
+            /// <summary>
+            /// Test if the given shape is entirely inside the Rectangle
+            /// boundaries.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <param name="w">Width.</param>
+            /// <param name="h">Height.</param>
+            /// <returns>
+            /// true if the shape is inside the Rectangle; false otherwise.
+            /// </returns>
             exported bool contains(
                 const Scalar x,
                 const Scalar y,
@@ -166,22 +192,28 @@ namespace Mind {
                 const Scalar h
             ) ;
 
-            /**
-             * Test if the given shape is entirely inside the Rectangle
-             *          boundaries.
-             * @param   boundaries  Boundaries of the shape to test.
-             * @return  FALSE because a line has no area.
-             */
+            /// <summary>
+            /// Test if the given shape is entirely inside the Rectangle
+            /// boundaries.
+            /// </summary>
+            /// <param name="boundaries">
+            /// Boundaries of the shape to test.
+            /// </param>
+            /// <returns>
+            /// true if the shape is inside the Rectangle; false otherwise.
+            /// </returns>
             exported bool contains(Rectangle2Df& boundaries) ;
 
-            /**
-             * Test if the Rectangle intersects another one.
-             * @param   x           Coordinate on X axis.
-             * @param   y           Coordinate on Y axis.
-             * @param   w           Width.
-             * @param   h           Height.
-             * @return  TRUE if the two Rectangles intersect, FALSE otherwise.
-             */
+            /// <summary>
+            /// Test if the Rectangle intersects another one.
+            /// </summary>
+            /// <param name="x">Coordinate on X axis.</param>
+            /// <param name="y">Coordinate on Y axis.</param>
+            /// <param name="w">Width.</param>
+            /// <param name="h">Height.</param>
+            /// <returns>
+            /// true if the two Rectangles intersect, false otherwise.
+            /// </returns>
             exported bool intersects(
                 const Scalar x,
                 const Scalar y,
@@ -189,202 +221,259 @@ namespace Mind {
                 const Scalar h
             ) ;
 
-            /**
-             * Test if the Rectangle intersects a Line.
-             * @param    line        The other Line to test.
-             * @return   TRUE if the Rectangle and Line intersect, FALSE
-             *           otherwise.
-             */
+            /// <summary>
+            /// Test if the Rectangle intersects a Line.
+            /// </summary>
+            /// <param name="line">The Line to test.</param>
+            /// <returns>
+            /// true if the Rectangle and Line intersect, false otherwise.
+            /// </returns>
             exported bool intersects(const Line2Df& line) ;
 
-            /**
-             * Test if the Rectangle intersects a shape throught its
-             *           boundaries.
-             * @param    boundaries  Boundaries to test.
-             * @return   TRUE if the two shapes intersect, FALSE otherwise.
-             */
+            /// <summary>
+            /// Test if the Rectangle intersects a shape throught its
+            /// boundaries.
+            /// </summary>
+            /// <param name="boundaries">Boundaries to test.</param>
+            /// <returns>
+            /// true if the two shapes intersect, false otherwise.
+            /// </returns>
             exported bool intersects(const Rectangle2Df& boundaries) ;
 
-            /**
-             * Determine where the given Point lies in respect of the
-             *          Rectangle boundaries.
-             * @param   x       X coordinate of the Point.
-             * @param   y       Y coordinate of the Point.
-             * @return  Bitmask of the positions where the Point is relatively
-             *          to the Rectangle boundaries.
-             */
-            exported char position(const Scalar x, const Scalar y) ;
+            /// <summary>
+            /// Determine where the given Point lies in respect of the
+            /// Rectangle boundaries.
+            /// </summary>
+            /// <param name="x">X coordinate of the Point.</param>
+            /// <param name="y">Y coordinate of the Point.</param>
+            /// <returns>
+            /// Bitmask of the positions where the Point is relatively to the
+            /// Rectangle boundaries.
+            /// </returns>
+            exported int8_t position(const Scalar x, const Scalar y) ;
 
-            /**
-             * Determine where the given Point lies in respect of the
-             *          Rectangle boundaries.
-             * @param   p       The Point to test.
-             * @return  Bitmask of the positions where the Point is relatively
-             *          to the Rectangle boundaries.
-             */
-            exported char position(const Point2Df& p) ;
+            /// <summary>
+            /// Determine where the given Point lies in respect of the
+            /// Rectangle boundaries.
+            /// </summary>
+            /// <param name="p">The Point to test.</param>
+            /// <returns>
+            /// Bitmask of the positions where the Point is relatively to the
+            /// Rectangle boundaries.
+            /// </returns>
+            exported int8_t position(const Point2Df& p) ;
 
-            /**
-              * Get the X coordinate of the upper-left corner.
-              * @return  Up left corner coordinate X.
-              */
+            /// <summary>
+            /// Get the X coordinate of the upper-left corner.
+            /// </summary>
+            /// <returns>Up left corner coordinate X.</returns>
             exported Scalar upLeftCornerX() ;
 
-            /**
-              * Get the Y coordinate of the upper-left corner.
-              * @return  Up left corner coordinate Y.
-              */
+            /// <summary>
+            /// Get the Y coordinate of the upper-left corner.
+            /// </summary>
+            /// <returns>Up left corner coordinate Y.</returns>
             exported Scalar upLeftCornerY() ;
 
-            /**
-              * Get the X coordinate of the upper-right corner.
-              * @return  Up right corner coordinate X.
-              */
+            /// <summary>
+            /// Get the X coordinate of the upper-right corner.
+            /// </summary>
+            /// <returns>Up right corner coordinate X.</returns>
             exported Scalar upRightCornerX() ;
 
-            /**
-              * Get the Y coordinate of the upper-right corner.
-              * @return  Up right corner coordinate Y.
-              */
+            /// <summary>
+            /// Get the Y coordinate of the upper-right corner.
+            /// </summary>
+            /// <returns>Up right corner coordinate Y.</returns>
             exported Scalar upRightCornerY() ;
 
-            /**
-              * Get the X coordinate of the bottom-left corner.
-              * @return  Bottom left corner coordinate X.
-              */
+            /// <summary>
+            /// Get the X coordinate of the bottom-left corner.
+            /// </summary>
+            /// <returns>Bottom left corner coordinate X.</returns>
             exported Scalar bottomLeftCornerX() const ;
 
-            /**
-              * Get the Y coordinate of the bottom-left corner.
-              * @return  Bottom left corner coordinate Y.
-              */
+            /// <summary>
+            /// Get the Y coordinate of the bottom-left corner.
+            /// </summary>
+            /// <returns>Bottom left corner coordinate Y.</returns>
             exported Scalar bottomLeftCornerY() const ;
 
-            /**
-              * Get the X coordinate of the bottom-right corner.
-              * @return  Bottom right corner coordinate X.
-              */
+            /// <summary>
+            /// Get the X coordinate of the bottom-right corner.
+            /// </summary>
+            /// <returns>Bottom right corner coordinate X.</returns>
             exported Scalar bottomRightCornerX() ;
 
-            /**
-              * Get the Y coordinate of the bottom-right corner.
-              * @return  Bottom right corner coordinate Y.
-              */
+            /// <summary>
+            /// Get the Y coordinate of the bottom-right corner.
+            /// </summary>
+            /// <returns>Bottom right corner coordinate Y.</returns>
             exported Scalar bottomRightCornerY() ;
 
-            /**
-              * Get the dimension of the Rectangle.
-              * @return  Dimension of the Rectangle2D.
-              */
+            /// <summary>
+            /// Get the dimension of the Rectangle.
+            /// </summary>
+            /// <returns>Dimension of the Rectangle2D.</returns>
             exported const Dimension2Df& size() const ;
 
-            /**
-              * Get the width of the Rectangle.
-              * @return  Width of the Rectangle2D.
-              */
+            /// <summary>
+            /// Get the width of the Rectangle.
+            /// </summary>
+            /// <returns>Width of the Rectangle2D.</returns>
             exported Scalar width() const ;
 
-            /**
-              * Get the height of the Rectangle.
-              * @return  Height of the Rectangle2D.
-              */
+            /// <summary>
+            /// Get the height of the Rectangle.
+            /// </summary>
+            /// <returns>Height of the Rectangle2D.</returns>
             exported Scalar height() const ;
 
-            /**
-              * Test if the Rectangle is empty.
-              * @return  TRUE if the Rectangle is empty (no width or height),
-              *          FALSE otherwise.
-              */
+            /// <summary>
+            /// Test if the Rectangle is empty.
+            /// </summary>
+            /// <returns>
+            /// true if the Rectangle is empty (no width or height), false
+            /// otherwise.
+            /// </returns>
             exported bool isEmpty() const ;
 
-            /** Set the X location of the upper-left corner. */
+            /// <summary>
+            /// Set the X location of the upper-left corner.
+            /// </summary>
+            /// <param name="x">
+            /// New X location of the upper-left corner.
+            /// </param>
             exported void setX(const Scalar x) ;
 
-            /** Set the Y location of the upper-left corner. */
+            /// <summary>
+            /// Set the Y location of the upper-left corner.
+            /// </summary>
+            /// <param name="y">
+            /// New Y location of the upper-left corner.
+            /// </param>
             exported void setY(const Scalar y) ;
 
-            /** Set the location of the upper-left corner. */
+            /// <summary>
+            /// Set the location of the upper-left corner.
+            /// </summary>
+            /// <param name="x">
+            /// New X location of the upper-left corner.
+            /// </param>
+            /// <param name="y">
+            /// New Y location of the upper-left corner.
+            /// </param>
             exported void setAt(const Scalar x, const Scalar y) ;
 
-            /** Set the width of the Rectangle. */
+            /// <summary>
+            /// Set the width of the Rectangle.
+            /// </summary>
+            /// <param name="w">New width of the Rectangle.</param>
             exported void setWidth(const Scalar w) ;
 
-            /** Set the height of the Rectangle. */
+            /// <summary>
+            /// Set the height of the Rectangle.
+            /// </summary>
+            /// <param name="h">New height of the Rectangle.</param>
             exported void setHeight(const Scalar h) ;
 
         protected:
-            /** Compute the bottom right corner that is cached. */
+            /// <summary>
+            /// Compute the bottom right corner that is cached.
+            /// </summary>
             exported void computeMaxPoint() ;
 
         public:
-            /**
-             * Assignment operator to copy a Rectangle.
-             * @return  The current Rectangle with the copied values.
-             */
+            /// <summary>
+            /// Assignment operator to copy a Rectangle.
+            /// </summary>
+            /// <param name="other">Rectangle to copy.</param>
+            /// <returns>
+            /// The current Rectangle with the copied values.
+            /// </returns>
             exported Rectangle2Df& operator=(const Rectangle2Df& other) ;
 
-            /**
-             * Assignment operator to move a Rectangle.
-             * @return  The current Rectangle with the moved values.
-             */
+            /// <summary>
+            /// Assignment operator to move a Rectangle.
+            /// </summary>
+            /// <param name="other">Rectangle to move.</param>
+            /// <returns>The current Rectangle with the moved values.</returns>
             exported Rectangle2Df& operator=(Rectangle2Df&& other) = default ;
 
-            /**
-             * Add a Point and affect the result.
-             * @param   other   The Point to add.
-             * @return  The smallest Rectangle including both the original
-             *          Rectangle and the Point.
-             */
+            /// <summary>
+            /// Add a Point and affect the result.
+            /// </summary>
+            /// <param name="other">The Point to add.</param>
+            /// <returns>
+            /// The smallest Rectangle including both the original Rectangle
+            /// and the Point.
+            /// </returns>
             exported Rectangle2Df& operator+=(Point2Df& other) ;
 
-            /**
-             * Merge two Rectangles and affect the result.
-             * @param   other   The Rectangle to add.
-             * @return  The smallest Rectangle including the two Rectangles.
-             */
+            /// <summary>
+            /// Merge two Rectangles and affect the result.
+            /// </summary>
+            /// <param name="other">The Rectangle to add.</param>
+            /// <returns>
+            /// The smallest Rectangle including the two Rectangles.
+            /// </returns>
             exported Rectangle2Df& operator+=(Rectangle2Df& other) ;
 
-            /**
-             * Test if two Rectangles are at the same position.
-             * @param   other   An other Rectangle to compare to the current one.
-             * @return  TRUE if the Rectangles are at the same position, FALSE
-             *          else.
-             */
+            /// <summary>
+            /// Test if two Rectangles are at the same position.
+            /// </summary>
+            /// <param name="other">
+            /// An other Rectangle to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Rectangles are at the same position, false else.
+            /// </returns>
             exported bool operator==(const Rectangle2Df& other) const ;
 
-            /**
-             * Test if two Rectangles are at two different positions.
-             * @param   other   An other Rectangle to compare to the current one.
-             * @return  TRUE if the Rectangles are at two different positions,
-             *          FALSE else.
-             */
+            /// <summary>
+            /// Test if two Rectangles are at two different positions.
+            /// </summary>
+            /// <param name="other">
+            /// An other Rectangle to compare to the current one.
+            /// </param>
+            /// <returns>
+            /// true if the Rectangles are at two different positions, false
+            /// else.
+            /// </returns>
             exported bool operator!=(const Rectangle2Df& other) const ;
 
-
-            /**
-             * Add a Point to the Rectangle.
-             * @param   r   Rectangle to include a new Point.
-             * @param   p   Point to insert into the Rectangle.
-             * @return  The smallest Rectangle including both the original
-             *          Rectangle and the added Point. If p was inside the
-             *          previous Rectangle, the original Rectangle is returned.
-             */
+            /// <summary>
+            /// Add a Point to the Rectangle.
+            /// </summary>
+            /// <param name="r">Rectangle to include a new Point.</param>
+            /// <param name="p">Point to insert into the Rectangle.</param>
+            /// <returns>
+            /// The smallest Rectangle including both the original Rectangle
+            /// and the added Point. If p was inside the previous Rectangle,
+            /// the original Rectangle is returned.
+            /// </returns>
             exported friend Rectangle2Df operator+(Rectangle2Df& r, Point2Df& p) ;
 
-            /**
-             * Merge two Rectangles
-             * @param   r1  First rectangle.
-             * @param   r2  Second Rectangle.
-             * @return  The smallest Rectangle including the two Rectangles.
-             */
+            /// <summary>
+            /// Merge two Rectangles
+            /// </summary>
+            /// <param name="r1">First rectangle.</param>
+            /// <param name="r2">Second Rectangle.</param>
+            /// <returns>
+            /// The smallest Rectangle including the two Rectangles.
+            /// </returns>
             exported friend Rectangle2Df operator+(Rectangle2Df& r1, Rectangle2Df& r2) ;
 
-            /**
-             * Echo the Rectangle2D coordinates on console.
-             * @param   s   The stream in which print the formatted coordinates.
-             * @param   r   The Rectangle2D to print.
-             * @return  The stream with the printed Line coordinates.
-             */
+            /// <summary>
+            /// Echo the Rectangle2D coordinates on console.
+            /// </summary>
+            /// <param name="s">
+            /// The stream in which print the formatted coordinates.
+            /// </param>
+            /// <param name="r">The Rectangle2D to print.</param>
+            /// <returns>
+            /// The stream with the printed Line coordinates.
+            /// </returns>
             exported friend std::ostream& operator<<(std::ostream& s, const Rectangle2Df& r) ;
     } ;
 } ;

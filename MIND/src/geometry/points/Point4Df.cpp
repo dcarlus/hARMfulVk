@@ -11,10 +11,6 @@ const int Z = 2 ;
 const int W = 3 ;
 
 namespace Mind {
-    Point4Df::Point4Df() {
-        m_values = SIMD::Vector4f(0.f, 0.f, 0.f, 0.f) ;
-    }
-
     Point4Df::Point4Df(const Point3Df& copy) {
         m_values = SIMD::Vector4f(
             copy.get(Point3Df::X),

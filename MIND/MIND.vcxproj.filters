@@ -287,4 +287,7 @@
       <Filter>Fichiers de ressources</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
 </Project>

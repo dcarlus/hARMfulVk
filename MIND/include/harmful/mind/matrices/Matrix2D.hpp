@@ -8,100 +8,125 @@
 #include "harmful/mind/MINDTypes.hpp"
 
 namespace Mind {
-    /**
-     * Resizable matrix to store data with an unknown final size.
-     */
+    /// <summary>
+    /// Resizable matrix to store data with an unknown final size.
+    /// </summary>
+    /// <typeparam name="T">Any element type.</typeparam>
     template<class T>
     class Matrix2D final {
         private:
-            /** Dynamic matrix itself, handled through vectors. */
+            /// <summary>
+            /// Dynamic matrix itself, handled through vectors.
+            /// </summary>
             std::vector<std::vector<T>> m_data ;
 
         public:
-            /**
-             * Create a dynamically resizable Matrix with initial sizes.
-             * @param   cols    Amount of columns in the Matrix.
-             * @param   rows    Amount of rows in the Matrix.
-             * @param   value   Initial value in the Matrix.
-             */
+            /// <summary>
+            /// Create a dynamically resizable Matrix with initial sizes.
+            /// </summary>
+            /// <param name="cols">Amount of columns in the Matrix.</param>
+            /// <param name="rows">Amount of rows in the Matrix.</param>
+            /// <param name="value">Initial value in the Matrix.</param>
             exported Matrix2D(
                 const size_t cols = 1,
                 const size_t rows = 1,
                 const T value = {}
             ) ;
 
-            /**
-             * Copy a Matrix2D.
-             * @param copy  The matrix to copy.
-             */
+            /// <summary>
+            /// Copy a Matrix2D.
+            /// </summary>
+            /// <param name="copy">The matrix to copy.</param>
             exported Matrix2D(const Matrix2D& copy) = default ;
 
-            /**
-             * Move a Matrix2D.
-             * @param move  The matrix to move.
-             */
+            /// <summary>
+            /// Move a Matrix2D.
+            /// </summary>
+            /// <param name="move">The matrix to move.</param>
             exported Matrix2D(Matrix2D&& move) = default ;
 
-            /** Destroy the matrix. */
+            /// <summary>
+            /// Destroy the Matrix2D.
+            /// </summary>
             exported virtual ~Matrix2D() ;
 
-            /** Clear the matrix. */
+            /// <summary>
+            /// Clear the matrix.
+            /// </summary>
             exported void clear() ;
 
-            /**
-             * Resize the matrix. Use 0 to leave a dimension with the current
-             * size.
-             * @param   cols    Amount of columns in the Matrix.
-             * @param   rows    Amount of rows in the Matrix.
-             * @param   value   Initial value in the Matrix.
-             */
+            /// <summary>
+            /// Resize the matrix. Use 0 to leave a dimension with the current
+            /// size.
+            /// </summary>
+            /// <param name="cols">Amount of columns in the Matrix.</param>
+            /// <param name="rows">Amount of rows in the Matrix.</param>
+            /// <param name="value">Initial value in the Matrix.</param>
             exported void resize(
                 const size_t cols,
                 const size_t rows,
                 const T value = {}
             ) ;
 
-            /**
-             * Reserve space in the matrix.
-             * @param cols Amount of columns to reserve.
-             * @param rows Amount of rows to reserve.
-             */
+            /// <summary>
+            /// Reserve space in the matrix.
+            /// </summary>
+            /// <param name="cols">Amount of columns to reserve.</param>
+            /// <param name="rows">Amount of rows to reserve.</param>
             exported void reserve(const size_t cols, const size_t rows) ;
 
-            /** Get the element a the specified position. */
+            /// <summary>
+            /// Get the element a the specified position.
+            /// </summary>
+            /// <param name="col">Column of the element.</param>
+            /// <param name="row">Row  of the element.</param>
+            /// <returns>The element at [col, row].</returns>
             exported T& at(const size_t col, const size_t row) ;
 
-
-            /** Get the number of rows in the matrix. */
+            /// <summary>
+            /// Get the number of rows in the matrix.
+            /// </summary>
+            /// <returns>Amount of rows in the matrix.</returns>
             exported size_t rows() const ;
 
-            /** Get the number of cols in the matrix. */
+            /// <summary>
+            /// Get the number of cols in the matrix.
+            /// </summary>
+            /// <returns>Amount of columns in the matrix.</returns>
             exported size_t cols() const ;
 
-            /**
-             * Assignment operator to copy a Matrix2D.
-             * @return  The current Matrix2D with the copied values.
-             */
+            /// <summary>
+            /// Assignment operator to copy a Matrix2D.
+            /// </summary>
+            /// <param name="other">The matrix to copy.</param>
+            /// <returns>The current Matrix2D with the copied values.</returns>
             exported Matrix2D& operator=(const Matrix2D& other) = default ;
 
-            /**
-             * Assignment operator to move a Matrix2D.
-             * @return  The current Matrix2D with the moved values.
-             */
+            /// <summary>
+            /// Assignment operator to move a Matrix2D.
+            /// </summary>
+            /// <param name="other">The matrix to move.</param>
+            /// <returns>The current Matrix2D with the moved values.</returns>
             exported Matrix2D& operator=(Matrix2D&& other) = default ;
 
-            /** Get a row from the matrix. */
+            /// <summary>
+            /// Get a row from the matrix.
+            /// </summary>
+            /// <param name="iIndex">Index of the row to get.</param>
+            /// <returns>The wanted row.</returns>
             exported std::vector<T>& operator[] (const size_t iIndex) ;
     } ;
 
-    /** Echo the matrix on console. */
+    /// <summary>
+    /// Echo the matrix on console.
+    /// </summary>
+    /// <typeparam name="T">Any element type.</typeparam>
+    /// <param name="s">The stream in which print the matrix.</param>
+    /// <param name="mat">The matrix to print.</param>
+    /// <returns>The stream with the printed matrix.</returns>
     template<class T>
     exported std::ostream& operator<<(std::ostream& s, Matrix2D<T>& mat) ;
 
-
-
-
-    /****************************** IMPLEMENTATION *******************************/
     template <class T>
     Matrix2D<T>::Matrix2D(
         const size_t rows,

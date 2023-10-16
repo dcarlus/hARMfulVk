@@ -3,8 +3,6 @@
 #include <cstdlib>
 
 namespace Mind {
-    Dimension3Di::Dimension3Di() : m_width(0), m_height(0), m_depth(0) {}
-
     Dimension3Di::Dimension3Di(
         const uint32_t width,
         const uint32_t height,

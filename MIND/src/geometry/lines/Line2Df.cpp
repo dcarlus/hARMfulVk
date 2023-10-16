@@ -3,10 +3,6 @@
 #include "harmful/mind/Math.hpp"
 
 namespace Mind {
-    Line2Df::Line2Df() {
-        m_length = 0.f ;
-    }
-
     Line2Df::Line2Df(
         const Point2Df& start,
         const Point2Df& end
@@ -33,7 +29,7 @@ namespace Mind {
         return ((m_start == other.m_end) || (m_end == other.m_start)) ;
     }
 
-    char Line2Df::CCW(const Line2Df& l, const Point2Df& p) {
+    int8_t Line2Df::CCW(const Line2Df& l, const Point2Df& p) {
         // Relative expression of S and P to the start point of S.
         Line2Df l2 = relative(l) ;
         Point2Df p2 = p - l.m_start ;
@@ -135,16 +131,6 @@ namespace Mind {
     bool Line2Df::isEmpty() const {
         return ((m_start.get(Point2Df::Axis::X) - m_end.get(Point2Df::Axis::X) == 0)
                     && (m_start.get(Point2Df::Axis::Y) - m_end.get(Point2Df::Axis::Y) == 0)) ;
-    }
-
-    Line2Df& Line2Df::operator=(const Line2Df& other) {
-        if (this != &other) {
-            m_start = other.m_start ;
-            m_end = other.m_end ;
-            m_isChanged = true ;
-        }
-
-        return *this ;
     }
 
     bool Line2Df::operator==(const Line2Df& other) const {
