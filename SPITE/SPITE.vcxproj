@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ca9f33b5-6d0b-4c4a-80cd-98b4ab3f848c}</ProjectGuid>
+    <RootNamespace>SPITE</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)DOOM\include;$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);;COMPILE_SHARED_LIBS;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);;COMPILE_SHARED_LIBS;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\DOOM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\harmful\spite\files\archives\TARData.hpp" />
+    <ClInclude Include="include\harmful\spite\files\archives\TARUtils.hpp" />
+    <ClInclude Include="include\harmful\spite\files\FileInfo.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\data\ColorFormat.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\data\RawImage.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\ImageUtils.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\readers\ImageFileReader.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\readers\ImageMemoryReader.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\readers\ImageReader.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\writers\ImageFileWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\writers\ImageMemoryWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\files\images\writers\ImageWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\files\texts\TextFileContent.hpp" />
+    <ClInclude Include="include\harmful\spite\readers\BinaryFileReader.hpp" />
+    <ClInclude Include="include\harmful\spite\readers\CPUEndiannessBinaryFileReader.hpp" />
+    <ClInclude Include="include\harmful\spite\readers\FileReader.hpp" />
+    <ClInclude Include="include\harmful\spite\readers\ReversedCPUEndiannessBinaryFileReader.hpp" />
+    <ClInclude Include="include\harmful\spite\readers\TextFileReader.hpp" />
+    <ClInclude Include="include\harmful\spite\SPITEStrings.hpp" />
+    <ClInclude Include="include\harmful\spite\third_party\microtar.h" />
+    <ClInclude Include="include\harmful\spite\third_party\stb_image.h" />
+    <ClInclude Include="include\harmful\spite\third_party\stb_image_resize.h" />
+    <ClInclude Include="include\harmful\spite\third_party\stb_image_write.h" />
+    <ClInclude Include="include\harmful\spite\writers\BinaryFileWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\writers\CPUEndiannessBinaryFileWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\writers\FileWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\writers\ReversedCPUEndiannessBinaryFileWriter.hpp" />
+    <ClInclude Include="include\harmful\spite\writers\TextFileWriter.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\files\archives\TARData.cpp" />
+    <ClCompile Include="src\files\archives\TARUtils.cpp" />
+    <ClCompile Include="src\files\images\data\ColorFormat.cpp" />
+    <ClCompile Include="src\files\images\data\RawImage.cpp" />
+    <ClCompile Include="src\files\images\ImageUtils.cpp" />
+    <ClCompile Include="src\files\images\readers\ImageFileReader.cpp" />
+    <ClCompile Include="src\files\images\readers\ImageMemoryReader.cpp" />
+    <ClCompile Include="src\files\images\readers\ImageReader.cpp" />
+    <ClCompile Include="src\files\images\writers\ImageFileWriter.cpp" />
+    <ClCompile Include="src\files\images\writers\ImageMemoryWriter.cpp" />
+    <ClCompile Include="src\files\images\writers\ImageWriter.cpp" />
+    <ClCompile Include="src\files\texts\TextFileContent.cpp" />
+    <ClCompile Include="src\readers\BinaryFileReader.cpp" />
+    <ClCompile Include="src\readers\TextFileReader.cpp" />
+    <ClCompile Include="src\third_party\microtar.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

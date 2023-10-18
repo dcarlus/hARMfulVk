@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files">
+      <UniqueIdentifier>{40dab5af-8371-4330-9c13-60983c643ff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\readers">
+      <UniqueIdentifier>{46b17663-bcf8-448e-9ded-4b923396bba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\third_party">
+      <UniqueIdentifier>{f96b5bd4-03d3-4931-b63f-030b2c946c19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\writers">
+      <UniqueIdentifier>{744eef1f-d32d-4292-842e-a5b251b894cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files\archives">
+      <UniqueIdentifier>{841e4951-a649-4960-96df-6dc0cab2c1b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files\images">
+      <UniqueIdentifier>{ea0c596a-253a-48ac-9e20-8be83a089bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files\texts">
+      <UniqueIdentifier>{a495abb1-e89c-442e-96cb-38fbf3653a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files\images\data">
+      <UniqueIdentifier>{902b78ab-f451-4466-8b85-f155e2165409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files\images\readers">
+      <UniqueIdentifier>{f9bcd59d-0598-497b-8e81-2ac49b49792a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\files\images\writers">
+      <UniqueIdentifier>{29f75007-df20-44f4-bf09-c7365ced0722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files">
+      <UniqueIdentifier>{37472ee0-38dc-4508-90bf-d16b61d71132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\readers">
+      <UniqueIdentifier>{5fd22a45-8952-4c75-9d63-a06c91a4bbdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\third_party">
+      <UniqueIdentifier>{a35bacd5-e02e-40b5-a97a-bae27f125a72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files\archives">
+      <UniqueIdentifier>{ad2029ee-ca95-43be-8e43-139452d7bbc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files\images">
+      <UniqueIdentifier>{809ee5c4-d932-4815-bb35-619608482596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files\texts">
+      <UniqueIdentifier>{8943b931-4505-43e4-b983-a5a022a49189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files\images\data">
+      <UniqueIdentifier>{e34d399b-ed1b-42e9-8ea4-002c33459b47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files\images\readers">
+      <UniqueIdentifier>{c6cddffe-f424-485b-a576-b2ce6e4bd2cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\files\images\writers">
+      <UniqueIdentifier>{6b362f09-6722-4da3-873f-1b6d70fbe8b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\harmful\spite\SPITEStrings.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\archives\TARData.hpp">
+      <Filter>Fichiers d%27en-tête\files\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\archives\TARUtils.hpp">
+      <Filter>Fichiers d%27en-tête\files\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\ImageUtils.hpp">
+      <Filter>Fichiers d%27en-tête\files\images</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\data\ColorFormat.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\data\RawImage.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\data</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\readers\ImageFileReader.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\readers\ImageMemoryReader.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\readers\ImageReader.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\writers\ImageFileWriter.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\writers\ImageMemoryWriter.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\images\writers\ImageWriter.hpp">
+      <Filter>Fichiers d%27en-tête\files\images\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\texts\TextFileContent.hpp">
+      <Filter>Fichiers d%27en-tête\files\texts</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\writers\BinaryFileWriter.hpp">
+      <Filter>Fichiers d%27en-tête\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\writers\CPUEndiannessBinaryFileWriter.hpp">
+      <Filter>Fichiers d%27en-tête\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\writers\FileWriter.hpp">
+      <Filter>Fichiers d%27en-tête\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\writers\ReversedCPUEndiannessBinaryFileWriter.hpp">
+      <Filter>Fichiers d%27en-tête\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\writers\TextFileWriter.hpp">
+      <Filter>Fichiers d%27en-tête\writers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\third_party\microtar.h">
+      <Filter>Fichiers d%27en-tête\third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\third_party\stb_image.h">
+      <Filter>Fichiers d%27en-tête\third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\third_party\stb_image_resize.h">
+      <Filter>Fichiers d%27en-tête\third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\third_party\stb_image_write.h">
+      <Filter>Fichiers d%27en-tête\third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\readers\BinaryFileReader.hpp">
+      <Filter>Fichiers d%27en-tête\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\readers\CPUEndiannessBinaryFileReader.hpp">
+      <Filter>Fichiers d%27en-tête\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\readers\FileReader.hpp">
+      <Filter>Fichiers d%27en-tête\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\readers\ReversedCPUEndiannessBinaryFileReader.hpp">
+      <Filter>Fichiers d%27en-tête\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\readers\TextFileReader.hpp">
+      <Filter>Fichiers d%27en-tête\readers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harmful\spite\files\FileInfo.hpp">
+      <Filter>Fichiers d%27en-tête\files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\files\archives\TARData.cpp">
+      <Filter>Fichiers sources\files\archives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\archives\TARUtils.cpp">
+      <Filter>Fichiers sources\files\archives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\ImageUtils.cpp">
+      <Filter>Fichiers sources\files\images</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\data\ColorFormat.cpp">
+      <Filter>Fichiers sources\files\images\data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\data\RawImage.cpp">
+      <Filter>Fichiers sources\files\images\data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\readers\ImageFileReader.cpp">
+      <Filter>Fichiers sources\files\images\readers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\readers\ImageMemoryReader.cpp">
+      <Filter>Fichiers sources\files\images\readers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\readers\ImageReader.cpp">
+      <Filter>Fichiers sources\files\images\readers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\writers\ImageMemoryWriter.cpp">
+      <Filter>Fichiers sources\files\images\writers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\writers\ImageWriter.cpp">
+      <Filter>Fichiers sources\files\images\writers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\images\writers\ImageFileWriter.cpp">
+      <Filter>Fichiers sources\files\images\writers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\files\texts\TextFileContent.cpp">
+      <Filter>Fichiers sources\files\texts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\third_party\microtar.c">
+      <Filter>Fichiers sources\third_party</Filter>
+    </ClCompile>
+    <ClCompile Include="src\readers\BinaryFileReader.cpp">
+      <Filter>Fichiers sources\readers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\readers\TextFileReader.cpp">
+      <Filter>Fichiers sources\readers</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

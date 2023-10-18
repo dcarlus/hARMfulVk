@@ -19,7 +19,7 @@ namespace Doom {
             /// <summary>
             /// Extension of the log file.
             /// </summary>
-            static const std::string LogFileExtension ;
+            static const inline std::string LogFileExtension = ".log";
 
             /// <summary>
             /// Level of gravity of the log messages.
@@ -36,12 +36,12 @@ namespace Doom {
             /// <summary>
             /// The unique instance of the LogSystem.
             /// </summary>
-            static std::unique_ptr<LogSystem> LogInstance ;
+            static inline std::unique_ptr<LogSystem> LogInstance = nullptr;
 
             /// <summary>
             /// Mutex for the static methods of the class.
             /// </summary>
-            static std::mutex ClassMutex ;
+            static inline std::mutex ClassMutex ;
 
             /// <summary>
             /// Avoid concurrent accesses to the LogSystem.

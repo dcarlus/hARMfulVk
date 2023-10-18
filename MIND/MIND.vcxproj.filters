@@ -236,9 +236,6 @@
     <ClCompile Include="src\Math.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\MINDStrings.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="src\geometry\dimensions\Dimension2Df.cpp">
       <Filter>Fichiers sources\geometry\dimensions</Filter>
     </ClCompile>

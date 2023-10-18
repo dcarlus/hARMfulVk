@@ -74,7 +74,6 @@
     <ClCompile Include="src\matrices\Matrix3x3f.cpp" />
     <ClCompile Include="src\matrices\Matrix4x4f.cpp" />
     <ClCompile Include="src\matrices\SquareMatrixf.cpp" />
-    <ClCompile Include="src\MINDStrings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MIND.rc" />

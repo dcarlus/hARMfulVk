@@ -22,6 +22,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.
 		{E0F72E12-3B01-40B3-89E6-C2C0EE4C6211} = {E0F72E12-3B01-40B3-89E6-C2C0EE4C6211}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SPITE", "SPITE\SPITE.vcxproj", "{CA9F33B5-6D0B-4C4A-80CD-98B4AB3F848C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0234B651-613B-4975-9A9E-32BD16B5CF21} = {0234B651-613B-4975-9A9E-32BD16B5CF21}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -44,6 +49,10 @@ Global
 		{A1F48CC0-377C-44EA-958B-4E0E7F79E460}.Debug|x64.Build.0 = Debug|x64
 		{A1F48CC0-377C-44EA-958B-4E0E7F79E460}.Release|x64.ActiveCfg = Release|x64
 		{A1F48CC0-377C-44EA-958B-4E0E7F79E460}.Release|x64.Build.0 = Release|x64
+		{CA9F33B5-6D0B-4C4A-80CD-98B4AB3F848C}.Debug|x64.ActiveCfg = Debug|x64
+		{CA9F33B5-6D0B-4C4A-80CD-98B4AB3F848C}.Debug|x64.Build.0 = Debug|x64
+		{CA9F33B5-6D0B-4C4A-80CD-98B4AB3F848C}.Release|x64.ActiveCfg = Release|x64
+		{CA9F33B5-6D0B-4C4A-80CD-98B4AB3F848C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

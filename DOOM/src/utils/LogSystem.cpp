@@ -3,10 +3,6 @@
 
 using namespace Doom ;
 
-const std::string LogSystem::LogFileExtension = ".log" ;
-std::unique_ptr<LogSystem> LogSystem::LogInstance = nullptr ;
-std::mutex LogSystem::ClassMutex ;
-
 LogSystem::LogSystem(const std::string& path, const Gravity minLevel) {
     m_minLevel = minLevel ;
     m_printer = std::make_unique<FilePrinter>(path) ;

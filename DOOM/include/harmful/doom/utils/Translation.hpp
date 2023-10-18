@@ -4,6 +4,13 @@
 #include "harmful/doom/utils/Platform.hpp"
 #include "harmful/doom/DOOMStrings.hpp"
 
+/// <summary>
+/// Tag to be detected when using xgettext on this file.
+/// </summary>
+#ifndef i18n
+#define i18n(str) str
+#endif i18n
+
 namespace Doom {
     /// <summary>
     /// Namespace dedicated to the translation of libraries and softwares.
